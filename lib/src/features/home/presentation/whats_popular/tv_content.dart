@@ -6,13 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
-import 'package:oppa_tmdb/src/features/shared/providers/trending_items_provider.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/whats_popular_items_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class WeekContent extends ConsumerWidget {
-  const WeekContent({super.key});
+class TvContent extends ConsumerWidget {
+  const TvContent({super.key});
 
-  static const pageSize = 40;
+  static const pageSize = 20;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,34 +24,37 @@ class WeekContent extends ConsumerWidget {
       childrenDelegate: SliverChildBuilderDelegate(
         (context, index) {
           final page = index ~/ pageSize + 1;
-          final indexInPage = index % pageSize.ceil();
-
-          final trendingList = ref.watch(
-            trendinResponseProvider(
+          final indexInPage = index % pageSize;
+          // use the fact that this is an infinite list to fetch a new page
+          // as soon as the index exceeds the page size
+          // Note that ref.watch is called for up to pageSize items
+          // with the same page and query arguments (but this is ok since data is cached)
+          final onTvList = ref.watch(
+            popularOnTvItemsProvider(
               pagination: ResponsePagination(
                 page: page,
-                query: "week",
+                query: "",
               ),
             ),
           );
-          return trendingList.when(
+          return onTvList.when(
             error: (err, stack) => Text('Error $err'),
             loading: () => HomeListTileShimmer(
               width: width,
               height: height,
             ),
             data: (data) {
-              if (indexInPage >= data.trendingItems!.length) {
+              if (indexInPage >= data.discoverItems!.length) {
                 return HomeListTileShimmer(
                   width: width,
                   height: height,
                 );
               }
 
-              final streamingItem = data.trendingItems![indexInPage];
+              final discoverItem = data.discoverItems![indexInPage];
 
               return HomeListTile(
-                homeListItem: HomeListItem.fromTrendingItem(streamingItem),
+                homeListItem: HomeListItem.fromDiscoverItem(discoverItem),
                 debugIndex: index,
                 onPressed: () {},
               );

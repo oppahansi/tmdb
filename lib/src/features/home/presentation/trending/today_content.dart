@@ -51,7 +51,7 @@ class TodayContent extends ConsumerWidget {
               final streamingItem = data.trendingItems![indexInPage];
 
               return HomeListTile(
-                trendingItem: streamingItem,
+                homeListItem: HomeListItem.fromTrendingItem(streamingItem),
                 debugIndex: index,
                 onPressed: () {},
               );

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/shared/domain/discover_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/trending_response.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_poster.dart';
@@ -11,12 +12,12 @@ import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 class HomeListTile extends StatelessWidget {
   const HomeListTile({
     super.key,
-    required this.trendingItem,
+    required this.homeListItem,
     // debugging hint to show the tile index
     this.debugIndex,
     this.onPressed,
   });
-  final TrendingItem trendingItem;
+  final HomeListItem homeListItem;
   final int? debugIndex;
   final VoidCallback? onPressed;
 
@@ -30,7 +31,7 @@ class HomeListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Stack(
           children: [
-            MoviePoster(imagePath: trendingItem.posterPath),
+            MoviePoster(imagePath: homeListItem.posterPath),
             if (debugIndex != null) ...[
               Positioned(
                 left: 8,
@@ -54,7 +55,7 @@ class HomeListTile extends StatelessWidget {
             Positioned(
               bottom: 8,
               left: 8,
-              child: MovieRating(trendingItem: trendingItem),
+              child: MovieRating(homeListItem: homeListItem),
             ),
           ],
         ),
@@ -63,17 +64,49 @@ class HomeListTile extends StatelessWidget {
   }
 }
 
-class MovieRating extends StatelessWidget {
-  const MovieRating({super.key, required this.trendingItem});
+class HomeListItem {
+  final int id;
+  final String title;
+  final String? posterPath;
+  final double? voteAverage;
 
-  final TrendingItem trendingItem;
+  HomeListItem({
+    required this.id,
+    required this.title,
+    required this.posterPath,
+    required this.voteAverage,
+  });
+
+  factory HomeListItem.fromTrendingItem(TrendingItem trendingItem) {
+    return HomeListItem(
+      id: trendingItem.id!,
+      title: trendingItem.title ?? trendingItem.name!,
+      posterPath: trendingItem.posterPath ?? trendingItem.backdropPath,
+      voteAverage: trendingItem.voteAverage,
+    );
+  }
+
+  factory HomeListItem.fromDiscoverItem(DiscoverItem discoverItem) {
+    return HomeListItem(
+      id: discoverItem.id!,
+      title: discoverItem.title ?? discoverItem.name!,
+      posterPath: discoverItem.posterPath ?? discoverItem.backdropPath,
+      voteAverage: discoverItem.voteAverage,
+    );
+  }
+}
+
+class MovieRating extends StatelessWidget {
+  const MovieRating({super.key, required this.homeListItem});
+
+  final HomeListItem homeListItem;
   @override
   Widget build(BuildContext context) {
-    final movieRating = trendingItem.voteAverage! * 10;
+    final movieRating = homeListItem.voteAverage! * 10;
 
     return Stack(children: [
       CircularProgressIndicator(
-        value: trendingItem.voteAverage! / 10,
+        value: homeListItem.voteAverage! / 10,
         valueColor: AlwaysStoppedAnimation<Color>(getRatingColor(movieRating)),
         backgroundColor: Colors.black,
         strokeWidth: 2,

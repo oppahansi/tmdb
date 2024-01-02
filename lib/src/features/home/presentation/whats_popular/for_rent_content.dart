@@ -6,13 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
-import 'package:oppa_tmdb/src/features/shared/providers/trending_items_provider.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/whats_popular_items_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class WeekContent extends ConsumerWidget {
-  const WeekContent({super.key});
+class ForRentContent extends ConsumerWidget {
+  const ForRentContent({super.key});
 
-  static const pageSize = 40;
+  static const pageSize = 20;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,34 +24,35 @@ class WeekContent extends ConsumerWidget {
       childrenDelegate: SliverChildBuilderDelegate(
         (context, index) {
           final page = index ~/ pageSize + 1;
-          final indexInPage = index % pageSize.ceil();
+          final indexInPage = index % pageSize;
 
-          final trendingList = ref.watch(
-            trendinResponseProvider(
+          final forRentList = ref.watch(
+            popularForRentItemsProvider(
               pagination: ResponsePagination(
                 page: page,
-                query: "week",
+                query: "",
               ),
             ),
           );
-          return trendingList.when(
+
+          return forRentList.when(
             error: (err, stack) => Text('Error $err'),
             loading: () => HomeListTileShimmer(
               width: width,
               height: height,
             ),
             data: (data) {
-              if (indexInPage >= data.trendingItems!.length) {
+              if (indexInPage >= data.discoverItems!.length) {
                 return HomeListTileShimmer(
                   width: width,
                   height: height,
                 );
               }
 
-              final streamingItem = data.trendingItems![indexInPage];
+              final discoverItem = data.discoverItems![indexInPage];
 
               return HomeListTile(
-                homeListItem: HomeListItem.fromTrendingItem(streamingItem),
+                homeListItem: HomeListItem.fromDiscoverItem(discoverItem),
                 debugIndex: index,
                 onPressed: () {},
               );
