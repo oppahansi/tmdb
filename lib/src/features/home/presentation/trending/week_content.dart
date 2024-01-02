@@ -12,7 +12,7 @@ import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 class WeekContent extends ConsumerWidget {
   const WeekContent({super.key});
 
-  static const pageSize = 20;
+  static const pageSize = 40;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
