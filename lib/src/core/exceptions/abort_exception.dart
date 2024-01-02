@@ -1,0 +1,1 @@
+class AbortedException implements Exception {}
