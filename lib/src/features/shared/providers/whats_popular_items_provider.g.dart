@@ -427,7 +427,7 @@ class _PopularForRentItemsProviderElement
 }
 
 String _$popularInTheatersItemsHash() =>
-    r'ffd2a143ebafd55e10e166ac7c133a04b2cc50c5';
+    r'6d497956d4fe7ceb112ff541ab20b5521dee6eee';
 
 /// See also [popularInTheatersItems].
 @ProviderFor(popularInTheatersItems)

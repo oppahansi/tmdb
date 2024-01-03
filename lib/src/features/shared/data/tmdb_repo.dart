@@ -164,19 +164,65 @@ class TmdbRepo {
 
   Future<DiscoverResponse> popularInTheatersItems(
       {required int page, CancelToken? cancelToken}) async {
-    final now = DateTime.now();
     final tvUrl = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/discover/movie',
       queryParameters: {
         'api_key': apiKey,
-        'region': 'US',
-        'with_release_type': '3',
-        'release_date.gte':
-            dateFormatter.format(DateTime(now.year, DateTime.january, 1)),
-        'release_date.lte': dateFormatter.format(now),
         'include_adult': 'false',
+        'language': 'en-US',
+        'region': 'US',
+        'sort_by': 'popularity.desc',
+        'with_release_type': '3',
+        'page': '$page',
+      },
+    ).toString();
+
+    final inTheatersResponse =
+        await client.get(tvUrl, cancelToken: cancelToken);
+    final inTheatersResult = DiscoverResponse.fromJson(inTheatersResponse.data);
+
+    return inTheatersResult;
+  }
+
+  Future<DiscoverResponse> freeToWatchMovieItems(
+      {required int page, CancelToken? cancelToken}) async {
+// /3/discover/movie?api_key=###&with_watch_monetization_types=ads|free&watch_region=US
+
+    final tvUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/movie',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'with_watch_monetization_types': 'ads|free',
+        'watch_region': 'US',
+        'page': '$page',
+      },
+    ).toString();
+
+    final inTheatersResponse =
+        await client.get(tvUrl, cancelToken: cancelToken);
+    final inTheatersResult = DiscoverResponse.fromJson(inTheatersResponse.data);
+
+    return inTheatersResult;
+  }
+
+  Future<DiscoverResponse> freeToWatchTvItems(
+      {required int page, CancelToken? cancelToken}) async {
+    final tvUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/tv',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'with_watch_monetization_types': 'ads|free',
+        'watch_region': 'DE',
         'page': '$page',
       },
     ).toString();

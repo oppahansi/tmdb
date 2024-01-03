@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/home/presentation/free_to_watch/free_to_watch_row.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/trending/trending_row.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/whats_popular/whats_popular_row.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
@@ -39,6 +40,8 @@ class HomeScreen extends ConsumerWidget {
                 TrendingRow(),
                 verticalSpaceMedium,
                 WhatsPopularRow(),
+                verticalSpaceMedium,
+                FreeToWatchRow(),
               ],
             ),
           ),
