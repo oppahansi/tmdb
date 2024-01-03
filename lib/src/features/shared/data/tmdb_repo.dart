@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/movies/domain/movie_list_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/discover_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/trending_response.dart';
 
@@ -188,8 +189,6 @@ class TmdbRepo {
 
   Future<DiscoverResponse> freeToWatchMovieItems(
       {required int page, CancelToken? cancelToken}) async {
-// /3/discover/movie?api_key=###&with_watch_monetization_types=ads|free&watch_region=US
-
     final tvUrl = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
@@ -232,5 +231,26 @@ class TmdbRepo {
     final inTheatersResult = DiscoverResponse.fromJson(inTheatersResponse.data);
 
     return inTheatersResult;
+  }
+
+  Future<MovieListResponse> fetchPopularMovies(
+      {required int page, CancelToken? cancelToken}) async {
+    final tvUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/popular',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
+
+    final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
+    final movieListResult = MovieListResponse.fromJson(movieListResponse.data);
+
+    return movieListResult;
   }
 }

@@ -1,0 +1,1 @@
+const defaultPageSize = 20;

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/movies/domain/movie_list_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/discover_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/trending_response.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
@@ -92,6 +93,15 @@ class HomeListItem {
       title: discoverItem.title ?? discoverItem.name!,
       posterPath: discoverItem.posterPath ?? discoverItem.backdropPath,
       voteAverage: discoverItem.voteAverage,
+    );
+  }
+
+  factory HomeListItem.fromMovieListItem(MovieListItem movieListItem) {
+    return HomeListItem(
+      id: movieListItem.id!,
+      title: movieListItem.title ?? movieListItem.originalTitle!,
+      posterPath: movieListItem.posterPath ?? movieListItem.backdropPath,
+      voteAverage: movieListItem.voteAverage,
     );
   }
 }
