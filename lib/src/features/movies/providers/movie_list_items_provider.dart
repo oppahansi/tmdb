@@ -32,8 +32,27 @@ Future<MovieListResponse> popularMovies(
   );
 }
 
-void _setEvents(PopularMoviesRef ref, CancelToken cancelToken, Timer? timer,
-    KeepAliveLink link) {
+@riverpod
+Future<MovieListResponse> nowPlayingMovies(
+  NowPlayingMoviesRef ref, {
+  required ResponsePagination pagination,
+}) async {
+  final tmdbRepo = ref.watch(tmdbRepoProvider);
+
+  final cancelToken = CancelToken();
+  final link = ref.keepAlive();
+  Timer? timer;
+
+  _setEvents(ref, cancelToken, timer, link);
+
+  return tmdbRepo.fetchNowPlayingMovies(
+    page: pagination.page,
+    cancelToken: cancelToken,
+  );
+}
+
+void _setEvents(AutoDisposeFutureProviderRef ref, CancelToken cancelToken,
+    Timer? timer, KeepAliveLink link) {
   ref.onDispose(() {
     cancelToken.cancel();
     timer?.cancel();

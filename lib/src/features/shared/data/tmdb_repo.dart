@@ -253,4 +253,25 @@ class TmdbRepo {
 
     return movieListResult;
   }
+
+  Future<MovieListResponse> fetchNowPlayingMovies(
+      {required int page, CancelToken? cancelToken}) async {
+    final tvUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/now_playing',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
+
+    final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
+    final movieListResult = MovieListResponse.fromJson(movieListResponse.data);
+
+    return movieListResult;
+  }
 }

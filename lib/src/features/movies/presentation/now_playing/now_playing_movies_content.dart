@@ -10,8 +10,8 @@ import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class PopularMoviesContent extends ConsumerWidget {
-  const PopularMoviesContent({super.key});
+class NowPlayingMoviesContent extends ConsumerWidget {
+  const NowPlayingMoviesContent({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -33,7 +33,7 @@ class PopularMoviesContent extends ConsumerWidget {
                 final indexInPage = (index % defaultPageSize).ceil();
 
                 final popularMovies = ref.watch(
-                  popularMoviesProvider(
+                  nowPlayingMoviesProvider(
                     pagination: ResponsePagination(
                       page: page,
                       query: "",
