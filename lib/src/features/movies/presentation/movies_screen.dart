@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/features/movies/presentation/now_playing/now_playing_movies_row.dart';
 import 'package:oppa_tmdb/src/features/movies/presentation/popular/popular_movies_row.dart';
+import 'package:oppa_tmdb/src/features/movies/presentation/upcoming/upcoming_movies_row.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/trending_items_provider.dart';
@@ -39,7 +40,9 @@ class MoviesScreen extends ConsumerWidget {
                 PopularMoviesRow(),
                 verticalSpaceMedium,
                 NowPlayingMoviesRow(),
-                verticalSpaceMedium
+                verticalSpaceMedium,
+                UpcomingMoviesRow(),
+                verticalSpaceMedium,
               ],
             ),
           ),

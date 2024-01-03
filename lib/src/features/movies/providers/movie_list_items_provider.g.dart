@@ -288,5 +288,136 @@ class _NowPlayingMoviesProviderElement
   ResponsePagination get pagination =>
       (origin as NowPlayingMoviesProvider).pagination;
 }
+
+String _$upcomingMoviesHash() => r'd9fee6cb8f2ee5a33e103ce219bfe4bdbf54de10';
+
+/// See also [upcomingMovies].
+@ProviderFor(upcomingMovies)
+const upcomingMoviesProvider = UpcomingMoviesFamily();
+
+/// See also [upcomingMovies].
+class UpcomingMoviesFamily extends Family<AsyncValue<MovieListResponse>> {
+  /// See also [upcomingMovies].
+  const UpcomingMoviesFamily();
+
+  /// See also [upcomingMovies].
+  UpcomingMoviesProvider call({
+    required ResponsePagination pagination,
+  }) {
+    return UpcomingMoviesProvider(
+      pagination: pagination,
+    );
+  }
+
+  @override
+  UpcomingMoviesProvider getProviderOverride(
+    covariant UpcomingMoviesProvider provider,
+  ) {
+    return call(
+      pagination: provider.pagination,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'upcomingMoviesProvider';
+}
+
+/// See also [upcomingMovies].
+class UpcomingMoviesProvider
+    extends AutoDisposeFutureProvider<MovieListResponse> {
+  /// See also [upcomingMovies].
+  UpcomingMoviesProvider({
+    required ResponsePagination pagination,
+  }) : this._internal(
+          (ref) => upcomingMovies(
+            ref as UpcomingMoviesRef,
+            pagination: pagination,
+          ),
+          from: upcomingMoviesProvider,
+          name: r'upcomingMoviesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$upcomingMoviesHash,
+          dependencies: UpcomingMoviesFamily._dependencies,
+          allTransitiveDependencies:
+              UpcomingMoviesFamily._allTransitiveDependencies,
+          pagination: pagination,
+        );
+
+  UpcomingMoviesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pagination,
+  }) : super.internal();
+
+  final ResponsePagination pagination;
+
+  @override
+  Override overrideWith(
+    FutureOr<MovieListResponse> Function(UpcomingMoviesRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UpcomingMoviesProvider._internal(
+        (ref) => create(ref as UpcomingMoviesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pagination: pagination,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<MovieListResponse> createElement() {
+    return _UpcomingMoviesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UpcomingMoviesProvider && other.pagination == pagination;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pagination.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UpcomingMoviesRef on AutoDisposeFutureProviderRef<MovieListResponse> {
+  /// The parameter `pagination` of this provider.
+  ResponsePagination get pagination;
+}
+
+class _UpcomingMoviesProviderElement
+    extends AutoDisposeFutureProviderElement<MovieListResponse>
+    with UpcomingMoviesRef {
+  _UpcomingMoviesProviderElement(super.provider);
+
+  @override
+  ResponsePagination get pagination =>
+      (origin as UpcomingMoviesProvider).pagination;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

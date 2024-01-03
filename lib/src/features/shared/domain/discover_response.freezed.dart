@@ -268,10 +268,14 @@ mixin _$DiscoverItem {
   bool? get adult => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'genre_ids')
-  List<int>? get genreIds => throw _privateConstructorUsedError;
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'genre_ids')
+  List<int>? get genreIds => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
   String? get originalLanguage => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_title')
@@ -282,10 +286,10 @@ mixin _$DiscoverItem {
   double? get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'media_type')
+  String? get mediaType => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
   String? get releaseDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
-  String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'video')
   bool? get video => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_average')
@@ -294,8 +298,6 @@ mixin _$DiscoverItem {
   int? get voteCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'origin_country')
   List<String>? get originCountry => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
-  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_name')
   String? get originalName => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_air_date')
@@ -316,20 +318,21 @@ abstract class $DiscoverItemCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'adult') bool? adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'genre_ids') List<int>? genreIds,
       @JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'genre_ids') List<int>? genreIds,
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'original_title') String? originalTitle,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'popularity') double? popularity,
       @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'media_type') String? mediaType,
       @JsonKey(name: 'release_date') String? releaseDate,
-      @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'video') bool? video,
       @JsonKey(name: 'vote_average') double? voteAverage,
       @JsonKey(name: 'vote_count') int? voteCount,
       @JsonKey(name: 'origin_country') List<String>? originCountry,
-      @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'original_name') String? originalName,
       @JsonKey(name: 'first_air_date') String? firstAirDate});
 }
@@ -349,20 +352,21 @@ class _$DiscoverItemCopyWithImpl<$Res, $Val extends DiscoverItem>
   $Res call({
     Object? adult = freezed,
     Object? backdropPath = freezed,
-    Object? genreIds = freezed,
     Object? id = freezed,
+    Object? title = freezed,
+    Object? name = freezed,
+    Object? genreIds = freezed,
     Object? originalLanguage = freezed,
     Object? originalTitle = freezed,
     Object? overview = freezed,
     Object? popularity = freezed,
     Object? posterPath = freezed,
+    Object? mediaType = freezed,
     Object? releaseDate = freezed,
-    Object? title = freezed,
     Object? video = freezed,
     Object? voteAverage = freezed,
     Object? voteCount = freezed,
     Object? originCountry = freezed,
-    Object? name = freezed,
     Object? originalName = freezed,
     Object? firstAirDate = freezed,
   }) {
@@ -375,14 +379,22 @@ class _$DiscoverItemCopyWithImpl<$Res, $Val extends DiscoverItem>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      genreIds: freezed == genreIds
-          ? _value.genreIds
-          : genreIds // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      genreIds: freezed == genreIds
+          ? _value.genreIds
+          : genreIds // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
       originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
@@ -403,13 +415,13 @@ class _$DiscoverItemCopyWithImpl<$Res, $Val extends DiscoverItem>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      mediaType: freezed == mediaType
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as String?,
       releaseDate: freezed == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       video: freezed == video
           ? _value.video
@@ -427,10 +439,6 @@ class _$DiscoverItemCopyWithImpl<$Res, $Val extends DiscoverItem>
           ? _value.originCountry
           : originCountry // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       originalName: freezed == originalName
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
@@ -454,20 +462,21 @@ abstract class _$$DiscoverItemImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'adult') bool? adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'genre_ids') List<int>? genreIds,
       @JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'genre_ids') List<int>? genreIds,
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'original_title') String? originalTitle,
       @JsonKey(name: 'overview') String? overview,
       @JsonKey(name: 'popularity') double? popularity,
       @JsonKey(name: 'poster_path') String? posterPath,
+      @JsonKey(name: 'media_type') String? mediaType,
       @JsonKey(name: 'release_date') String? releaseDate,
-      @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'video') bool? video,
       @JsonKey(name: 'vote_average') double? voteAverage,
       @JsonKey(name: 'vote_count') int? voteCount,
       @JsonKey(name: 'origin_country') List<String>? originCountry,
-      @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'original_name') String? originalName,
       @JsonKey(name: 'first_air_date') String? firstAirDate});
 }
@@ -485,20 +494,21 @@ class __$$DiscoverItemImplCopyWithImpl<$Res>
   $Res call({
     Object? adult = freezed,
     Object? backdropPath = freezed,
-    Object? genreIds = freezed,
     Object? id = freezed,
+    Object? title = freezed,
+    Object? name = freezed,
+    Object? genreIds = freezed,
     Object? originalLanguage = freezed,
     Object? originalTitle = freezed,
     Object? overview = freezed,
     Object? popularity = freezed,
     Object? posterPath = freezed,
+    Object? mediaType = freezed,
     Object? releaseDate = freezed,
-    Object? title = freezed,
     Object? video = freezed,
     Object? voteAverage = freezed,
     Object? voteCount = freezed,
     Object? originCountry = freezed,
-    Object? name = freezed,
     Object? originalName = freezed,
     Object? firstAirDate = freezed,
   }) {
@@ -511,14 +521,22 @@ class __$$DiscoverItemImplCopyWithImpl<$Res>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      genreIds: freezed == genreIds
-          ? _value._genreIds
-          : genreIds // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      genreIds: freezed == genreIds
+          ? _value._genreIds
+          : genreIds // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
       originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
@@ -539,13 +557,13 @@ class __$$DiscoverItemImplCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      mediaType: freezed == mediaType
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as String?,
       releaseDate: freezed == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       video: freezed == video
           ? _value.video
@@ -563,10 +581,6 @@ class __$$DiscoverItemImplCopyWithImpl<$Res>
           ? _value._originCountry
           : originCountry // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
       originalName: freezed == originalName
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
@@ -585,20 +599,21 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
   const _$DiscoverItemImpl(
       {@JsonKey(name: 'adult') this.adult,
       @JsonKey(name: 'backdrop_path') this.backdropPath,
-      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
       @JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
       @JsonKey(name: 'original_language') this.originalLanguage,
       @JsonKey(name: 'original_title') this.originalTitle,
       @JsonKey(name: 'overview') this.overview,
       @JsonKey(name: 'popularity') this.popularity,
       @JsonKey(name: 'poster_path') this.posterPath,
+      @JsonKey(name: 'media_type') this.mediaType,
       @JsonKey(name: 'release_date') this.releaseDate,
-      @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'video') this.video,
       @JsonKey(name: 'vote_average') this.voteAverage,
       @JsonKey(name: 'vote_count') this.voteCount,
       @JsonKey(name: 'origin_country') final List<String>? originCountry,
-      @JsonKey(name: 'name') this.name,
       @JsonKey(name: 'original_name') this.originalName,
       @JsonKey(name: 'first_air_date') this.firstAirDate})
       : _genreIds = genreIds,
@@ -613,6 +628,15 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
   @override
   @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'title')
+  final String? title;
+  @override
+  @JsonKey(name: 'name')
+  final String? name;
   final List<int>? _genreIds;
   @override
   @JsonKey(name: 'genre_ids')
@@ -624,9 +648,6 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  @JsonKey(name: 'id')
-  final int? id;
   @override
   @JsonKey(name: 'original_language')
   final String? originalLanguage;
@@ -643,11 +664,11 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
   @JsonKey(name: 'poster_path')
   final String? posterPath;
   @override
+  @JsonKey(name: 'media_type')
+  final String? mediaType;
+  @override
   @JsonKey(name: 'release_date')
   final String? releaseDate;
-  @override
-  @JsonKey(name: 'title')
-  final String? title;
   @override
   @JsonKey(name: 'video')
   final bool? video;
@@ -669,9 +690,6 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
   }
 
   @override
-  @JsonKey(name: 'name')
-  final String? name;
-  @override
   @JsonKey(name: 'original_name')
   final String? originalName;
   @override
@@ -680,7 +698,7 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DiscoverItem(adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, id: $id, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, originCountry: $originCountry, name: $name, originalName: $originalName, firstAirDate: $firstAirDate)';
+    return 'DiscoverItem(adult: $adult, backdropPath: $backdropPath, id: $id, title: $title, name: $name, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, originCountry: $originCountry, originalName: $originalName, firstAirDate: $firstAirDate)';
   }
 
   @override
@@ -690,20 +708,21 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
       ..add(DiagnosticsProperty('type', 'DiscoverItem'))
       ..add(DiagnosticsProperty('adult', adult))
       ..add(DiagnosticsProperty('backdropPath', backdropPath))
-      ..add(DiagnosticsProperty('genreIds', genreIds))
       ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('genreIds', genreIds))
       ..add(DiagnosticsProperty('originalLanguage', originalLanguage))
       ..add(DiagnosticsProperty('originalTitle', originalTitle))
       ..add(DiagnosticsProperty('overview', overview))
       ..add(DiagnosticsProperty('popularity', popularity))
       ..add(DiagnosticsProperty('posterPath', posterPath))
+      ..add(DiagnosticsProperty('mediaType', mediaType))
       ..add(DiagnosticsProperty('releaseDate', releaseDate))
-      ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('video', video))
       ..add(DiagnosticsProperty('voteAverage', voteAverage))
       ..add(DiagnosticsProperty('voteCount', voteCount))
       ..add(DiagnosticsProperty('originCountry', originCountry))
-      ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('originalName', originalName))
       ..add(DiagnosticsProperty('firstAirDate', firstAirDate));
   }
@@ -716,8 +735,10 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
             (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
-            const DeepCollectionEquality().equals(other._genreIds, _genreIds) &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other._genreIds, _genreIds) &&
             (identical(other.originalLanguage, originalLanguage) ||
                 other.originalLanguage == originalLanguage) &&
             (identical(other.originalTitle, originalTitle) ||
@@ -728,9 +749,10 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
                 other.popularity == popularity) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
             (identical(other.releaseDate, releaseDate) ||
                 other.releaseDate == releaseDate) &&
-            (identical(other.title, title) || other.title == title) &&
             (identical(other.video, video) || other.video == video) &&
             (identical(other.voteAverage, voteAverage) ||
                 other.voteAverage == voteAverage) &&
@@ -738,7 +760,6 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
                 other.voteCount == voteCount) &&
             const DeepCollectionEquality()
                 .equals(other._originCountry, _originCountry) &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.originalName, originalName) ||
                 other.originalName == originalName) &&
             (identical(other.firstAirDate, firstAirDate) ||
@@ -747,26 +768,28 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      adult,
-      backdropPath,
-      const DeepCollectionEquality().hash(_genreIds),
-      id,
-      originalLanguage,
-      originalTitle,
-      overview,
-      popularity,
-      posterPath,
-      releaseDate,
-      title,
-      video,
-      voteAverage,
-      voteCount,
-      const DeepCollectionEquality().hash(_originCountry),
-      name,
-      originalName,
-      firstAirDate);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        adult,
+        backdropPath,
+        id,
+        title,
+        name,
+        const DeepCollectionEquality().hash(_genreIds),
+        originalLanguage,
+        originalTitle,
+        overview,
+        popularity,
+        posterPath,
+        mediaType,
+        releaseDate,
+        video,
+        voteAverage,
+        voteCount,
+        const DeepCollectionEquality().hash(_originCountry),
+        originalName,
+        firstAirDate
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -786,20 +809,21 @@ abstract class _DiscoverItem implements DiscoverItem {
   const factory _DiscoverItem(
           {@JsonKey(name: 'adult') final bool? adult,
           @JsonKey(name: 'backdrop_path') final String? backdropPath,
-          @JsonKey(name: 'genre_ids') final List<int>? genreIds,
           @JsonKey(name: 'id') final int? id,
+          @JsonKey(name: 'title') final String? title,
+          @JsonKey(name: 'name') final String? name,
+          @JsonKey(name: 'genre_ids') final List<int>? genreIds,
           @JsonKey(name: 'original_language') final String? originalLanguage,
           @JsonKey(name: 'original_title') final String? originalTitle,
           @JsonKey(name: 'overview') final String? overview,
           @JsonKey(name: 'popularity') final double? popularity,
           @JsonKey(name: 'poster_path') final String? posterPath,
+          @JsonKey(name: 'media_type') final String? mediaType,
           @JsonKey(name: 'release_date') final String? releaseDate,
-          @JsonKey(name: 'title') final String? title,
           @JsonKey(name: 'video') final bool? video,
           @JsonKey(name: 'vote_average') final double? voteAverage,
           @JsonKey(name: 'vote_count') final int? voteCount,
           @JsonKey(name: 'origin_country') final List<String>? originCountry,
-          @JsonKey(name: 'name') final String? name,
           @JsonKey(name: 'original_name') final String? originalName,
           @JsonKey(name: 'first_air_date') final String? firstAirDate}) =
       _$DiscoverItemImpl;
@@ -814,11 +838,17 @@ abstract class _DiscoverItem implements DiscoverItem {
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath;
   @override
-  @JsonKey(name: 'genre_ids')
-  List<int>? get genreIds;
-  @override
   @JsonKey(name: 'id')
   int? get id;
+  @override
+  @JsonKey(name: 'title')
+  String? get title;
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
+  @override
+  @JsonKey(name: 'genre_ids')
+  List<int>? get genreIds;
   @override
   @JsonKey(name: 'original_language')
   String? get originalLanguage;
@@ -835,11 +865,11 @@ abstract class _DiscoverItem implements DiscoverItem {
   @JsonKey(name: 'poster_path')
   String? get posterPath;
   @override
+  @JsonKey(name: 'media_type')
+  String? get mediaType;
+  @override
   @JsonKey(name: 'release_date')
   String? get releaseDate;
-  @override
-  @JsonKey(name: 'title')
-  String? get title;
   @override
   @JsonKey(name: 'video')
   bool? get video;
@@ -852,9 +882,6 @@ abstract class _DiscoverItem implements DiscoverItem {
   @override
   @JsonKey(name: 'origin_country')
   List<String>? get originCountry;
-  @override
-  @JsonKey(name: 'name')
-  String? get name;
   @override
   @JsonKey(name: 'original_name')
   String? get originalName;
