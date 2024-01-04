@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -11,8 +12,6 @@ import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
 class TodayContent extends ConsumerWidget {
   const TodayContent({super.key});
-
-  static const pageSize = 40;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,8 +22,8 @@ class TodayContent extends ConsumerWidget {
       scrollDirection: Axis.horizontal,
       childrenDelegate: SliverChildBuilderDelegate(
         (context, index) {
-          final page = index ~/ pageSize + 1;
-          final indexInPage = index % pageSize.ceil();
+          final page = index ~/ (defaultPageSize * 2) + 1;
+          final indexInPage = index % (defaultPageSize * 2);
 
           final trendingList = ref.watch(
             trendinResponseProvider(

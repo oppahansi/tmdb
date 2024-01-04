@@ -40,6 +40,7 @@ class PopularMoviesContent extends ConsumerWidget {
                     ),
                   ),
                 );
+
                 return popularMovies.when(
                   error: (err, stack) => Text('Error $err'),
                   loading: () => HomeListTileShimmer(

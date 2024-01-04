@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -11,8 +12,6 @@ import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
 class StreamingContent extends ConsumerWidget {
   const StreamingContent({super.key});
-
-  static const pageSize = 40;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,12 +22,9 @@ class StreamingContent extends ConsumerWidget {
       scrollDirection: Axis.horizontal,
       childrenDelegate: SliverChildBuilderDelegate(
         (context, index) {
-          final page = index ~/ pageSize + 1;
-          final indexInPage = index % pageSize.ceil();
-          // use the fact that this is an infinite list to fetch a new page
-          // as soon as the index exceeds the page size
-          // Note that ref.watch is called for up to pageSize items
-          // with the same page and query arguments (but this is ok since data is cached)
+          final page = index ~/ defaultPageSize + 1;
+          final indexInPage = index % defaultPageSize;
+
           final streamingList = ref.watch(
             popularStreamingItemsProvider(
               pagination: ResponsePagination(
@@ -37,6 +33,7 @@ class StreamingContent extends ConsumerWidget {
               ),
             ),
           );
+
           return streamingList.when(
             error: (err, stack) => Text('Error $err'),
             loading: () => HomeListTileShimmer(
