@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/shared/presentation/row_header.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/selected_providers.dart';
 
 class TrendingHeader extends ConsumerWidget {
@@ -14,13 +15,7 @@ class TrendingHeader extends ConsumerWidget {
 
     return Column(
       children: [
-        const Text(
-          "Trending",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        const RowHeader(title: "Trending"),
         ToggleButtons(
           borderRadius: BorderRadius.circular(20),
           constraints: const BoxConstraints(
