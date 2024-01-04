@@ -11,7 +11,7 @@ import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 class FreeToWatchContent extends ConsumerWidget {
   FreeToWatchContent({super.key});
 
-  final _trendingContent = <Widget>[
+  final _freeToWatchContent = <Widget>[
     const MoviesContent(),
     const TvContent(),
   ];
@@ -30,7 +30,7 @@ class FreeToWatchContent extends ConsumerWidget {
         height: height,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: _trendingContent[selected.indexWhere((element) => element)],
+          child: _freeToWatchContent[selected.indexWhere((element) => element)],
         ),
       ),
     );
