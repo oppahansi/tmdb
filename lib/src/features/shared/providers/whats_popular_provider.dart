@@ -12,11 +12,11 @@ import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 import 'package:oppa_tmdb/src/utils/ref_events.dart';
 
-part 'whats_popular_items_provider.g.dart';
+part 'whats_popular_provider.g.dart';
 
 @riverpod
-Future<TmdbResponse> popularStreamingItems(
-  PopularStreamingItemsRef ref, {
+Future<TmdbResponse> popularStreaming(
+  PopularStreamingRef ref, {
   required TmdbPagination pagination,
 }) async {
   final moviesRepo = ref.watch(tmdbRepoProvider);
@@ -27,15 +27,15 @@ Future<TmdbResponse> popularStreamingItems(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return moviesRepo.fetchPopularStreamingItems(
+  return moviesRepo.fetchPopularStreaming(
     page: pagination.page,
     cancelToken: cancelToken,
   );
 }
 
 @riverpod
-Future<TmdbResponse> popularOnTvItems(
-  PopularOnTvItemsRef ref, {
+Future<TmdbResponse> popularOnTv(
+  PopularOnTvRef ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -46,15 +46,15 @@ Future<TmdbResponse> popularOnTvItems(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return tmdbRepo.fetchPopularOnTvItems(
+  return tmdbRepo.fetchPopularOnTv(
     page: pagination.page,
     cancelToken: cancelToken,
   );
 }
 
 @riverpod
-Future<TmdbResponse> popularForRentItems(
-  PopularForRentItemsRef ref, {
+Future<TmdbResponse> popularForRent(
+  PopularForRentRef ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -65,15 +65,15 @@ Future<TmdbResponse> popularForRentItems(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return tmdbRepo.fetchPopularForRentItems(
+  return tmdbRepo.fetchPopularForRent(
     page: pagination.page,
     cancelToken: cancelToken,
   );
 }
 
 @riverpod
-Future<TmdbResponse> popularInTheatersItems(
-  PopularInTheatersItemsRef ref, {
+Future<TmdbResponse> popularInTheaters(
+  PopularInTheatersRef ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -84,7 +84,7 @@ Future<TmdbResponse> popularInTheatersItems(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return tmdbRepo.popularInTheatersItems(
+  return tmdbRepo.popularInTheaters(
     page: pagination.page,
     cancelToken: cancelToken,
   );

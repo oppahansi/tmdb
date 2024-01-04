@@ -11,7 +11,7 @@ import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 
-part 'movie_list_items_provider.g.dart';
+part 'movies_provider.g.dart';
 
 @riverpod
 Future<TmdbResponse> popularMovies(

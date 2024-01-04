@@ -29,7 +29,7 @@ Future<TmdbResponse> freeToWatchMovieItems(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return tmdbRepo.freeToWatchMovieItems(
+  return tmdbRepo.freeToWatchMovie(
     page: pagination.page,
     cancelToken: cancelToken,
   );
@@ -48,7 +48,7 @@ Future<TmdbResponse> freeToWatchTvItems(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return tmdbRepo.freeToWatchTvItems(
+  return tmdbRepo.freeToWatchTv(
     page: pagination.page,
     cancelToken: cancelToken,
   );

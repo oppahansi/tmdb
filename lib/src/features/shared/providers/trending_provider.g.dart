@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'trending_items_provider.dart';
+part of 'trending_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$trendinResponseHash() => r'bad140a1afea9700a18e2e038a908a691f7c9f2a';
+String _$trendingHash() => r'58fff17b24f8722b9c622d14c13784cb6635f3e3';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +29,27 @@ class _SystemHash {
   }
 }
 
-/// See also [trendinResponse].
-@ProviderFor(trendinResponse)
-const trendinResponseProvider = TrendinResponseFamily();
+/// See also [trending].
+@ProviderFor(trending)
+const trendingProvider = TrendingFamily();
 
-/// See also [trendinResponse].
-class TrendinResponseFamily extends Family<AsyncValue<TmdbResponse>> {
-  /// See also [trendinResponse].
-  const TrendinResponseFamily();
+/// See also [trending].
+class TrendingFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [trending].
+  const TrendingFamily();
 
-  /// See also [trendinResponse].
-  TrendinResponseProvider call({
+  /// See also [trending].
+  TrendingProvider call({
     required TmdbPagination pagination,
   }) {
-    return TrendinResponseProvider(
+    return TrendingProvider(
       pagination: pagination,
     );
   }
 
   @override
-  TrendinResponseProvider getProviderOverride(
-    covariant TrendinResponseProvider provider,
+  TrendingProvider getProviderOverride(
+    covariant TrendingProvider provider,
   ) {
     return call(
       pagination: provider.pagination,
@@ -68,32 +68,31 @@ class TrendinResponseFamily extends Family<AsyncValue<TmdbResponse>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'trendinResponseProvider';
+  String? get name => r'trendingProvider';
 }
 
-/// See also [trendinResponse].
-class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
-  /// See also [trendinResponse].
-  TrendinResponseProvider({
+/// See also [trending].
+class TrendingProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [trending].
+  TrendingProvider({
     required TmdbPagination pagination,
   }) : this._internal(
-          (ref) => trendinResponse(
-            ref as TrendinResponseRef,
+          (ref) => trending(
+            ref as TrendingRef,
             pagination: pagination,
           ),
-          from: trendinResponseProvider,
-          name: r'trendinResponseProvider',
+          from: trendingProvider,
+          name: r'trendingProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$trendinResponseHash,
-          dependencies: TrendinResponseFamily._dependencies,
-          allTransitiveDependencies:
-              TrendinResponseFamily._allTransitiveDependencies,
+                  : _$trendingHash,
+          dependencies: TrendingFamily._dependencies,
+          allTransitiveDependencies: TrendingFamily._allTransitiveDependencies,
           pagination: pagination,
         );
 
-  TrendinResponseProvider._internal(
+  TrendingProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -107,12 +106,12 @@ class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
   @override
   Override overrideWith(
-    FutureOr<TmdbResponse> Function(TrendinResponseRef provider) create,
+    FutureOr<TmdbResponse> Function(TrendingRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: TrendinResponseProvider._internal(
-        (ref) => create(ref as TrendinResponseRef),
+      override: TrendingProvider._internal(
+        (ref) => create(ref as TrendingRef),
         from: from,
         name: null,
         dependencies: null,
@@ -125,12 +124,12 @@ class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
   @override
   AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
-    return _TrendinResponseProviderElement(this);
+    return _TrendingProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is TrendinResponseProvider && other.pagination == pagination;
+    return other is TrendingProvider && other.pagination == pagination;
   }
 
   @override
@@ -142,19 +141,17 @@ class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   }
 }
 
-mixin TrendinResponseRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+mixin TrendingRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
 }
 
-class _TrendinResponseProviderElement
-    extends AutoDisposeFutureProviderElement<TmdbResponse>
-    with TrendinResponseRef {
-  _TrendinResponseProviderElement(super.provider);
+class _TrendingProviderElement
+    extends AutoDisposeFutureProviderElement<TmdbResponse> with TrendingRef {
+  _TrendingProviderElement(super.provider);
 
   @override
-  TmdbPagination get pagination =>
-      (origin as TrendinResponseProvider).pagination;
+  TmdbPagination get pagination => (origin as TrendingProvider).pagination;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

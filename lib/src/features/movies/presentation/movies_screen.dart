@@ -9,7 +9,7 @@ import 'package:oppa_tmdb/src/features/movies/presentation/top_rated/now_playing
 import 'package:oppa_tmdb/src/features/movies/presentation/upcoming/upcoming_movies_row.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
-import 'package:oppa_tmdb/src/features/shared/providers/trending_items_provider.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/trending_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
 class MoviesScreen extends ConsumerWidget {
@@ -29,7 +29,7 @@ class MoviesScreen extends ConsumerWidget {
           child: RefreshIndicator(
             onRefresh: () {
               return ref.read(
-                trendinResponseProvider(
+                trendingProvider(
                   pagination: TmdbPagination(page: 1, query: ""),
                 ).future,
               );

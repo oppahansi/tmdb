@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'whats_popular_items_provider.dart';
+part of 'movies_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$popularStreamingItemsHash() =>
-    r'1503f95356b6ab9dd2572bdff08ab206e9cdc03a';
+String _$popularMoviesHash() => r'6ebdc9d693356595ec5ec555899b5b1c39373e38';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -30,27 +29,27 @@ class _SystemHash {
   }
 }
 
-/// See also [popularStreamingItems].
-@ProviderFor(popularStreamingItems)
-const popularStreamingItemsProvider = PopularStreamingItemsFamily();
+/// See also [popularMovies].
+@ProviderFor(popularMovies)
+const popularMoviesProvider = PopularMoviesFamily();
 
-/// See also [popularStreamingItems].
-class PopularStreamingItemsFamily extends Family<AsyncValue<TmdbResponse>> {
-  /// See also [popularStreamingItems].
-  const PopularStreamingItemsFamily();
+/// See also [popularMovies].
+class PopularMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [popularMovies].
+  const PopularMoviesFamily();
 
-  /// See also [popularStreamingItems].
-  PopularStreamingItemsProvider call({
+  /// See also [popularMovies].
+  PopularMoviesProvider call({
     required TmdbPagination pagination,
   }) {
-    return PopularStreamingItemsProvider(
+    return PopularMoviesProvider(
       pagination: pagination,
     );
   }
 
   @override
-  PopularStreamingItemsProvider getProviderOverride(
-    covariant PopularStreamingItemsProvider provider,
+  PopularMoviesProvider getProviderOverride(
+    covariant PopularMoviesProvider provider,
   ) {
     return call(
       pagination: provider.pagination,
@@ -69,33 +68,32 @@ class PopularStreamingItemsFamily extends Family<AsyncValue<TmdbResponse>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'popularStreamingItemsProvider';
+  String? get name => r'popularMoviesProvider';
 }
 
-/// See also [popularStreamingItems].
-class PopularStreamingItemsProvider
-    extends AutoDisposeFutureProvider<TmdbResponse> {
-  /// See also [popularStreamingItems].
-  PopularStreamingItemsProvider({
+/// See also [popularMovies].
+class PopularMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [popularMovies].
+  PopularMoviesProvider({
     required TmdbPagination pagination,
   }) : this._internal(
-          (ref) => popularStreamingItems(
-            ref as PopularStreamingItemsRef,
+          (ref) => popularMovies(
+            ref as PopularMoviesRef,
             pagination: pagination,
           ),
-          from: popularStreamingItemsProvider,
-          name: r'popularStreamingItemsProvider',
+          from: popularMoviesProvider,
+          name: r'popularMoviesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$popularStreamingItemsHash,
-          dependencies: PopularStreamingItemsFamily._dependencies,
+                  : _$popularMoviesHash,
+          dependencies: PopularMoviesFamily._dependencies,
           allTransitiveDependencies:
-              PopularStreamingItemsFamily._allTransitiveDependencies,
+              PopularMoviesFamily._allTransitiveDependencies,
           pagination: pagination,
         );
 
-  PopularStreamingItemsProvider._internal(
+  PopularMoviesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -109,12 +107,12 @@ class PopularStreamingItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<TmdbResponse> Function(PopularStreamingItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(PopularMoviesRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PopularStreamingItemsProvider._internal(
-        (ref) => create(ref as PopularStreamingItemsRef),
+      override: PopularMoviesProvider._internal(
+        (ref) => create(ref as PopularMoviesRef),
         from: from,
         name: null,
         dependencies: null,
@@ -127,13 +125,12 @@ class PopularStreamingItemsProvider
 
   @override
   AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
-    return _PopularStreamingItemsProviderElement(this);
+    return _PopularMoviesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PopularStreamingItemsProvider &&
-        other.pagination == pagination;
+    return other is PopularMoviesProvider && other.pagination == pagination;
   }
 
   @override
@@ -145,44 +142,43 @@ class PopularStreamingItemsProvider
   }
 }
 
-mixin PopularStreamingItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+mixin PopularMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
 }
 
-class _PopularStreamingItemsProviderElement
+class _PopularMoviesProviderElement
     extends AutoDisposeFutureProviderElement<TmdbResponse>
-    with PopularStreamingItemsRef {
-  _PopularStreamingItemsProviderElement(super.provider);
+    with PopularMoviesRef {
+  _PopularMoviesProviderElement(super.provider);
 
   @override
-  TmdbPagination get pagination =>
-      (origin as PopularStreamingItemsProvider).pagination;
+  TmdbPagination get pagination => (origin as PopularMoviesProvider).pagination;
 }
 
-String _$popularOnTvItemsHash() => r'd505122dfc11e89de58f43fc7e6313caf7d4da89';
+String _$nowPlayingMoviesHash() => r'7f9eecbd2200cd54b930459fdb7ef38ad58b3744';
 
-/// See also [popularOnTvItems].
-@ProviderFor(popularOnTvItems)
-const popularOnTvItemsProvider = PopularOnTvItemsFamily();
+/// See also [nowPlayingMovies].
+@ProviderFor(nowPlayingMovies)
+const nowPlayingMoviesProvider = NowPlayingMoviesFamily();
 
-/// See also [popularOnTvItems].
-class PopularOnTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
-  /// See also [popularOnTvItems].
-  const PopularOnTvItemsFamily();
+/// See also [nowPlayingMovies].
+class NowPlayingMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [nowPlayingMovies].
+  const NowPlayingMoviesFamily();
 
-  /// See also [popularOnTvItems].
-  PopularOnTvItemsProvider call({
+  /// See also [nowPlayingMovies].
+  NowPlayingMoviesProvider call({
     required TmdbPagination pagination,
   }) {
-    return PopularOnTvItemsProvider(
+    return NowPlayingMoviesProvider(
       pagination: pagination,
     );
   }
 
   @override
-  PopularOnTvItemsProvider getProviderOverride(
-    covariant PopularOnTvItemsProvider provider,
+  NowPlayingMoviesProvider getProviderOverride(
+    covariant NowPlayingMoviesProvider provider,
   ) {
     return call(
       pagination: provider.pagination,
@@ -201,32 +197,32 @@ class PopularOnTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'popularOnTvItemsProvider';
+  String? get name => r'nowPlayingMoviesProvider';
 }
 
-/// See also [popularOnTvItems].
-class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
-  /// See also [popularOnTvItems].
-  PopularOnTvItemsProvider({
+/// See also [nowPlayingMovies].
+class NowPlayingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [nowPlayingMovies].
+  NowPlayingMoviesProvider({
     required TmdbPagination pagination,
   }) : this._internal(
-          (ref) => popularOnTvItems(
-            ref as PopularOnTvItemsRef,
+          (ref) => nowPlayingMovies(
+            ref as NowPlayingMoviesRef,
             pagination: pagination,
           ),
-          from: popularOnTvItemsProvider,
-          name: r'popularOnTvItemsProvider',
+          from: nowPlayingMoviesProvider,
+          name: r'nowPlayingMoviesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$popularOnTvItemsHash,
-          dependencies: PopularOnTvItemsFamily._dependencies,
+                  : _$nowPlayingMoviesHash,
+          dependencies: NowPlayingMoviesFamily._dependencies,
           allTransitiveDependencies:
-              PopularOnTvItemsFamily._allTransitiveDependencies,
+              NowPlayingMoviesFamily._allTransitiveDependencies,
           pagination: pagination,
         );
 
-  PopularOnTvItemsProvider._internal(
+  NowPlayingMoviesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -240,12 +236,12 @@ class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
   @override
   Override overrideWith(
-    FutureOr<TmdbResponse> Function(PopularOnTvItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(NowPlayingMoviesRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PopularOnTvItemsProvider._internal(
-        (ref) => create(ref as PopularOnTvItemsRef),
+      override: NowPlayingMoviesProvider._internal(
+        (ref) => create(ref as NowPlayingMoviesRef),
         from: from,
         name: null,
         dependencies: null,
@@ -258,12 +254,12 @@ class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
   @override
   AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
-    return _PopularOnTvItemsProviderElement(this);
+    return _NowPlayingMoviesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PopularOnTvItemsProvider && other.pagination == pagination;
+    return other is NowPlayingMoviesProvider && other.pagination == pagination;
   }
 
   @override
@@ -275,45 +271,44 @@ class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   }
 }
 
-mixin PopularOnTvItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+mixin NowPlayingMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
 }
 
-class _PopularOnTvItemsProviderElement
+class _NowPlayingMoviesProviderElement
     extends AutoDisposeFutureProviderElement<TmdbResponse>
-    with PopularOnTvItemsRef {
-  _PopularOnTvItemsProviderElement(super.provider);
+    with NowPlayingMoviesRef {
+  _NowPlayingMoviesProviderElement(super.provider);
 
   @override
   TmdbPagination get pagination =>
-      (origin as PopularOnTvItemsProvider).pagination;
+      (origin as NowPlayingMoviesProvider).pagination;
 }
 
-String _$popularForRentItemsHash() =>
-    r'1a80144a0205760583450dfb1244559f423674a8';
+String _$upcomingMoviesHash() => r'0c45f438dea3a903c25a7070f7677cd8a7580ab9';
 
-/// See also [popularForRentItems].
-@ProviderFor(popularForRentItems)
-const popularForRentItemsProvider = PopularForRentItemsFamily();
+/// See also [upcomingMovies].
+@ProviderFor(upcomingMovies)
+const upcomingMoviesProvider = UpcomingMoviesFamily();
 
-/// See also [popularForRentItems].
-class PopularForRentItemsFamily extends Family<AsyncValue<TmdbResponse>> {
-  /// See also [popularForRentItems].
-  const PopularForRentItemsFamily();
+/// See also [upcomingMovies].
+class UpcomingMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [upcomingMovies].
+  const UpcomingMoviesFamily();
 
-  /// See also [popularForRentItems].
-  PopularForRentItemsProvider call({
+  /// See also [upcomingMovies].
+  UpcomingMoviesProvider call({
     required TmdbPagination pagination,
   }) {
-    return PopularForRentItemsProvider(
+    return UpcomingMoviesProvider(
       pagination: pagination,
     );
   }
 
   @override
-  PopularForRentItemsProvider getProviderOverride(
-    covariant PopularForRentItemsProvider provider,
+  UpcomingMoviesProvider getProviderOverride(
+    covariant UpcomingMoviesProvider provider,
   ) {
     return call(
       pagination: provider.pagination,
@@ -332,33 +327,32 @@ class PopularForRentItemsFamily extends Family<AsyncValue<TmdbResponse>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'popularForRentItemsProvider';
+  String? get name => r'upcomingMoviesProvider';
 }
 
-/// See also [popularForRentItems].
-class PopularForRentItemsProvider
-    extends AutoDisposeFutureProvider<TmdbResponse> {
-  /// See also [popularForRentItems].
-  PopularForRentItemsProvider({
+/// See also [upcomingMovies].
+class UpcomingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [upcomingMovies].
+  UpcomingMoviesProvider({
     required TmdbPagination pagination,
   }) : this._internal(
-          (ref) => popularForRentItems(
-            ref as PopularForRentItemsRef,
+          (ref) => upcomingMovies(
+            ref as UpcomingMoviesRef,
             pagination: pagination,
           ),
-          from: popularForRentItemsProvider,
-          name: r'popularForRentItemsProvider',
+          from: upcomingMoviesProvider,
+          name: r'upcomingMoviesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$popularForRentItemsHash,
-          dependencies: PopularForRentItemsFamily._dependencies,
+                  : _$upcomingMoviesHash,
+          dependencies: UpcomingMoviesFamily._dependencies,
           allTransitiveDependencies:
-              PopularForRentItemsFamily._allTransitiveDependencies,
+              UpcomingMoviesFamily._allTransitiveDependencies,
           pagination: pagination,
         );
 
-  PopularForRentItemsProvider._internal(
+  UpcomingMoviesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -372,12 +366,12 @@ class PopularForRentItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<TmdbResponse> Function(PopularForRentItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(UpcomingMoviesRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PopularForRentItemsProvider._internal(
-        (ref) => create(ref as PopularForRentItemsRef),
+      override: UpcomingMoviesProvider._internal(
+        (ref) => create(ref as UpcomingMoviesRef),
         from: from,
         name: null,
         dependencies: null,
@@ -390,13 +384,12 @@ class PopularForRentItemsProvider
 
   @override
   AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
-    return _PopularForRentItemsProviderElement(this);
+    return _UpcomingMoviesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PopularForRentItemsProvider &&
-        other.pagination == pagination;
+    return other is UpcomingMoviesProvider && other.pagination == pagination;
   }
 
   @override
@@ -408,45 +401,44 @@ class PopularForRentItemsProvider
   }
 }
 
-mixin PopularForRentItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+mixin UpcomingMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
 }
 
-class _PopularForRentItemsProviderElement
+class _UpcomingMoviesProviderElement
     extends AutoDisposeFutureProviderElement<TmdbResponse>
-    with PopularForRentItemsRef {
-  _PopularForRentItemsProviderElement(super.provider);
+    with UpcomingMoviesRef {
+  _UpcomingMoviesProviderElement(super.provider);
 
   @override
   TmdbPagination get pagination =>
-      (origin as PopularForRentItemsProvider).pagination;
+      (origin as UpcomingMoviesProvider).pagination;
 }
 
-String _$popularInTheatersItemsHash() =>
-    r'6a8f91d23cdbbd0fc3fdd6f5e8fed6967930afdd';
+String _$topRatedMoviesHash() => r'f5fa185a9bf4ca5f9a73545b134e84922cc26617';
 
-/// See also [popularInTheatersItems].
-@ProviderFor(popularInTheatersItems)
-const popularInTheatersItemsProvider = PopularInTheatersItemsFamily();
+/// See also [topRatedMovies].
+@ProviderFor(topRatedMovies)
+const topRatedMoviesProvider = TopRatedMoviesFamily();
 
-/// See also [popularInTheatersItems].
-class PopularInTheatersItemsFamily extends Family<AsyncValue<TmdbResponse>> {
-  /// See also [popularInTheatersItems].
-  const PopularInTheatersItemsFamily();
+/// See also [topRatedMovies].
+class TopRatedMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [topRatedMovies].
+  const TopRatedMoviesFamily();
 
-  /// See also [popularInTheatersItems].
-  PopularInTheatersItemsProvider call({
+  /// See also [topRatedMovies].
+  TopRatedMoviesProvider call({
     required TmdbPagination pagination,
   }) {
-    return PopularInTheatersItemsProvider(
+    return TopRatedMoviesProvider(
       pagination: pagination,
     );
   }
 
   @override
-  PopularInTheatersItemsProvider getProviderOverride(
-    covariant PopularInTheatersItemsProvider provider,
+  TopRatedMoviesProvider getProviderOverride(
+    covariant TopRatedMoviesProvider provider,
   ) {
     return call(
       pagination: provider.pagination,
@@ -465,33 +457,32 @@ class PopularInTheatersItemsFamily extends Family<AsyncValue<TmdbResponse>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'popularInTheatersItemsProvider';
+  String? get name => r'topRatedMoviesProvider';
 }
 
-/// See also [popularInTheatersItems].
-class PopularInTheatersItemsProvider
-    extends AutoDisposeFutureProvider<TmdbResponse> {
-  /// See also [popularInTheatersItems].
-  PopularInTheatersItemsProvider({
+/// See also [topRatedMovies].
+class TopRatedMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [topRatedMovies].
+  TopRatedMoviesProvider({
     required TmdbPagination pagination,
   }) : this._internal(
-          (ref) => popularInTheatersItems(
-            ref as PopularInTheatersItemsRef,
+          (ref) => topRatedMovies(
+            ref as TopRatedMoviesRef,
             pagination: pagination,
           ),
-          from: popularInTheatersItemsProvider,
-          name: r'popularInTheatersItemsProvider',
+          from: topRatedMoviesProvider,
+          name: r'topRatedMoviesProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$popularInTheatersItemsHash,
-          dependencies: PopularInTheatersItemsFamily._dependencies,
+                  : _$topRatedMoviesHash,
+          dependencies: TopRatedMoviesFamily._dependencies,
           allTransitiveDependencies:
-              PopularInTheatersItemsFamily._allTransitiveDependencies,
+              TopRatedMoviesFamily._allTransitiveDependencies,
           pagination: pagination,
         );
 
-  PopularInTheatersItemsProvider._internal(
+  TopRatedMoviesProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -505,12 +496,12 @@ class PopularInTheatersItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<TmdbResponse> Function(PopularInTheatersItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(TopRatedMoviesRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PopularInTheatersItemsProvider._internal(
-        (ref) => create(ref as PopularInTheatersItemsRef),
+      override: TopRatedMoviesProvider._internal(
+        (ref) => create(ref as TopRatedMoviesRef),
         from: from,
         name: null,
         dependencies: null,
@@ -523,13 +514,12 @@ class PopularInTheatersItemsProvider
 
   @override
   AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
-    return _PopularInTheatersItemsProviderElement(this);
+    return _TopRatedMoviesProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PopularInTheatersItemsProvider &&
-        other.pagination == pagination;
+    return other is TopRatedMoviesProvider && other.pagination == pagination;
   }
 
   @override
@@ -541,19 +531,19 @@ class PopularInTheatersItemsProvider
   }
 }
 
-mixin PopularInTheatersItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+mixin TopRatedMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
 }
 
-class _PopularInTheatersItemsProviderElement
+class _TopRatedMoviesProviderElement
     extends AutoDisposeFutureProviderElement<TmdbResponse>
-    with PopularInTheatersItemsRef {
-  _PopularInTheatersItemsProviderElement(super.provider);
+    with TopRatedMoviesRef {
+  _TopRatedMoviesProviderElement(super.provider);
 
   @override
   TmdbPagination get pagination =>
-      (origin as PopularInTheatersItemsProvider).pagination;
+      (origin as TopRatedMoviesProvider).pagination;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

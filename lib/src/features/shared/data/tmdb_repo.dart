@@ -16,7 +16,7 @@ class TmdbRepo {
     required this.apiKey,
   });
 
-  Future<TmdbResponse> fetchTrendingItems({
+  Future<TmdbResponse> fetchTrending({
     required int page,
     required String timeWindow,
     CancelToken? cancelToken,
@@ -65,7 +65,7 @@ class TmdbRepo {
     );
   }
 
-  Future<TmdbResponse> fetchPopularStreamingItems({
+  Future<TmdbResponse> fetchPopularStreaming({
     required int page,
     CancelToken? cancelToken,
   }) async {
@@ -116,7 +116,7 @@ class TmdbRepo {
     );
   }
 
-  Future<TmdbResponse> fetchPopularOnTvItems({
+  Future<TmdbResponse> fetchPopularOnTv({
     required int page,
     CancelToken? cancelToken,
   }) async {
@@ -140,7 +140,7 @@ class TmdbRepo {
     return tvShows;
   }
 
-  Future<TmdbResponse> fetchPopularForRentItems(
+  Future<TmdbResponse> fetchPopularForRent(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -161,7 +161,7 @@ class TmdbRepo {
     return forRentResult;
   }
 
-  Future<TmdbResponse> popularInTheatersItems(
+  Future<TmdbResponse> popularInTheaters(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -185,7 +185,7 @@ class TmdbRepo {
     return inTheatersResult;
   }
 
-  Future<TmdbResponse> freeToWatchMovieItems(
+  Future<TmdbResponse> freeToWatchMovie(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -208,7 +208,7 @@ class TmdbRepo {
     return inTheatersResult;
   }
 
-  Future<TmdbResponse> freeToWatchTvItems(
+  Future<TmdbResponse> freeToWatchTv(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',

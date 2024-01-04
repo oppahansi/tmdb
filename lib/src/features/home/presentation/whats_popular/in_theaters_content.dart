@@ -7,7 +7,7 @@ import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
-import 'package:oppa_tmdb/src/features/shared/providers/whats_popular_items_provider.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/whats_popular_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
 class InTheatersContent extends ConsumerWidget {
@@ -26,7 +26,7 @@ class InTheatersContent extends ConsumerWidget {
           final indexInPage = index % defaultPageSize;
 
           final forRentList = ref.watch(
-            popularInTheatersItemsProvider(
+            popularInTheatersProvider(
               pagination: TmdbPagination(
                 page: page,
                 query: "",
