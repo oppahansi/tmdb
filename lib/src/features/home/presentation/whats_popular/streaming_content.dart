@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/whats_popular_items_provider.dart';
@@ -27,7 +27,7 @@ class StreamingContent extends ConsumerWidget {
 
           final streamingList = ref.watch(
             popularStreamingItemsProvider(
-              pagination: ResponsePagination(
+              pagination: TmdbPagination(
                 page: (page / 2).ceil(),
                 query: "",
               ),

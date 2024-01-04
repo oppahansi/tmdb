@@ -41,7 +41,7 @@ class FreeToWatchMovieItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [freeToWatchMovieItems].
   FreeToWatchMovieItemsProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return FreeToWatchMovieItemsProvider(
       pagination: pagination,
@@ -77,7 +77,7 @@ class FreeToWatchMovieItemsProvider
     extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [freeToWatchMovieItems].
   FreeToWatchMovieItemsProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => freeToWatchMovieItems(
             ref as FreeToWatchMovieItemsRef,
@@ -105,7 +105,7 @@ class FreeToWatchMovieItemsProvider
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -147,7 +147,7 @@ class FreeToWatchMovieItemsProvider
 
 mixin FreeToWatchMovieItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _FreeToWatchMovieItemsProviderElement
@@ -156,7 +156,7 @@ class _FreeToWatchMovieItemsProviderElement
   _FreeToWatchMovieItemsProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as FreeToWatchMovieItemsProvider).pagination;
 }
 
@@ -174,7 +174,7 @@ class FreeToWatchTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [freeToWatchTvItems].
   FreeToWatchTvItemsProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return FreeToWatchTvItemsProvider(
       pagination: pagination,
@@ -210,7 +210,7 @@ class FreeToWatchTvItemsProvider
     extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [freeToWatchTvItems].
   FreeToWatchTvItemsProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => freeToWatchTvItems(
             ref as FreeToWatchTvItemsRef,
@@ -238,7 +238,7 @@ class FreeToWatchTvItemsProvider
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -280,7 +280,7 @@ class FreeToWatchTvItemsProvider
 
 mixin FreeToWatchTvItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _FreeToWatchTvItemsProviderElement
@@ -289,7 +289,7 @@ class _FreeToWatchTvItemsProviderElement
   _FreeToWatchTvItemsProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as FreeToWatchTvItemsProvider).pagination;
 }
 // ignore_for_file: type=lint

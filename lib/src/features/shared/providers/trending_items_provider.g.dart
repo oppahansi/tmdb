@@ -40,7 +40,7 @@ class TrendinResponseFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [trendinResponse].
   TrendinResponseProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return TrendinResponseProvider(
       pagination: pagination,
@@ -75,7 +75,7 @@ class TrendinResponseFamily extends Family<AsyncValue<TmdbResponse>> {
 class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [trendinResponse].
   TrendinResponseProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => trendinResponse(
             ref as TrendinResponseRef,
@@ -103,7 +103,7 @@ class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -144,7 +144,7 @@ class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
 mixin TrendinResponseRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _TrendinResponseProviderElement
@@ -153,7 +153,7 @@ class _TrendinResponseProviderElement
   _TrendinResponseProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as TrendinResponseProvider).pagination;
 }
 // ignore_for_file: type=lint

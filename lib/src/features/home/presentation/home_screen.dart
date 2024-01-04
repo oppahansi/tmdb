@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/free_to_watch/free_to_watch_row.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/trending/trending_row.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/whats_popular/whats_popular_row.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/trending_items_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
@@ -29,7 +29,7 @@ class HomeScreen extends ConsumerWidget {
             onRefresh: () {
               return ref.read(
                 trendinResponseProvider(
-                  pagination: ResponsePagination(page: 1, query: ""),
+                  pagination: TmdbPagination(page: 1, query: ""),
                 ).future,
               );
             },

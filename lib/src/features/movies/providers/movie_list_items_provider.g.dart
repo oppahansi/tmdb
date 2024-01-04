@@ -40,7 +40,7 @@ class PopularMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [popularMovies].
   PopularMoviesProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return PopularMoviesProvider(
       pagination: pagination,
@@ -75,7 +75,7 @@ class PopularMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 class PopularMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularMovies].
   PopularMoviesProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => popularMovies(
             ref as PopularMoviesRef,
@@ -103,7 +103,7 @@ class PopularMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -144,7 +144,7 @@ class PopularMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
 mixin PopularMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _PopularMoviesProviderElement
@@ -153,8 +153,7 @@ class _PopularMoviesProviderElement
   _PopularMoviesProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
-      (origin as PopularMoviesProvider).pagination;
+  TmdbPagination get pagination => (origin as PopularMoviesProvider).pagination;
 }
 
 String _$nowPlayingMoviesHash() => r'0e7f4614a3a50d018035d0cc06fa103ce2e0a077';
@@ -170,7 +169,7 @@ class NowPlayingMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [nowPlayingMovies].
   NowPlayingMoviesProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return NowPlayingMoviesProvider(
       pagination: pagination,
@@ -205,7 +204,7 @@ class NowPlayingMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 class NowPlayingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [nowPlayingMovies].
   NowPlayingMoviesProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => nowPlayingMovies(
             ref as NowPlayingMoviesRef,
@@ -233,7 +232,7 @@ class NowPlayingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -274,7 +273,7 @@ class NowPlayingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
 mixin NowPlayingMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _NowPlayingMoviesProviderElement
@@ -283,7 +282,7 @@ class _NowPlayingMoviesProviderElement
   _NowPlayingMoviesProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as NowPlayingMoviesProvider).pagination;
 }
 
@@ -300,7 +299,7 @@ class UpcomingMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [upcomingMovies].
   UpcomingMoviesProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return UpcomingMoviesProvider(
       pagination: pagination,
@@ -335,7 +334,7 @@ class UpcomingMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 class UpcomingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [upcomingMovies].
   UpcomingMoviesProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => upcomingMovies(
             ref as UpcomingMoviesRef,
@@ -363,7 +362,7 @@ class UpcomingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -404,7 +403,7 @@ class UpcomingMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
 mixin UpcomingMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _UpcomingMoviesProviderElement
@@ -413,7 +412,7 @@ class _UpcomingMoviesProviderElement
   _UpcomingMoviesProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as UpcomingMoviesProvider).pagination;
 }
 
@@ -430,7 +429,7 @@ class TopRatedMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [topRatedMovies].
   TopRatedMoviesProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return TopRatedMoviesProvider(
       pagination: pagination,
@@ -465,7 +464,7 @@ class TopRatedMoviesFamily extends Family<AsyncValue<TmdbResponse>> {
 class TopRatedMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [topRatedMovies].
   TopRatedMoviesProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => topRatedMovies(
             ref as TopRatedMoviesRef,
@@ -493,7 +492,7 @@ class TopRatedMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -534,7 +533,7 @@ class TopRatedMoviesProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
 mixin TopRatedMoviesRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _TopRatedMoviesProviderElement
@@ -543,7 +542,7 @@ class _TopRatedMoviesProviderElement
   _TopRatedMoviesProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as TopRatedMoviesProvider).pagination;
 }
 // ignore_for_file: type=lint

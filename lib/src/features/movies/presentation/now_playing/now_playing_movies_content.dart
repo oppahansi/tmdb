@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/movies/providers/movie_list_items_provider.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
@@ -34,7 +34,7 @@ class NowPlayingMoviesContent extends ConsumerWidget {
 
                 final popularMovies = ref.watch(
                   nowPlayingMoviesProvider(
-                    pagination: ResponsePagination(
+                    pagination: TmdbPagination(
                       page: page,
                       query: "",
                     ),

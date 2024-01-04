@@ -41,7 +41,7 @@ class PopularStreamingItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [popularStreamingItems].
   PopularStreamingItemsProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return PopularStreamingItemsProvider(
       pagination: pagination,
@@ -77,7 +77,7 @@ class PopularStreamingItemsProvider
     extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularStreamingItems].
   PopularStreamingItemsProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => popularStreamingItems(
             ref as PopularStreamingItemsRef,
@@ -105,7 +105,7 @@ class PopularStreamingItemsProvider
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -147,7 +147,7 @@ class PopularStreamingItemsProvider
 
 mixin PopularStreamingItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _PopularStreamingItemsProviderElement
@@ -156,7 +156,7 @@ class _PopularStreamingItemsProviderElement
   _PopularStreamingItemsProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as PopularStreamingItemsProvider).pagination;
 }
 
@@ -173,7 +173,7 @@ class PopularOnTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [popularOnTvItems].
   PopularOnTvItemsProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return PopularOnTvItemsProvider(
       pagination: pagination,
@@ -208,7 +208,7 @@ class PopularOnTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularOnTvItems].
   PopularOnTvItemsProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => popularOnTvItems(
             ref as PopularOnTvItemsRef,
@@ -236,7 +236,7 @@ class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -277,7 +277,7 @@ class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
 
 mixin PopularOnTvItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _PopularOnTvItemsProviderElement
@@ -286,7 +286,7 @@ class _PopularOnTvItemsProviderElement
   _PopularOnTvItemsProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as PopularOnTvItemsProvider).pagination;
 }
 
@@ -304,7 +304,7 @@ class PopularForRentItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [popularForRentItems].
   PopularForRentItemsProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return PopularForRentItemsProvider(
       pagination: pagination,
@@ -340,7 +340,7 @@ class PopularForRentItemsProvider
     extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularForRentItems].
   PopularForRentItemsProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => popularForRentItems(
             ref as PopularForRentItemsRef,
@@ -368,7 +368,7 @@ class PopularForRentItemsProvider
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -410,7 +410,7 @@ class PopularForRentItemsProvider
 
 mixin PopularForRentItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _PopularForRentItemsProviderElement
@@ -419,7 +419,7 @@ class _PopularForRentItemsProviderElement
   _PopularForRentItemsProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as PopularForRentItemsProvider).pagination;
 }
 
@@ -437,7 +437,7 @@ class PopularInTheatersItemsFamily extends Family<AsyncValue<TmdbResponse>> {
 
   /// See also [popularInTheatersItems].
   PopularInTheatersItemsProvider call({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) {
     return PopularInTheatersItemsProvider(
       pagination: pagination,
@@ -473,7 +473,7 @@ class PopularInTheatersItemsProvider
     extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularInTheatersItems].
   PopularInTheatersItemsProvider({
-    required ResponsePagination pagination,
+    required TmdbPagination pagination,
   }) : this._internal(
           (ref) => popularInTheatersItems(
             ref as PopularInTheatersItemsRef,
@@ -501,7 +501,7 @@ class PopularInTheatersItemsProvider
     required this.pagination,
   }) : super.internal();
 
-  final ResponsePagination pagination;
+  final TmdbPagination pagination;
 
   @override
   Override overrideWith(
@@ -543,7 +543,7 @@ class PopularInTheatersItemsProvider
 
 mixin PopularInTheatersItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
-  ResponsePagination get pagination;
+  TmdbPagination get pagination;
 }
 
 class _PopularInTheatersItemsProviderElement
@@ -552,7 +552,7 @@ class _PopularInTheatersItemsProviderElement
   _PopularInTheatersItemsProviderElement(super.provider);
 
   @override
-  ResponsePagination get pagination =>
+  TmdbPagination get pagination =>
       (origin as PopularInTheatersItemsProvider).pagination;
 }
 // ignore_for_file: type=lint

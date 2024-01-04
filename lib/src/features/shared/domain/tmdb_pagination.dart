@@ -1,14 +1,14 @@
-class ResponsePagination {
+class TmdbPagination {
   final int page;
   final String query;
 
-  ResponsePagination({required this.page, required this.query});
+  TmdbPagination({required this.page, required this.query});
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is ResponsePagination &&
+    return other is TmdbPagination &&
         other.query == query &&
         other.page == page;
   }
