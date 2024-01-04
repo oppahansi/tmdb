@@ -274,20 +274,20 @@ mixin _$TrendingItem {
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'genre_ids')
+  List<int>? get genreIds => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
   String? get originalLanguage => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_title')
   String? get originalTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'overview')
   String? get overview => throw _privateConstructorUsedError;
+  @JsonKey(name: 'popularity')
+  double? get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'media_type')
   String? get mediaType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'genre_ids')
-  List<int>? get genreIds => throw _privateConstructorUsedError;
-  @JsonKey(name: 'popularity')
-  double? get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
   String? get releaseDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'video')
@@ -315,13 +315,13 @@ abstract class $TrendingItemCopyWith<$Res> {
       @JsonKey(name: 'id') int? id,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'genre_ids') List<int>? genreIds,
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'original_title') String? originalTitle,
       @JsonKey(name: 'overview') String? overview,
+      @JsonKey(name: 'popularity') double? popularity,
       @JsonKey(name: 'poster_path') String? posterPath,
       @JsonKey(name: 'media_type') String? mediaType,
-      @JsonKey(name: 'genre_ids') List<int>? genreIds,
-      @JsonKey(name: 'popularity') double? popularity,
       @JsonKey(name: 'release_date') String? releaseDate,
       @JsonKey(name: 'video') bool? video,
       @JsonKey(name: 'vote_average') double? voteAverage,
@@ -346,13 +346,13 @@ class _$TrendingItemCopyWithImpl<$Res, $Val extends TrendingItem>
     Object? id = freezed,
     Object? title = freezed,
     Object? name = freezed,
+    Object? genreIds = freezed,
     Object? originalLanguage = freezed,
     Object? originalTitle = freezed,
     Object? overview = freezed,
+    Object? popularity = freezed,
     Object? posterPath = freezed,
     Object? mediaType = freezed,
-    Object? genreIds = freezed,
-    Object? popularity = freezed,
     Object? releaseDate = freezed,
     Object? video = freezed,
     Object? voteAverage = freezed,
@@ -379,6 +379,10 @@ class _$TrendingItemCopyWithImpl<$Res, $Val extends TrendingItem>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      genreIds: freezed == genreIds
+          ? _value.genreIds
+          : genreIds // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
       originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
@@ -391,6 +395,10 @@ class _$TrendingItemCopyWithImpl<$Res, $Val extends TrendingItem>
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
               as String?,
+      popularity: freezed == popularity
+          ? _value.popularity
+          : popularity // ignore: cast_nullable_to_non_nullable
+              as double?,
       posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -399,14 +407,6 @@ class _$TrendingItemCopyWithImpl<$Res, $Val extends TrendingItem>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as String?,
-      genreIds: freezed == genreIds
-          ? _value.genreIds
-          : genreIds // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
-      popularity: freezed == popularity
-          ? _value.popularity
-          : popularity // ignore: cast_nullable_to_non_nullable
-              as double?,
       releaseDate: freezed == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -441,13 +441,13 @@ abstract class _$$TrendingItemImplCopyWith<$Res>
       @JsonKey(name: 'id') int? id,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'genre_ids') List<int>? genreIds,
       @JsonKey(name: 'original_language') String? originalLanguage,
       @JsonKey(name: 'original_title') String? originalTitle,
       @JsonKey(name: 'overview') String? overview,
+      @JsonKey(name: 'popularity') double? popularity,
       @JsonKey(name: 'poster_path') String? posterPath,
       @JsonKey(name: 'media_type') String? mediaType,
-      @JsonKey(name: 'genre_ids') List<int>? genreIds,
-      @JsonKey(name: 'popularity') double? popularity,
       @JsonKey(name: 'release_date') String? releaseDate,
       @JsonKey(name: 'video') bool? video,
       @JsonKey(name: 'vote_average') double? voteAverage,
@@ -470,13 +470,13 @@ class __$$TrendingItemImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? name = freezed,
+    Object? genreIds = freezed,
     Object? originalLanguage = freezed,
     Object? originalTitle = freezed,
     Object? overview = freezed,
+    Object? popularity = freezed,
     Object? posterPath = freezed,
     Object? mediaType = freezed,
-    Object? genreIds = freezed,
-    Object? popularity = freezed,
     Object? releaseDate = freezed,
     Object? video = freezed,
     Object? voteAverage = freezed,
@@ -503,6 +503,10 @@ class __$$TrendingItemImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      genreIds: freezed == genreIds
+          ? _value._genreIds
+          : genreIds // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
       originalLanguage: freezed == originalLanguage
           ? _value.originalLanguage
           : originalLanguage // ignore: cast_nullable_to_non_nullable
@@ -515,6 +519,10 @@ class __$$TrendingItemImplCopyWithImpl<$Res>
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
               as String?,
+      popularity: freezed == popularity
+          ? _value.popularity
+          : popularity // ignore: cast_nullable_to_non_nullable
+              as double?,
       posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -523,14 +531,6 @@ class __$$TrendingItemImplCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as String?,
-      genreIds: freezed == genreIds
-          ? _value._genreIds
-          : genreIds // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
-      popularity: freezed == popularity
-          ? _value.popularity
-          : popularity // ignore: cast_nullable_to_non_nullable
-              as double?,
       releaseDate: freezed == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -560,13 +560,13 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
       @JsonKey(name: 'id') this.id,
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
       @JsonKey(name: 'original_language') this.originalLanguage,
       @JsonKey(name: 'original_title') this.originalTitle,
       @JsonKey(name: 'overview') this.overview,
+      @JsonKey(name: 'popularity') this.popularity,
       @JsonKey(name: 'poster_path') this.posterPath,
       @JsonKey(name: 'media_type') this.mediaType,
-      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
-      @JsonKey(name: 'popularity') this.popularity,
       @JsonKey(name: 'release_date') this.releaseDate,
       @JsonKey(name: 'video') this.video,
       @JsonKey(name: 'vote_average') this.voteAverage,
@@ -591,21 +591,6 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
   @override
   @JsonKey(name: 'name')
   final String? name;
-  @override
-  @JsonKey(name: 'original_language')
-  final String? originalLanguage;
-  @override
-  @JsonKey(name: 'original_title')
-  final String? originalTitle;
-  @override
-  @JsonKey(name: 'overview')
-  final String? overview;
-  @override
-  @JsonKey(name: 'poster_path')
-  final String? posterPath;
-  @override
-  @JsonKey(name: 'media_type')
-  final String? mediaType;
   final List<int>? _genreIds;
   @override
   @JsonKey(name: 'genre_ids')
@@ -618,8 +603,23 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
   }
 
   @override
+  @JsonKey(name: 'original_language')
+  final String? originalLanguage;
+  @override
+  @JsonKey(name: 'original_title')
+  final String? originalTitle;
+  @override
+  @JsonKey(name: 'overview')
+  final String? overview;
+  @override
   @JsonKey(name: 'popularity')
   final double? popularity;
+  @override
+  @JsonKey(name: 'poster_path')
+  final String? posterPath;
+  @override
+  @JsonKey(name: 'media_type')
+  final String? mediaType;
   @override
   @JsonKey(name: 'release_date')
   final String? releaseDate;
@@ -635,7 +635,7 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TrendingItem(adult: $adult, backdropPath: $backdropPath, id: $id, title: $title, name: $name, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, posterPath: $posterPath, mediaType: $mediaType, genreIds: $genreIds, popularity: $popularity, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'TrendingItem(adult: $adult, backdropPath: $backdropPath, id: $id, title: $title, name: $name, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 
   @override
@@ -648,13 +648,13 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('genreIds', genreIds))
       ..add(DiagnosticsProperty('originalLanguage', originalLanguage))
       ..add(DiagnosticsProperty('originalTitle', originalTitle))
       ..add(DiagnosticsProperty('overview', overview))
+      ..add(DiagnosticsProperty('popularity', popularity))
       ..add(DiagnosticsProperty('posterPath', posterPath))
       ..add(DiagnosticsProperty('mediaType', mediaType))
-      ..add(DiagnosticsProperty('genreIds', genreIds))
-      ..add(DiagnosticsProperty('popularity', popularity))
       ..add(DiagnosticsProperty('releaseDate', releaseDate))
       ..add(DiagnosticsProperty('video', video))
       ..add(DiagnosticsProperty('voteAverage', voteAverage))
@@ -672,19 +672,19 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other._genreIds, _genreIds) &&
             (identical(other.originalLanguage, originalLanguage) ||
                 other.originalLanguage == originalLanguage) &&
             (identical(other.originalTitle, originalTitle) ||
                 other.originalTitle == originalTitle) &&
             (identical(other.overview, overview) ||
                 other.overview == overview) &&
+            (identical(other.popularity, popularity) ||
+                other.popularity == popularity) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other._genreIds, _genreIds) &&
-            (identical(other.popularity, popularity) ||
-                other.popularity == popularity) &&
             (identical(other.releaseDate, releaseDate) ||
                 other.releaseDate == releaseDate) &&
             (identical(other.video, video) || other.video == video) &&
@@ -703,13 +703,13 @@ class _$TrendingItemImpl with DiagnosticableTreeMixin implements _TrendingItem {
       id,
       title,
       name,
+      const DeepCollectionEquality().hash(_genreIds),
       originalLanguage,
       originalTitle,
       overview,
+      popularity,
       posterPath,
       mediaType,
-      const DeepCollectionEquality().hash(_genreIds),
-      popularity,
       releaseDate,
       video,
       voteAverage,
@@ -736,13 +736,13 @@ abstract class _TrendingItem implements TrendingItem {
       @JsonKey(name: 'id') final int? id,
       @JsonKey(name: 'title') final String? title,
       @JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
       @JsonKey(name: 'original_language') final String? originalLanguage,
       @JsonKey(name: 'original_title') final String? originalTitle,
       @JsonKey(name: 'overview') final String? overview,
+      @JsonKey(name: 'popularity') final double? popularity,
       @JsonKey(name: 'poster_path') final String? posterPath,
       @JsonKey(name: 'media_type') final String? mediaType,
-      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
-      @JsonKey(name: 'popularity') final double? popularity,
       @JsonKey(name: 'release_date') final String? releaseDate,
       @JsonKey(name: 'video') final bool? video,
       @JsonKey(name: 'vote_average') final double? voteAverage,
@@ -767,6 +767,9 @@ abstract class _TrendingItem implements TrendingItem {
   @JsonKey(name: 'name')
   String? get name;
   @override
+  @JsonKey(name: 'genre_ids')
+  List<int>? get genreIds;
+  @override
   @JsonKey(name: 'original_language')
   String? get originalLanguage;
   @override
@@ -776,17 +779,14 @@ abstract class _TrendingItem implements TrendingItem {
   @JsonKey(name: 'overview')
   String? get overview;
   @override
+  @JsonKey(name: 'popularity')
+  double? get popularity;
+  @override
   @JsonKey(name: 'poster_path')
   String? get posterPath;
   @override
   @JsonKey(name: 'media_type')
   String? get mediaType;
-  @override
-  @JsonKey(name: 'genre_ids')
-  List<int>? get genreIds;
-  @override
-  @JsonKey(name: 'popularity')
-  double? get popularity;
   @override
   @JsonKey(name: 'release_date')
   String? get releaseDate;
