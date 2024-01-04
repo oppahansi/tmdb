@@ -3,9 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/movies/domain/movie_list_response.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/discover_response.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/trending_response.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 
 class TmdbRepo {
   final Dio client;
@@ -18,7 +16,7 @@ class TmdbRepo {
     required this.apiKey,
   });
 
-  Future<TrendingResponse> fetchTrendingItems({
+  Future<TmdbResponse> fetchTrendingItems({
     required int page,
     required String timeWindow,
     CancelToken? cancelToken,
@@ -50,24 +48,24 @@ class TmdbRepo {
       client.get(tvShowsUrl, cancelToken: cancelToken),
     ]);
 
-    final movies = TrendingResponse.fromJson(responses[0].data);
-    final tvShows = TrendingResponse.fromJson(responses[1].data);
+    final movies = TmdbResponse.fromJson(responses[0].data);
+    final tvShows = TmdbResponse.fromJson(responses[1].data);
 
-    final trendingItems = <TrendingItem>[];
+    final trendingItems = <TmdbItem>[];
 
-    trendingItems.addAll(movies.trendingItems!);
-    trendingItems.addAll(tvShows.trendingItems!);
+    trendingItems.addAll(movies.tmdbItems!);
+    trendingItems.addAll(tvShows.tmdbItems!);
     trendingItems.shuffle();
 
-    return TrendingResponse(
+    return TmdbResponse(
       page: page,
       totalPages: movies.totalPages! + tvShows.totalPages!,
       totalResults: movies.totalResults! + tvShows.totalResults!,
-      trendingItems: trendingItems,
+      tmdbItems: trendingItems,
     );
   }
 
-  Future<DiscoverResponse> fetchPopularStreamingItems({
+  Future<TmdbResponse> fetchPopularStreamingItems({
     required int page,
     CancelToken? cancelToken,
   }) async {
@@ -101,24 +99,24 @@ class TmdbRepo {
       client.get(tvShowsUrl, cancelToken: cancelToken),
     ]);
 
-    final movies = DiscoverResponse.fromJson(responses[0].data);
-    final tvShows = DiscoverResponse.fromJson(responses[1].data);
+    final movies = TmdbResponse.fromJson(responses[0].data);
+    final tvShows = TmdbResponse.fromJson(responses[1].data);
 
-    final popularStreamingItems = <DiscoverItem>[];
+    final popularStreamingItems = <TmdbItem>[];
 
-    popularStreamingItems.addAll(movies.discoverItems!);
-    popularStreamingItems.addAll(tvShows.discoverItems!);
+    popularStreamingItems.addAll(movies.tmdbItems!);
+    popularStreamingItems.addAll(tvShows.tmdbItems!);
     popularStreamingItems.shuffle();
 
-    return DiscoverResponse(
+    return TmdbResponse(
       page: page,
       totalPages: movies.totalPages! + tvShows.totalPages!,
       totalResults: movies.totalResults! + tvShows.totalResults!,
-      discoverItems: popularStreamingItems,
+      tmdbItems: popularStreamingItems,
     );
   }
 
-  Future<DiscoverResponse> fetchPopularOnTvItems({
+  Future<TmdbResponse> fetchPopularOnTvItems({
     required int page,
     CancelToken? cancelToken,
   }) async {
@@ -137,12 +135,12 @@ class TmdbRepo {
     ).toString();
 
     final tvResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final tvShows = DiscoverResponse.fromJson(tvResponse.data);
+    final tvShows = TmdbResponse.fromJson(tvResponse.data);
 
     return tvShows;
   }
 
-  Future<DiscoverResponse> fetchPopularForRentItems(
+  Future<TmdbResponse> fetchPopularForRentItems(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -158,12 +156,12 @@ class TmdbRepo {
     ).toString();
 
     final forRentResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final forRentResult = DiscoverResponse.fromJson(forRentResponse.data);
+    final forRentResult = TmdbResponse.fromJson(forRentResponse.data);
 
     return forRentResult;
   }
 
-  Future<DiscoverResponse> popularInTheatersItems(
+  Future<TmdbResponse> popularInTheatersItems(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -182,12 +180,12 @@ class TmdbRepo {
 
     final inTheatersResponse =
         await client.get(tvUrl, cancelToken: cancelToken);
-    final inTheatersResult = DiscoverResponse.fromJson(inTheatersResponse.data);
+    final inTheatersResult = TmdbResponse.fromJson(inTheatersResponse.data);
 
     return inTheatersResult;
   }
 
-  Future<DiscoverResponse> freeToWatchMovieItems(
+  Future<TmdbResponse> freeToWatchMovieItems(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -205,12 +203,12 @@ class TmdbRepo {
 
     final inTheatersResponse =
         await client.get(tvUrl, cancelToken: cancelToken);
-    final inTheatersResult = DiscoverResponse.fromJson(inTheatersResponse.data);
+    final inTheatersResult = TmdbResponse.fromJson(inTheatersResponse.data);
 
     return inTheatersResult;
   }
 
-  Future<DiscoverResponse> freeToWatchTvItems(
+  Future<TmdbResponse> freeToWatchTvItems(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -228,12 +226,12 @@ class TmdbRepo {
 
     final inTheatersResponse =
         await client.get(tvUrl, cancelToken: cancelToken);
-    final inTheatersResult = DiscoverResponse.fromJson(inTheatersResponse.data);
+    final inTheatersResult = TmdbResponse.fromJson(inTheatersResponse.data);
 
     return inTheatersResult;
   }
 
-  Future<MovieListResponse> fetchPopularMovies(
+  Future<TmdbResponse> fetchPopularMovies(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -249,12 +247,12 @@ class TmdbRepo {
     ).toString();
 
     final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = MovieListResponse.fromJson(movieListResponse.data);
+    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
 
     return movieListResult;
   }
 
-  Future<MovieListResponse> fetchNowPlayingMovies(
+  Future<TmdbResponse> fetchNowPlayingMovies(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -270,12 +268,12 @@ class TmdbRepo {
     ).toString();
 
     final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = MovieListResponse.fromJson(movieListResponse.data);
+    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
 
     return movieListResult;
   }
 
-  Future<MovieListResponse> fetchUpcomingMovies(
+  Future<TmdbResponse> fetchUpcomingMovies(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -291,12 +289,12 @@ class TmdbRepo {
     ).toString();
 
     final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = MovieListResponse.fromJson(movieListResponse.data);
+    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
 
     return movieListResult;
   }
 
-  Future<MovieListResponse> fetchTopRatedMovies(
+  Future<TmdbResponse> fetchTopRatedMovies(
       {required int page, CancelToken? cancelToken}) async {
     final tvUrl = Uri(
       scheme: 'https',
@@ -312,7 +310,7 @@ class TmdbRepo {
     ).toString();
 
     final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = MovieListResponse.fromJson(movieListResponse.data);
+    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
 
     return movieListResult;
   }

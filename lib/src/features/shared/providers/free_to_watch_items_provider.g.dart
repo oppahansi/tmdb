@@ -7,7 +7,7 @@ part of 'free_to_watch_items_provider.dart';
 // **************************************************************************
 
 String _$freeToWatchMovieItemsHash() =>
-    r'21d20de13a37204300e3bc35178f2732199735a9';
+    r'16deef9c3a65530491a609ff1361d933741bf4f6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -35,7 +35,7 @@ class _SystemHash {
 const freeToWatchMovieItemsProvider = FreeToWatchMovieItemsFamily();
 
 /// See also [freeToWatchMovieItems].
-class FreeToWatchMovieItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
+class FreeToWatchMovieItemsFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [freeToWatchMovieItems].
   const FreeToWatchMovieItemsFamily();
 
@@ -74,7 +74,7 @@ class FreeToWatchMovieItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
 
 /// See also [freeToWatchMovieItems].
 class FreeToWatchMovieItemsProvider
-    extends AutoDisposeFutureProvider<DiscoverResponse> {
+    extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [freeToWatchMovieItems].
   FreeToWatchMovieItemsProvider({
     required ResponsePagination pagination,
@@ -109,8 +109,7 @@ class FreeToWatchMovieItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<DiscoverResponse> Function(FreeToWatchMovieItemsRef provider)
-        create,
+    FutureOr<TmdbResponse> Function(FreeToWatchMovieItemsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -127,7 +126,7 @@ class FreeToWatchMovieItemsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<DiscoverResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _FreeToWatchMovieItemsProviderElement(this);
   }
 
@@ -146,14 +145,13 @@ class FreeToWatchMovieItemsProvider
   }
 }
 
-mixin FreeToWatchMovieItemsRef
-    on AutoDisposeFutureProviderRef<DiscoverResponse> {
+mixin FreeToWatchMovieItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _FreeToWatchMovieItemsProviderElement
-    extends AutoDisposeFutureProviderElement<DiscoverResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with FreeToWatchMovieItemsRef {
   _FreeToWatchMovieItemsProviderElement(super.provider);
 
@@ -163,14 +161,14 @@ class _FreeToWatchMovieItemsProviderElement
 }
 
 String _$freeToWatchTvItemsHash() =>
-    r'e969dbcffcbb3187994780033bd0f83b6816a16c';
+    r'fd76ccb54d7f86a60ea40c1ed9d41d37ad109cce';
 
 /// See also [freeToWatchTvItems].
 @ProviderFor(freeToWatchTvItems)
 const freeToWatchTvItemsProvider = FreeToWatchTvItemsFamily();
 
 /// See also [freeToWatchTvItems].
-class FreeToWatchTvItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
+class FreeToWatchTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [freeToWatchTvItems].
   const FreeToWatchTvItemsFamily();
 
@@ -209,7 +207,7 @@ class FreeToWatchTvItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
 
 /// See also [freeToWatchTvItems].
 class FreeToWatchTvItemsProvider
-    extends AutoDisposeFutureProvider<DiscoverResponse> {
+    extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [freeToWatchTvItems].
   FreeToWatchTvItemsProvider({
     required ResponsePagination pagination,
@@ -244,7 +242,7 @@ class FreeToWatchTvItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<DiscoverResponse> Function(FreeToWatchTvItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(FreeToWatchTvItemsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -261,7 +259,7 @@ class FreeToWatchTvItemsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<DiscoverResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _FreeToWatchTvItemsProviderElement(this);
   }
 
@@ -280,13 +278,13 @@ class FreeToWatchTvItemsProvider
   }
 }
 
-mixin FreeToWatchTvItemsRef on AutoDisposeFutureProviderRef<DiscoverResponse> {
+mixin FreeToWatchTvItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _FreeToWatchTvItemsProviderElement
-    extends AutoDisposeFutureProviderElement<DiscoverResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with FreeToWatchTvItemsRef {
   _FreeToWatchTvItemsProviderElement(super.provider);
 

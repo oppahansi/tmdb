@@ -7,14 +7,14 @@ import 'package:riverpod/src/framework.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/shared/domain/discover_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 
 part 'whats_popular_items_provider.g.dart';
 
 @riverpod
-Future<DiscoverResponse> popularStreamingItems(
+Future<TmdbResponse> popularStreamingItems(
   PopularStreamingItemsRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -33,7 +33,7 @@ Future<DiscoverResponse> popularStreamingItems(
 }
 
 @riverpod
-Future<DiscoverResponse> popularOnTvItems(
+Future<TmdbResponse> popularOnTvItems(
   PopularOnTvItemsRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -52,7 +52,7 @@ Future<DiscoverResponse> popularOnTvItems(
 }
 
 @riverpod
-Future<DiscoverResponse> popularForRentItems(
+Future<TmdbResponse> popularForRentItems(
   PopularForRentItemsRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -71,7 +71,7 @@ Future<DiscoverResponse> popularForRentItems(
 }
 
 @riverpod
-Future<DiscoverResponse> popularInTheatersItems(
+Future<TmdbResponse> popularInTheatersItems(
   PopularInTheatersItemsRef ref, {
   required ResponsePagination pagination,
 }) async {

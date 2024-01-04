@@ -44,17 +44,17 @@ class StreamingContent extends ConsumerWidget {
               height: height,
             ),
             data: (data) {
-              if (indexInPage >= data.discoverItems!.length) {
+              if (indexInPage >= data.tmdbItems!.length) {
                 return HomeListTileShimmer(
                   width: width,
                   height: height,
                 );
               }
 
-              final discoverItem = data.discoverItems![indexInPage];
+              final discoverItem = data.tmdbItems![indexInPage];
 
               return HomeListTile(
-                homeListItem: HomeListItem.fromDiscoverItem(discoverItem),
+                homeListItem: HomeListItem.fromTmdbItem(discoverItem),
                 debugIndex: index,
                 onPressed: () {},
               );

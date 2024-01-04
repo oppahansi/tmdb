@@ -6,7 +6,7 @@ part of 'trending_items_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$trendinResponseHash() => r'ecdcf0bb667786dd1cfde03b0539608e9bca0330';
+String _$trendinResponseHash() => r'bad140a1afea9700a18e2e038a908a691f7c9f2a';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -34,7 +34,7 @@ class _SystemHash {
 const trendinResponseProvider = TrendinResponseFamily();
 
 /// See also [trendinResponse].
-class TrendinResponseFamily extends Family<AsyncValue<TrendingResponse>> {
+class TrendinResponseFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [trendinResponse].
   const TrendinResponseFamily();
 
@@ -72,8 +72,7 @@ class TrendinResponseFamily extends Family<AsyncValue<TrendingResponse>> {
 }
 
 /// See also [trendinResponse].
-class TrendinResponseProvider
-    extends AutoDisposeFutureProvider<TrendingResponse> {
+class TrendinResponseProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [trendinResponse].
   TrendinResponseProvider({
     required ResponsePagination pagination,
@@ -108,7 +107,7 @@ class TrendinResponseProvider
 
   @override
   Override overrideWith(
-    FutureOr<TrendingResponse> Function(TrendinResponseRef provider) create,
+    FutureOr<TmdbResponse> Function(TrendinResponseRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -125,7 +124,7 @@ class TrendinResponseProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<TrendingResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _TrendinResponseProviderElement(this);
   }
 
@@ -143,13 +142,13 @@ class TrendinResponseProvider
   }
 }
 
-mixin TrendinResponseRef on AutoDisposeFutureProviderRef<TrendingResponse> {
+mixin TrendinResponseRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _TrendinResponseProviderElement
-    extends AutoDisposeFutureProviderElement<TrendingResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with TrendinResponseRef {
   _TrendinResponseProviderElement(super.provider);
 

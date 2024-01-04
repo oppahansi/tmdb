@@ -7,14 +7,14 @@ import 'package:riverpod/src/framework.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/movies/domain/movie_list_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 
 part 'movie_list_items_provider.g.dart';
 
 @riverpod
-Future<MovieListResponse> popularMovies(
+Future<TmdbResponse> popularMovies(
   PopularMoviesRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -33,7 +33,7 @@ Future<MovieListResponse> popularMovies(
 }
 
 @riverpod
-Future<MovieListResponse> nowPlayingMovies(
+Future<TmdbResponse> nowPlayingMovies(
   NowPlayingMoviesRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -52,7 +52,7 @@ Future<MovieListResponse> nowPlayingMovies(
 }
 
 @riverpod
-Future<MovieListResponse> upcomingMovies(
+Future<TmdbResponse> upcomingMovies(
   UpcomingMoviesRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -71,7 +71,7 @@ Future<MovieListResponse> upcomingMovies(
 }
 
 @riverpod
-Future<MovieListResponse> topRatedMovies(
+Future<TmdbResponse> topRatedMovies(
   TopRatedMoviesRef ref, {
   required ResponsePagination pagination,
 }) async {

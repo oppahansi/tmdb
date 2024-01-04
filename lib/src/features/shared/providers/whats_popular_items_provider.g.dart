@@ -7,7 +7,7 @@ part of 'whats_popular_items_provider.dart';
 // **************************************************************************
 
 String _$popularStreamingItemsHash() =>
-    r'335f6634c17fbb820f2cb6cb289dd2086fb50422';
+    r'1503f95356b6ab9dd2572bdff08ab206e9cdc03a';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -35,7 +35,7 @@ class _SystemHash {
 const popularStreamingItemsProvider = PopularStreamingItemsFamily();
 
 /// See also [popularStreamingItems].
-class PopularStreamingItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
+class PopularStreamingItemsFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [popularStreamingItems].
   const PopularStreamingItemsFamily();
 
@@ -74,7 +74,7 @@ class PopularStreamingItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
 
 /// See also [popularStreamingItems].
 class PopularStreamingItemsProvider
-    extends AutoDisposeFutureProvider<DiscoverResponse> {
+    extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularStreamingItems].
   PopularStreamingItemsProvider({
     required ResponsePagination pagination,
@@ -109,8 +109,7 @@ class PopularStreamingItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<DiscoverResponse> Function(PopularStreamingItemsRef provider)
-        create,
+    FutureOr<TmdbResponse> Function(PopularStreamingItemsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -127,7 +126,7 @@ class PopularStreamingItemsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<DiscoverResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _PopularStreamingItemsProviderElement(this);
   }
 
@@ -146,14 +145,13 @@ class PopularStreamingItemsProvider
   }
 }
 
-mixin PopularStreamingItemsRef
-    on AutoDisposeFutureProviderRef<DiscoverResponse> {
+mixin PopularStreamingItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _PopularStreamingItemsProviderElement
-    extends AutoDisposeFutureProviderElement<DiscoverResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with PopularStreamingItemsRef {
   _PopularStreamingItemsProviderElement(super.provider);
 
@@ -162,14 +160,14 @@ class _PopularStreamingItemsProviderElement
       (origin as PopularStreamingItemsProvider).pagination;
 }
 
-String _$popularOnTvItemsHash() => r'5a7a0b90495809bbb6943b881e14c407c5afa9a7';
+String _$popularOnTvItemsHash() => r'd505122dfc11e89de58f43fc7e6313caf7d4da89';
 
 /// See also [popularOnTvItems].
 @ProviderFor(popularOnTvItems)
 const popularOnTvItemsProvider = PopularOnTvItemsFamily();
 
 /// See also [popularOnTvItems].
-class PopularOnTvItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
+class PopularOnTvItemsFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [popularOnTvItems].
   const PopularOnTvItemsFamily();
 
@@ -207,8 +205,7 @@ class PopularOnTvItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
 }
 
 /// See also [popularOnTvItems].
-class PopularOnTvItemsProvider
-    extends AutoDisposeFutureProvider<DiscoverResponse> {
+class PopularOnTvItemsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularOnTvItems].
   PopularOnTvItemsProvider({
     required ResponsePagination pagination,
@@ -243,7 +240,7 @@ class PopularOnTvItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<DiscoverResponse> Function(PopularOnTvItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(PopularOnTvItemsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -260,7 +257,7 @@ class PopularOnTvItemsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<DiscoverResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _PopularOnTvItemsProviderElement(this);
   }
 
@@ -278,13 +275,13 @@ class PopularOnTvItemsProvider
   }
 }
 
-mixin PopularOnTvItemsRef on AutoDisposeFutureProviderRef<DiscoverResponse> {
+mixin PopularOnTvItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _PopularOnTvItemsProviderElement
-    extends AutoDisposeFutureProviderElement<DiscoverResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with PopularOnTvItemsRef {
   _PopularOnTvItemsProviderElement(super.provider);
 
@@ -294,14 +291,14 @@ class _PopularOnTvItemsProviderElement
 }
 
 String _$popularForRentItemsHash() =>
-    r'd1c96e2cf82d7e52fae7406af14b878274daf894';
+    r'1a80144a0205760583450dfb1244559f423674a8';
 
 /// See also [popularForRentItems].
 @ProviderFor(popularForRentItems)
 const popularForRentItemsProvider = PopularForRentItemsFamily();
 
 /// See also [popularForRentItems].
-class PopularForRentItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
+class PopularForRentItemsFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [popularForRentItems].
   const PopularForRentItemsFamily();
 
@@ -340,7 +337,7 @@ class PopularForRentItemsFamily extends Family<AsyncValue<DiscoverResponse>> {
 
 /// See also [popularForRentItems].
 class PopularForRentItemsProvider
-    extends AutoDisposeFutureProvider<DiscoverResponse> {
+    extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularForRentItems].
   PopularForRentItemsProvider({
     required ResponsePagination pagination,
@@ -375,7 +372,7 @@ class PopularForRentItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<DiscoverResponse> Function(PopularForRentItemsRef provider) create,
+    FutureOr<TmdbResponse> Function(PopularForRentItemsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -392,7 +389,7 @@ class PopularForRentItemsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<DiscoverResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _PopularForRentItemsProviderElement(this);
   }
 
@@ -411,13 +408,13 @@ class PopularForRentItemsProvider
   }
 }
 
-mixin PopularForRentItemsRef on AutoDisposeFutureProviderRef<DiscoverResponse> {
+mixin PopularForRentItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _PopularForRentItemsProviderElement
-    extends AutoDisposeFutureProviderElement<DiscoverResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with PopularForRentItemsRef {
   _PopularForRentItemsProviderElement(super.provider);
 
@@ -427,15 +424,14 @@ class _PopularForRentItemsProviderElement
 }
 
 String _$popularInTheatersItemsHash() =>
-    r'6d497956d4fe7ceb112ff541ab20b5521dee6eee';
+    r'6a8f91d23cdbbd0fc3fdd6f5e8fed6967930afdd';
 
 /// See also [popularInTheatersItems].
 @ProviderFor(popularInTheatersItems)
 const popularInTheatersItemsProvider = PopularInTheatersItemsFamily();
 
 /// See also [popularInTheatersItems].
-class PopularInTheatersItemsFamily
-    extends Family<AsyncValue<DiscoverResponse>> {
+class PopularInTheatersItemsFamily extends Family<AsyncValue<TmdbResponse>> {
   /// See also [popularInTheatersItems].
   const PopularInTheatersItemsFamily();
 
@@ -474,7 +470,7 @@ class PopularInTheatersItemsFamily
 
 /// See also [popularInTheatersItems].
 class PopularInTheatersItemsProvider
-    extends AutoDisposeFutureProvider<DiscoverResponse> {
+    extends AutoDisposeFutureProvider<TmdbResponse> {
   /// See also [popularInTheatersItems].
   PopularInTheatersItemsProvider({
     required ResponsePagination pagination,
@@ -509,8 +505,7 @@ class PopularInTheatersItemsProvider
 
   @override
   Override overrideWith(
-    FutureOr<DiscoverResponse> Function(PopularInTheatersItemsRef provider)
-        create,
+    FutureOr<TmdbResponse> Function(PopularInTheatersItemsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -527,7 +522,7 @@ class PopularInTheatersItemsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<DiscoverResponse> createElement() {
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
     return _PopularInTheatersItemsProviderElement(this);
   }
 
@@ -546,14 +541,13 @@ class PopularInTheatersItemsProvider
   }
 }
 
-mixin PopularInTheatersItemsRef
-    on AutoDisposeFutureProviderRef<DiscoverResponse> {
+mixin PopularInTheatersItemsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   ResponsePagination get pagination;
 }
 
 class _PopularInTheatersItemsProviderElement
-    extends AutoDisposeFutureProviderElement<DiscoverResponse>
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
     with PopularInTheatersItemsRef {
   _PopularInTheatersItemsProviderElement(super.provider);
 

@@ -41,17 +41,17 @@ class TodayContent extends ConsumerWidget {
               height: height,
             ),
             data: (data) {
-              if (indexInPage >= data.trendingItems!.length) {
+              if (indexInPage >= data.tmdbItems!.length) {
                 return HomeListTileShimmer(
                   width: width,
                   height: height,
                 );
               }
 
-              final streamingItem = data.trendingItems![indexInPage];
+              final streamingItem = data.tmdbItems![indexInPage];
 
               return HomeListTile(
-                homeListItem: HomeListItem.fromTrendingItem(streamingItem),
+                homeListItem: HomeListItem.fromTmdbItem(streamingItem),
                 debugIndex: index,
                 onPressed: () {},
               );

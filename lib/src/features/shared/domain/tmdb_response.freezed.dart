@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'discover_response.dart';
+part of 'tmdb_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,16 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-DiscoverResponse _$DiscoverResponseFromJson(Map<String, dynamic> json) {
-  return _DiscoverResponse.fromJson(json);
+TmdbResponse _$TmdbResponseFromJson(Map<String, dynamic> json) {
+  return _TrendingResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$DiscoverResponse {
+mixin _$TmdbResponse {
   @JsonKey(name: 'page')
   int? get page => throw _privateConstructorUsedError;
   @JsonKey(name: 'results')
-  List<DiscoverItem>? get discoverItems => throw _privateConstructorUsedError;
+  List<TmdbItem>? get tmdbItems => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_pages')
   int? get totalPages => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_results')
@@ -31,27 +31,27 @@ mixin _$DiscoverResponse {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DiscoverResponseCopyWith<DiscoverResponse> get copyWith =>
+  $TmdbResponseCopyWith<TmdbResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DiscoverResponseCopyWith<$Res> {
-  factory $DiscoverResponseCopyWith(
-          DiscoverResponse value, $Res Function(DiscoverResponse) then) =
-      _$DiscoverResponseCopyWithImpl<$Res, DiscoverResponse>;
+abstract class $TmdbResponseCopyWith<$Res> {
+  factory $TmdbResponseCopyWith(
+          TmdbResponse value, $Res Function(TmdbResponse) then) =
+      _$TmdbResponseCopyWithImpl<$Res, TmdbResponse>;
   @useResult
   $Res call(
       {@JsonKey(name: 'page') int? page,
-      @JsonKey(name: 'results') List<DiscoverItem>? discoverItems,
+      @JsonKey(name: 'results') List<TmdbItem>? tmdbItems,
       @JsonKey(name: 'total_pages') int? totalPages,
       @JsonKey(name: 'total_results') int? totalResults});
 }
 
 /// @nodoc
-class _$DiscoverResponseCopyWithImpl<$Res, $Val extends DiscoverResponse>
-    implements $DiscoverResponseCopyWith<$Res> {
-  _$DiscoverResponseCopyWithImpl(this._value, this._then);
+class _$TmdbResponseCopyWithImpl<$Res, $Val extends TmdbResponse>
+    implements $TmdbResponseCopyWith<$Res> {
+  _$TmdbResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,7 +62,7 @@ class _$DiscoverResponseCopyWithImpl<$Res, $Val extends DiscoverResponse>
   @override
   $Res call({
     Object? page = freezed,
-    Object? discoverItems = freezed,
+    Object? tmdbItems = freezed,
     Object? totalPages = freezed,
     Object? totalResults = freezed,
   }) {
@@ -71,10 +71,10 @@ class _$DiscoverResponseCopyWithImpl<$Res, $Val extends DiscoverResponse>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
-      discoverItems: freezed == discoverItems
-          ? _value.discoverItems
-          : discoverItems // ignore: cast_nullable_to_non_nullable
-              as List<DiscoverItem>?,
+      tmdbItems: freezed == tmdbItems
+          ? _value.tmdbItems
+          : tmdbItems // ignore: cast_nullable_to_non_nullable
+              as List<TmdbItem>?,
       totalPages: freezed == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
@@ -88,45 +88,45 @@ class _$DiscoverResponseCopyWithImpl<$Res, $Val extends DiscoverResponse>
 }
 
 /// @nodoc
-abstract class _$$DiscoverResponseImplCopyWith<$Res>
-    implements $DiscoverResponseCopyWith<$Res> {
-  factory _$$DiscoverResponseImplCopyWith(_$DiscoverResponseImpl value,
-          $Res Function(_$DiscoverResponseImpl) then) =
-      __$$DiscoverResponseImplCopyWithImpl<$Res>;
+abstract class _$$TrendingResponseImplCopyWith<$Res>
+    implements $TmdbResponseCopyWith<$Res> {
+  factory _$$TrendingResponseImplCopyWith(_$TrendingResponseImpl value,
+          $Res Function(_$TrendingResponseImpl) then) =
+      __$$TrendingResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@JsonKey(name: 'page') int? page,
-      @JsonKey(name: 'results') List<DiscoverItem>? discoverItems,
+      @JsonKey(name: 'results') List<TmdbItem>? tmdbItems,
       @JsonKey(name: 'total_pages') int? totalPages,
       @JsonKey(name: 'total_results') int? totalResults});
 }
 
 /// @nodoc
-class __$$DiscoverResponseImplCopyWithImpl<$Res>
-    extends _$DiscoverResponseCopyWithImpl<$Res, _$DiscoverResponseImpl>
-    implements _$$DiscoverResponseImplCopyWith<$Res> {
-  __$$DiscoverResponseImplCopyWithImpl(_$DiscoverResponseImpl _value,
-      $Res Function(_$DiscoverResponseImpl) _then)
+class __$$TrendingResponseImplCopyWithImpl<$Res>
+    extends _$TmdbResponseCopyWithImpl<$Res, _$TrendingResponseImpl>
+    implements _$$TrendingResponseImplCopyWith<$Res> {
+  __$$TrendingResponseImplCopyWithImpl(_$TrendingResponseImpl _value,
+      $Res Function(_$TrendingResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? page = freezed,
-    Object? discoverItems = freezed,
+    Object? tmdbItems = freezed,
     Object? totalPages = freezed,
     Object? totalResults = freezed,
   }) {
-    return _then(_$DiscoverResponseImpl(
+    return _then(_$TrendingResponseImpl(
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
-      discoverItems: freezed == discoverItems
-          ? _value._discoverItems
-          : discoverItems // ignore: cast_nullable_to_non_nullable
-              as List<DiscoverItem>?,
+      tmdbItems: freezed == tmdbItems
+          ? _value._tmdbItems
+          : tmdbItems // ignore: cast_nullable_to_non_nullable
+              as List<TmdbItem>?,
       totalPages: freezed == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
@@ -141,29 +141,29 @@ class __$$DiscoverResponseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DiscoverResponseImpl
+class _$TrendingResponseImpl
     with DiagnosticableTreeMixin
-    implements _DiscoverResponse {
-  const _$DiscoverResponseImpl(
+    implements _TrendingResponse {
+  const _$TrendingResponseImpl(
       {@JsonKey(name: 'page') this.page,
-      @JsonKey(name: 'results') final List<DiscoverItem>? discoverItems,
+      @JsonKey(name: 'results') final List<TmdbItem>? tmdbItems,
       @JsonKey(name: 'total_pages') this.totalPages,
       @JsonKey(name: 'total_results') this.totalResults})
-      : _discoverItems = discoverItems;
+      : _tmdbItems = tmdbItems;
 
-  factory _$DiscoverResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DiscoverResponseImplFromJson(json);
+  factory _$TrendingResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TrendingResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'page')
   final int? page;
-  final List<DiscoverItem>? _discoverItems;
+  final List<TmdbItem>? _tmdbItems;
   @override
   @JsonKey(name: 'results')
-  List<DiscoverItem>? get discoverItems {
-    final value = _discoverItems;
+  List<TmdbItem>? get tmdbItems {
+    final value = _tmdbItems;
     if (value == null) return null;
-    if (_discoverItems is EqualUnmodifiableListView) return _discoverItems;
+    if (_tmdbItems is EqualUnmodifiableListView) return _tmdbItems;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -177,16 +177,16 @@ class _$DiscoverResponseImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DiscoverResponse(page: $page, discoverItems: $discoverItems, totalPages: $totalPages, totalResults: $totalResults)';
+    return 'TmdbResponse(page: $page, tmdbItems: $tmdbItems, totalPages: $totalPages, totalResults: $totalResults)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'DiscoverResponse'))
+      ..add(DiagnosticsProperty('type', 'TmdbResponse'))
       ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('discoverItems', discoverItems))
+      ..add(DiagnosticsProperty('tmdbItems', tmdbItems))
       ..add(DiagnosticsProperty('totalPages', totalPages))
       ..add(DiagnosticsProperty('totalResults', totalResults));
   }
@@ -195,10 +195,10 @@ class _$DiscoverResponseImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DiscoverResponseImpl &&
+            other is _$TrendingResponseImpl &&
             (identical(other.page, page) || other.page == page) &&
             const DeepCollectionEquality()
-                .equals(other._discoverItems, _discoverItems) &&
+                .equals(other._tmdbItems, _tmdbItems) &&
             (identical(other.totalPages, totalPages) ||
                 other.totalPages == totalPages) &&
             (identical(other.totalResults, totalResults) ||
@@ -210,42 +210,42 @@ class _$DiscoverResponseImpl
   int get hashCode => Object.hash(
       runtimeType,
       page,
-      const DeepCollectionEquality().hash(_discoverItems),
+      const DeepCollectionEquality().hash(_tmdbItems),
       totalPages,
       totalResults);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DiscoverResponseImplCopyWith<_$DiscoverResponseImpl> get copyWith =>
-      __$$DiscoverResponseImplCopyWithImpl<_$DiscoverResponseImpl>(
+  _$$TrendingResponseImplCopyWith<_$TrendingResponseImpl> get copyWith =>
+      __$$TrendingResponseImplCopyWithImpl<_$TrendingResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DiscoverResponseImplToJson(
+    return _$$TrendingResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _DiscoverResponse implements DiscoverResponse {
-  const factory _DiscoverResponse(
+abstract class _TrendingResponse implements TmdbResponse {
+  const factory _TrendingResponse(
           {@JsonKey(name: 'page') final int? page,
-          @JsonKey(name: 'results') final List<DiscoverItem>? discoverItems,
+          @JsonKey(name: 'results') final List<TmdbItem>? tmdbItems,
           @JsonKey(name: 'total_pages') final int? totalPages,
           @JsonKey(name: 'total_results') final int? totalResults}) =
-      _$DiscoverResponseImpl;
+      _$TrendingResponseImpl;
 
-  factory _DiscoverResponse.fromJson(Map<String, dynamic> json) =
-      _$DiscoverResponseImpl.fromJson;
+  factory _TrendingResponse.fromJson(Map<String, dynamic> json) =
+      _$TrendingResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'page')
   int? get page;
   @override
   @JsonKey(name: 'results')
-  List<DiscoverItem>? get discoverItems;
+  List<TmdbItem>? get tmdbItems;
   @override
   @JsonKey(name: 'total_pages')
   int? get totalPages;
@@ -254,16 +254,16 @@ abstract class _DiscoverResponse implements DiscoverResponse {
   int? get totalResults;
   @override
   @JsonKey(ignore: true)
-  _$$DiscoverResponseImplCopyWith<_$DiscoverResponseImpl> get copyWith =>
+  _$$TrendingResponseImplCopyWith<_$TrendingResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-DiscoverItem _$DiscoverItemFromJson(Map<String, dynamic> json) {
-  return _DiscoverItem.fromJson(json);
+TmdbItem _$TmdbItemFromJson(Map<String, dynamic> json) {
+  return _TmdbItem.fromJson(json);
 }
 
 /// @nodoc
-mixin _$DiscoverItem {
+mixin _$TmdbItem {
   @JsonKey(name: 'adult')
   bool? get adult => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
@@ -305,15 +305,14 @@ mixin _$DiscoverItem {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DiscoverItemCopyWith<DiscoverItem> get copyWith =>
+  $TmdbItemCopyWith<TmdbItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DiscoverItemCopyWith<$Res> {
-  factory $DiscoverItemCopyWith(
-          DiscoverItem value, $Res Function(DiscoverItem) then) =
-      _$DiscoverItemCopyWithImpl<$Res, DiscoverItem>;
+abstract class $TmdbItemCopyWith<$Res> {
+  factory $TmdbItemCopyWith(TmdbItem value, $Res Function(TmdbItem) then) =
+      _$TmdbItemCopyWithImpl<$Res, TmdbItem>;
   @useResult
   $Res call(
       {@JsonKey(name: 'adult') bool? adult,
@@ -338,9 +337,9 @@ abstract class $DiscoverItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DiscoverItemCopyWithImpl<$Res, $Val extends DiscoverItem>
-    implements $DiscoverItemCopyWith<$Res> {
-  _$DiscoverItemCopyWithImpl(this._value, this._then);
+class _$TmdbItemCopyWithImpl<$Res, $Val extends TmdbItem>
+    implements $TmdbItemCopyWith<$Res> {
+  _$TmdbItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -452,11 +451,11 @@ class _$DiscoverItemCopyWithImpl<$Res, $Val extends DiscoverItem>
 }
 
 /// @nodoc
-abstract class _$$DiscoverItemImplCopyWith<$Res>
-    implements $DiscoverItemCopyWith<$Res> {
-  factory _$$DiscoverItemImplCopyWith(
-          _$DiscoverItemImpl value, $Res Function(_$DiscoverItemImpl) then) =
-      __$$DiscoverItemImplCopyWithImpl<$Res>;
+abstract class _$$TmdbItemImplCopyWith<$Res>
+    implements $TmdbItemCopyWith<$Res> {
+  factory _$$TmdbItemImplCopyWith(
+          _$TmdbItemImpl value, $Res Function(_$TmdbItemImpl) then) =
+      __$$TmdbItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -482,11 +481,11 @@ abstract class _$$DiscoverItemImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DiscoverItemImplCopyWithImpl<$Res>
-    extends _$DiscoverItemCopyWithImpl<$Res, _$DiscoverItemImpl>
-    implements _$$DiscoverItemImplCopyWith<$Res> {
-  __$$DiscoverItemImplCopyWithImpl(
-      _$DiscoverItemImpl _value, $Res Function(_$DiscoverItemImpl) _then)
+class __$$TmdbItemImplCopyWithImpl<$Res>
+    extends _$TmdbItemCopyWithImpl<$Res, _$TmdbItemImpl>
+    implements _$$TmdbItemImplCopyWith<$Res> {
+  __$$TmdbItemImplCopyWithImpl(
+      _$TmdbItemImpl _value, $Res Function(_$TmdbItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -512,7 +511,7 @@ class __$$DiscoverItemImplCopyWithImpl<$Res>
     Object? originalName = freezed,
     Object? firstAirDate = freezed,
   }) {
-    return _then(_$DiscoverItemImpl(
+    return _then(_$TmdbItemImpl(
       adult: freezed == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -595,8 +594,8 @@ class __$$DiscoverItemImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
-  const _$DiscoverItemImpl(
+class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
+  const _$TmdbItemImpl(
       {@JsonKey(name: 'adult') this.adult,
       @JsonKey(name: 'backdrop_path') this.backdropPath,
       @JsonKey(name: 'id') this.id,
@@ -619,8 +618,8 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
       : _genreIds = genreIds,
         _originCountry = originCountry;
 
-  factory _$DiscoverItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DiscoverItemImplFromJson(json);
+  factory _$TmdbItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TmdbItemImplFromJson(json);
 
   @override
   @JsonKey(name: 'adult')
@@ -698,14 +697,14 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DiscoverItem(adult: $adult, backdropPath: $backdropPath, id: $id, title: $title, name: $name, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, originCountry: $originCountry, originalName: $originalName, firstAirDate: $firstAirDate)';
+    return 'TmdbItem(adult: $adult, backdropPath: $backdropPath, id: $id, title: $title, name: $name, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, originCountry: $originCountry, originalName: $originalName, firstAirDate: $firstAirDate)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'DiscoverItem'))
+      ..add(DiagnosticsProperty('type', 'TmdbItem'))
       ..add(DiagnosticsProperty('adult', adult))
       ..add(DiagnosticsProperty('backdropPath', backdropPath))
       ..add(DiagnosticsProperty('id', id))
@@ -731,7 +730,7 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DiscoverItemImpl &&
+            other is _$TmdbItemImpl &&
             (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
@@ -794,19 +793,19 @@ class _$DiscoverItemImpl with DiagnosticableTreeMixin implements _DiscoverItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DiscoverItemImplCopyWith<_$DiscoverItemImpl> get copyWith =>
-      __$$DiscoverItemImplCopyWithImpl<_$DiscoverItemImpl>(this, _$identity);
+  _$$TmdbItemImplCopyWith<_$TmdbItemImpl> get copyWith =>
+      __$$TmdbItemImplCopyWithImpl<_$TmdbItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DiscoverItemImplToJson(
+    return _$$TmdbItemImplToJson(
       this,
     );
   }
 }
 
-abstract class _DiscoverItem implements DiscoverItem {
-  const factory _DiscoverItem(
+abstract class _TmdbItem implements TmdbItem {
+  const factory _TmdbItem(
           {@JsonKey(name: 'adult') final bool? adult,
           @JsonKey(name: 'backdrop_path') final String? backdropPath,
           @JsonKey(name: 'id') final int? id,
@@ -826,10 +825,10 @@ abstract class _DiscoverItem implements DiscoverItem {
           @JsonKey(name: 'origin_country') final List<String>? originCountry,
           @JsonKey(name: 'original_name') final String? originalName,
           @JsonKey(name: 'first_air_date') final String? firstAirDate}) =
-      _$DiscoverItemImpl;
+      _$TmdbItemImpl;
 
-  factory _DiscoverItem.fromJson(Map<String, dynamic> json) =
-      _$DiscoverItemImpl.fromJson;
+  factory _TmdbItem.fromJson(Map<String, dynamic> json) =
+      _$TmdbItemImpl.fromJson;
 
   @override
   @JsonKey(name: 'adult')
@@ -890,6 +889,6 @@ abstract class _DiscoverItem implements DiscoverItem {
   String? get firstAirDate;
   @override
   @JsonKey(ignore: true)
-  _$$DiscoverItemImplCopyWith<_$DiscoverItemImpl> get copyWith =>
+  _$$TmdbItemImplCopyWith<_$TmdbItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

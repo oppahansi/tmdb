@@ -4,25 +4,25 @@ import 'package:flutter/foundation.dart';
 // Package Imports
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'discover_response.freezed.dart';
-part 'discover_response.g.dart';
+part 'tmdb_response.freezed.dart';
+part 'tmdb_response.g.dart';
 
 @freezed
-class DiscoverResponse with _$DiscoverResponse {
-  const factory DiscoverResponse({
+class TmdbResponse with _$TmdbResponse {
+  const factory TmdbResponse({
     @JsonKey(name: 'page') int? page,
-    @JsonKey(name: 'results') List<DiscoverItem>? discoverItems,
+    @JsonKey(name: 'results') List<TmdbItem>? tmdbItems,
     @JsonKey(name: 'total_pages') int? totalPages,
     @JsonKey(name: 'total_results') int? totalResults,
-  }) = _DiscoverResponse;
+  }) = _TrendingResponse;
 
-  factory DiscoverResponse.fromJson(Map<String, Object?> json) =>
-      _$DiscoverResponseFromJson(json);
+  factory TmdbResponse.fromJson(Map<String, Object?> json) =>
+      _$TmdbResponseFromJson(json);
 }
 
 @freezed
-class DiscoverItem with _$DiscoverItem {
-  const factory DiscoverItem({
+class TmdbItem with _$TmdbItem {
+  const factory TmdbItem({
     @JsonKey(name: 'adult') bool? adult,
     @JsonKey(name: 'backdrop_path') String? backdropPath,
     @JsonKey(name: 'id') int? id,
@@ -42,8 +42,8 @@ class DiscoverItem with _$DiscoverItem {
     @JsonKey(name: 'origin_country') List<String>? originCountry,
     @JsonKey(name: 'original_name') String? originalName,
     @JsonKey(name: 'first_air_date') String? firstAirDate,
-  }) = _DiscoverItem;
+  }) = _TmdbItem;
 
-  factory DiscoverItem.fromJson(Map<String, Object?> json) =>
-      _$DiscoverItemFromJson(json);
+  factory TmdbItem.fromJson(Map<String, Object?> json) =>
+      _$TmdbItemFromJson(json);
 }

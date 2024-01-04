@@ -47,18 +47,17 @@ class TopRatedMoviesContent extends ConsumerWidget {
                     height: height,
                   ),
                   data: (data) {
-                    if (indexInPage >= data.movieListItems!.length) {
+                    if (indexInPage >= data.tmdbItems!.length) {
                       return HomeListTileShimmer(
                         width: width,
                         height: height,
                       );
                     }
 
-                    final popularMovie = data.movieListItems![indexInPage];
+                    final popularMovie = data.tmdbItems![indexInPage];
 
                     return HomeListTile(
-                      homeListItem:
-                          HomeListItem.fromMovieListItem(popularMovie),
+                      homeListItem: HomeListItem.fromTmdbItem(popularMovie),
                       debugIndex: index,
                       onPressed: () {},
                     );

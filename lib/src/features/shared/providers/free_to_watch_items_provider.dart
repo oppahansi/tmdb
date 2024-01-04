@@ -9,14 +9,14 @@ import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/shared/domain/discover_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/response_pagination.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 
 part 'free_to_watch_items_provider.g.dart';
 
 @riverpod
-Future<DiscoverResponse> freeToWatchMovieItems(
+Future<TmdbResponse> freeToWatchMovieItems(
   FreeToWatchMovieItemsRef ref, {
   required ResponsePagination pagination,
 }) async {
@@ -35,7 +35,7 @@ Future<DiscoverResponse> freeToWatchMovieItems(
 }
 
 @riverpod
-Future<DiscoverResponse> freeToWatchTvItems(
+Future<TmdbResponse> freeToWatchTvItems(
   FreeToWatchTvItemsRef ref, {
   required ResponsePagination pagination,
 }) async {
