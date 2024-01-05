@@ -20,7 +20,7 @@ class MoviesScreen extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("TMDB"),
+          title: const Text("TMDB Movies"),
           actions: const [
             ThemeToggle(),
           ],

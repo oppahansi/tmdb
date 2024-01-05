@@ -417,5 +417,135 @@ class _OnTvTvShowsProviderElement
   @override
   TmdbPagination get pagination => (origin as OnTvTvShowsProvider).pagination;
 }
+
+String _$topRatedTvShowsHash() => r'7d9f842bece5f6730d725eb37c12d6607268dac4';
+
+/// See also [topRatedTvShows].
+@ProviderFor(topRatedTvShows)
+const topRatedTvShowsProvider = TopRatedTvShowsFamily();
+
+/// See also [topRatedTvShows].
+class TopRatedTvShowsFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [topRatedTvShows].
+  const TopRatedTvShowsFamily();
+
+  /// See also [topRatedTvShows].
+  TopRatedTvShowsProvider call({
+    required TmdbPagination pagination,
+  }) {
+    return TopRatedTvShowsProvider(
+      pagination: pagination,
+    );
+  }
+
+  @override
+  TopRatedTvShowsProvider getProviderOverride(
+    covariant TopRatedTvShowsProvider provider,
+  ) {
+    return call(
+      pagination: provider.pagination,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'topRatedTvShowsProvider';
+}
+
+/// See also [topRatedTvShows].
+class TopRatedTvShowsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [topRatedTvShows].
+  TopRatedTvShowsProvider({
+    required TmdbPagination pagination,
+  }) : this._internal(
+          (ref) => topRatedTvShows(
+            ref as TopRatedTvShowsRef,
+            pagination: pagination,
+          ),
+          from: topRatedTvShowsProvider,
+          name: r'topRatedTvShowsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$topRatedTvShowsHash,
+          dependencies: TopRatedTvShowsFamily._dependencies,
+          allTransitiveDependencies:
+              TopRatedTvShowsFamily._allTransitiveDependencies,
+          pagination: pagination,
+        );
+
+  TopRatedTvShowsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pagination,
+  }) : super.internal();
+
+  final TmdbPagination pagination;
+
+  @override
+  Override overrideWith(
+    FutureOr<TmdbResponse> Function(TopRatedTvShowsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: TopRatedTvShowsProvider._internal(
+        (ref) => create(ref as TopRatedTvShowsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pagination: pagination,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
+    return _TopRatedTvShowsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is TopRatedTvShowsProvider && other.pagination == pagination;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pagination.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin TopRatedTvShowsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+  /// The parameter `pagination` of this provider.
+  TmdbPagination get pagination;
+}
+
+class _TopRatedTvShowsProviderElement
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
+    with TopRatedTvShowsRef {
+  _TopRatedTvShowsProviderElement(super.provider);
+
+  @override
+  TmdbPagination get pagination =>
+      (origin as TopRatedTvShowsProvider).pagination;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
