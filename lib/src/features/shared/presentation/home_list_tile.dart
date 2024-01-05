@@ -96,17 +96,17 @@ class MovieRating extends StatelessWidget {
   final HomeListItem homeListItem;
   @override
   Widget build(BuildContext context) {
-    final movieRating = homeListItem.voteAverage ?? 0;
+    final movieRating = homeListItem.voteAverage != null
+        ? homeListItem.voteAverage! * 10.0
+        : 0.0;
 
     return Stack(children: [
-      if (homeListItem.voteAverage != null)
-        CircularProgressIndicator(
-          value: homeListItem.voteAverage! / 10,
-          valueColor:
-              AlwaysStoppedAnimation<Color>(getRatingColor(movieRating)),
-          backgroundColor: Colors.black,
-          strokeWidth: 2,
-        ),
+      CircularProgressIndicator(
+        value: movieRating / 100.0,
+        valueColor: AlwaysStoppedAnimation<Color>(getRatingColor(movieRating)),
+        backgroundColor: Colors.black,
+        strokeWidth: 2,
+      ),
       if (homeListItem.voteAverage != null)
         Positioned(
           left: 8,
