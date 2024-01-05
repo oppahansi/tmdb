@@ -7,6 +7,7 @@ import 'package:oppa_tmdb/src/features/people/presentation/people_content.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/row_header.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
+import 'package:oppa_tmdb/src/features/shared/presentation/tmdb_title.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/trending_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
@@ -18,7 +19,7 @@ class PeopleScreen extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("TMDB People"),
+          title: const TmdbTitle(),
           actions: const [
             ThemeToggle(),
           ],

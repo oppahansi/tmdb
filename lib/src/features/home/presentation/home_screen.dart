@@ -8,6 +8,7 @@ import 'package:oppa_tmdb/src/features/home/presentation/trending/trending_row.d
 import 'package:oppa_tmdb/src/features/home/presentation/whats_popular/whats_popular_row.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
+import 'package:oppa_tmdb/src/features/shared/presentation/tmdb_title.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/trending_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("TMDB"),
+          title: const TmdbTitle(),
           actions: const [
             ThemeToggle(),
           ],

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
+import 'package:oppa_tmdb/src/features/shared/presentation/tmdb_title.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/trending_provider.dart';
 import 'package:oppa_tmdb/src/features/tv_shows/presentation/airing_today/airing_today_tv_shows_row.dart';
 import 'package:oppa_tmdb/src/features/tv_shows/presentation/on_tv/on_tv_tv_shows_row.dart';
@@ -20,7 +21,7 @@ class TvShowsScreen extends ConsumerWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("TMDB Tv Shows"),
+          title: const TmdbTitle(),
           actions: const [
             ThemeToggle(),
           ],
