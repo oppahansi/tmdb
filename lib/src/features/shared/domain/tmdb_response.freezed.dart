@@ -266,6 +266,8 @@ TmdbItem _$TmdbItemFromJson(Map<String, dynamic> json) {
 mixin _$TmdbItem {
   @JsonKey(name: 'adult')
   bool? get adult => throw _privateConstructorUsedError;
+  @JsonKey(name: 'gender')
+  int? get gender => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'id')
@@ -302,6 +304,12 @@ mixin _$TmdbItem {
   String? get originalName => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_air_date')
   String? get firstAirDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'known_for_department')
+  String? get knownForDepartment => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_path')
+  String? get profilePath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'known_for')
+  List<TmdbItem>? get knownFor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -316,6 +324,7 @@ abstract class $TmdbItemCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'adult') bool? adult,
+      @JsonKey(name: 'gender') int? gender,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       @JsonKey(name: 'id') int? id,
       @JsonKey(name: 'title') String? title,
@@ -333,7 +342,10 @@ abstract class $TmdbItemCopyWith<$Res> {
       @JsonKey(name: 'vote_count') int? voteCount,
       @JsonKey(name: 'origin_country') List<String>? originCountry,
       @JsonKey(name: 'original_name') String? originalName,
-      @JsonKey(name: 'first_air_date') String? firstAirDate});
+      @JsonKey(name: 'first_air_date') String? firstAirDate,
+      @JsonKey(name: 'known_for_department') String? knownForDepartment,
+      @JsonKey(name: 'profile_path') String? profilePath,
+      @JsonKey(name: 'known_for') List<TmdbItem>? knownFor});
 }
 
 /// @nodoc
@@ -350,6 +362,7 @@ class _$TmdbItemCopyWithImpl<$Res, $Val extends TmdbItem>
   @override
   $Res call({
     Object? adult = freezed,
+    Object? gender = freezed,
     Object? backdropPath = freezed,
     Object? id = freezed,
     Object? title = freezed,
@@ -368,12 +381,19 @@ class _$TmdbItemCopyWithImpl<$Res, $Val extends TmdbItem>
     Object? originCountry = freezed,
     Object? originalName = freezed,
     Object? firstAirDate = freezed,
+    Object? knownForDepartment = freezed,
+    Object? profilePath = freezed,
+    Object? knownFor = freezed,
   }) {
     return _then(_value.copyWith(
       adult: freezed == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
               as bool?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int?,
       backdropPath: freezed == backdropPath
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
@@ -446,6 +466,18 @@ class _$TmdbItemCopyWithImpl<$Res, $Val extends TmdbItem>
           ? _value.firstAirDate
           : firstAirDate // ignore: cast_nullable_to_non_nullable
               as String?,
+      knownForDepartment: freezed == knownForDepartment
+          ? _value.knownForDepartment
+          : knownForDepartment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePath: freezed == profilePath
+          ? _value.profilePath
+          : profilePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      knownFor: freezed == knownFor
+          ? _value.knownFor
+          : knownFor // ignore: cast_nullable_to_non_nullable
+              as List<TmdbItem>?,
     ) as $Val);
   }
 }
@@ -460,6 +492,7 @@ abstract class _$$TmdbItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'adult') bool? adult,
+      @JsonKey(name: 'gender') int? gender,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       @JsonKey(name: 'id') int? id,
       @JsonKey(name: 'title') String? title,
@@ -477,7 +510,10 @@ abstract class _$$TmdbItemImplCopyWith<$Res>
       @JsonKey(name: 'vote_count') int? voteCount,
       @JsonKey(name: 'origin_country') List<String>? originCountry,
       @JsonKey(name: 'original_name') String? originalName,
-      @JsonKey(name: 'first_air_date') String? firstAirDate});
+      @JsonKey(name: 'first_air_date') String? firstAirDate,
+      @JsonKey(name: 'known_for_department') String? knownForDepartment,
+      @JsonKey(name: 'profile_path') String? profilePath,
+      @JsonKey(name: 'known_for') List<TmdbItem>? knownFor});
 }
 
 /// @nodoc
@@ -492,6 +528,7 @@ class __$$TmdbItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? adult = freezed,
+    Object? gender = freezed,
     Object? backdropPath = freezed,
     Object? id = freezed,
     Object? title = freezed,
@@ -510,12 +547,19 @@ class __$$TmdbItemImplCopyWithImpl<$Res>
     Object? originCountry = freezed,
     Object? originalName = freezed,
     Object? firstAirDate = freezed,
+    Object? knownForDepartment = freezed,
+    Object? profilePath = freezed,
+    Object? knownFor = freezed,
   }) {
     return _then(_$TmdbItemImpl(
       adult: freezed == adult
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
               as bool?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int?,
       backdropPath: freezed == backdropPath
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
@@ -588,6 +632,18 @@ class __$$TmdbItemImplCopyWithImpl<$Res>
           ? _value.firstAirDate
           : firstAirDate // ignore: cast_nullable_to_non_nullable
               as String?,
+      knownForDepartment: freezed == knownForDepartment
+          ? _value.knownForDepartment
+          : knownForDepartment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePath: freezed == profilePath
+          ? _value.profilePath
+          : profilePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      knownFor: freezed == knownFor
+          ? _value._knownFor
+          : knownFor // ignore: cast_nullable_to_non_nullable
+              as List<TmdbItem>?,
     ));
   }
 }
@@ -597,6 +653,7 @@ class __$$TmdbItemImplCopyWithImpl<$Res>
 class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
   const _$TmdbItemImpl(
       {@JsonKey(name: 'adult') this.adult,
+      @JsonKey(name: 'gender') this.gender,
       @JsonKey(name: 'backdrop_path') this.backdropPath,
       @JsonKey(name: 'id') this.id,
       @JsonKey(name: 'title') this.title,
@@ -614,9 +671,13 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
       @JsonKey(name: 'vote_count') this.voteCount,
       @JsonKey(name: 'origin_country') final List<String>? originCountry,
       @JsonKey(name: 'original_name') this.originalName,
-      @JsonKey(name: 'first_air_date') this.firstAirDate})
+      @JsonKey(name: 'first_air_date') this.firstAirDate,
+      @JsonKey(name: 'known_for_department') this.knownForDepartment,
+      @JsonKey(name: 'profile_path') this.profilePath,
+      @JsonKey(name: 'known_for') final List<TmdbItem>? knownFor})
       : _genreIds = genreIds,
-        _originCountry = originCountry;
+        _originCountry = originCountry,
+        _knownFor = knownFor;
 
   factory _$TmdbItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$TmdbItemImplFromJson(json);
@@ -624,6 +685,9 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
   @override
   @JsonKey(name: 'adult')
   final bool? adult;
+  @override
+  @JsonKey(name: 'gender')
+  final int? gender;
   @override
   @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
@@ -694,10 +758,26 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
   @override
   @JsonKey(name: 'first_air_date')
   final String? firstAirDate;
+  @override
+  @JsonKey(name: 'known_for_department')
+  final String? knownForDepartment;
+  @override
+  @JsonKey(name: 'profile_path')
+  final String? profilePath;
+  final List<TmdbItem>? _knownFor;
+  @override
+  @JsonKey(name: 'known_for')
+  List<TmdbItem>? get knownFor {
+    final value = _knownFor;
+    if (value == null) return null;
+    if (_knownFor is EqualUnmodifiableListView) return _knownFor;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TmdbItem(adult: $adult, backdropPath: $backdropPath, id: $id, title: $title, name: $name, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, originCountry: $originCountry, originalName: $originalName, firstAirDate: $firstAirDate)';
+    return 'TmdbItem(adult: $adult, gender: $gender, backdropPath: $backdropPath, id: $id, title: $title, name: $name, genreIds: $genreIds, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, mediaType: $mediaType, releaseDate: $releaseDate, video: $video, voteAverage: $voteAverage, voteCount: $voteCount, originCountry: $originCountry, originalName: $originalName, firstAirDate: $firstAirDate, knownForDepartment: $knownForDepartment, profilePath: $profilePath, knownFor: $knownFor)';
   }
 
   @override
@@ -706,6 +786,7 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
     properties
       ..add(DiagnosticsProperty('type', 'TmdbItem'))
       ..add(DiagnosticsProperty('adult', adult))
+      ..add(DiagnosticsProperty('gender', gender))
       ..add(DiagnosticsProperty('backdropPath', backdropPath))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
@@ -723,7 +804,10 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
       ..add(DiagnosticsProperty('voteCount', voteCount))
       ..add(DiagnosticsProperty('originCountry', originCountry))
       ..add(DiagnosticsProperty('originalName', originalName))
-      ..add(DiagnosticsProperty('firstAirDate', firstAirDate));
+      ..add(DiagnosticsProperty('firstAirDate', firstAirDate))
+      ..add(DiagnosticsProperty('knownForDepartment', knownForDepartment))
+      ..add(DiagnosticsProperty('profilePath', profilePath))
+      ..add(DiagnosticsProperty('knownFor', knownFor));
   }
 
   @override
@@ -732,6 +816,7 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
         (other.runtimeType == runtimeType &&
             other is _$TmdbItemImpl &&
             (identical(other.adult, adult) || other.adult == adult) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
             (identical(other.id, id) || other.id == id) &&
@@ -762,7 +847,12 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
             (identical(other.originalName, originalName) ||
                 other.originalName == originalName) &&
             (identical(other.firstAirDate, firstAirDate) ||
-                other.firstAirDate == firstAirDate));
+                other.firstAirDate == firstAirDate) &&
+            (identical(other.knownForDepartment, knownForDepartment) ||
+                other.knownForDepartment == knownForDepartment) &&
+            (identical(other.profilePath, profilePath) ||
+                other.profilePath == profilePath) &&
+            const DeepCollectionEquality().equals(other._knownFor, _knownFor));
   }
 
   @JsonKey(ignore: true)
@@ -770,6 +860,7 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
   int get hashCode => Object.hashAll([
         runtimeType,
         adult,
+        gender,
         backdropPath,
         id,
         title,
@@ -787,7 +878,10 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
         voteCount,
         const DeepCollectionEquality().hash(_originCountry),
         originalName,
-        firstAirDate
+        firstAirDate,
+        knownForDepartment,
+        profilePath,
+        const DeepCollectionEquality().hash(_knownFor)
       ]);
 
   @JsonKey(ignore: true)
@@ -806,26 +900,30 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
 
 abstract class _TmdbItem implements TmdbItem {
   const factory _TmdbItem(
-          {@JsonKey(name: 'adult') final bool? adult,
-          @JsonKey(name: 'backdrop_path') final String? backdropPath,
-          @JsonKey(name: 'id') final int? id,
-          @JsonKey(name: 'title') final String? title,
-          @JsonKey(name: 'name') final String? name,
-          @JsonKey(name: 'genre_ids') final List<int>? genreIds,
-          @JsonKey(name: 'original_language') final String? originalLanguage,
-          @JsonKey(name: 'original_title') final String? originalTitle,
-          @JsonKey(name: 'overview') final String? overview,
-          @JsonKey(name: 'popularity') final double? popularity,
-          @JsonKey(name: 'poster_path') final String? posterPath,
-          @JsonKey(name: 'media_type') final String? mediaType,
-          @JsonKey(name: 'release_date') final String? releaseDate,
-          @JsonKey(name: 'video') final bool? video,
-          @JsonKey(name: 'vote_average') final double? voteAverage,
-          @JsonKey(name: 'vote_count') final int? voteCount,
-          @JsonKey(name: 'origin_country') final List<String>? originCountry,
-          @JsonKey(name: 'original_name') final String? originalName,
-          @JsonKey(name: 'first_air_date') final String? firstAirDate}) =
-      _$TmdbItemImpl;
+      {@JsonKey(name: 'adult') final bool? adult,
+      @JsonKey(name: 'gender') final int? gender,
+      @JsonKey(name: 'backdrop_path') final String? backdropPath,
+      @JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
+      @JsonKey(name: 'original_language') final String? originalLanguage,
+      @JsonKey(name: 'original_title') final String? originalTitle,
+      @JsonKey(name: 'overview') final String? overview,
+      @JsonKey(name: 'popularity') final double? popularity,
+      @JsonKey(name: 'poster_path') final String? posterPath,
+      @JsonKey(name: 'media_type') final String? mediaType,
+      @JsonKey(name: 'release_date') final String? releaseDate,
+      @JsonKey(name: 'video') final bool? video,
+      @JsonKey(name: 'vote_average') final double? voteAverage,
+      @JsonKey(name: 'vote_count') final int? voteCount,
+      @JsonKey(name: 'origin_country') final List<String>? originCountry,
+      @JsonKey(name: 'original_name') final String? originalName,
+      @JsonKey(name: 'first_air_date') final String? firstAirDate,
+      @JsonKey(name: 'known_for_department') final String? knownForDepartment,
+      @JsonKey(name: 'profile_path') final String? profilePath,
+      @JsonKey(name: 'known_for')
+      final List<TmdbItem>? knownFor}) = _$TmdbItemImpl;
 
   factory _TmdbItem.fromJson(Map<String, dynamic> json) =
       _$TmdbItemImpl.fromJson;
@@ -833,6 +931,9 @@ abstract class _TmdbItem implements TmdbItem {
   @override
   @JsonKey(name: 'adult')
   bool? get adult;
+  @override
+  @JsonKey(name: 'gender')
+  int? get gender;
   @override
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath;
@@ -887,6 +988,15 @@ abstract class _TmdbItem implements TmdbItem {
   @override
   @JsonKey(name: 'first_air_date')
   String? get firstAirDate;
+  @override
+  @JsonKey(name: 'known_for_department')
+  String? get knownForDepartment;
+  @override
+  @JsonKey(name: 'profile_path')
+  String? get profilePath;
+  @override
+  @JsonKey(name: 'known_for')
+  List<TmdbItem>? get knownFor;
   @override
   @JsonKey(ignore: true)
   _$$TmdbItemImplCopyWith<_$TmdbItemImpl> get copyWith =>

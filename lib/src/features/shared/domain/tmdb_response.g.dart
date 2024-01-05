@@ -29,6 +29,7 @@ Map<String, dynamic> _$$TrendingResponseImplToJson(
 _$TmdbItemImpl _$$TmdbItemImplFromJson(Map<String, dynamic> json) =>
     _$TmdbItemImpl(
       adult: json['adult'] as bool?,
+      gender: json['gender'] as int?,
       backdropPath: json['backdrop_path'] as String?,
       id: json['id'] as int?,
       title: json['title'] as String?,
@@ -50,11 +51,17 @@ _$TmdbItemImpl _$$TmdbItemImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       originalName: json['original_name'] as String?,
       firstAirDate: json['first_air_date'] as String?,
+      knownForDepartment: json['known_for_department'] as String?,
+      profilePath: json['profile_path'] as String?,
+      knownFor: (json['known_for'] as List<dynamic>?)
+          ?.map((e) => TmdbItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$TmdbItemImplToJson(_$TmdbItemImpl instance) =>
     <String, dynamic>{
       'adult': instance.adult,
+      'gender': instance.gender,
       'backdrop_path': instance.backdropPath,
       'id': instance.id,
       'title': instance.title,
@@ -73,4 +80,7 @@ Map<String, dynamic> _$$TmdbItemImplToJson(_$TmdbItemImpl instance) =>
       'origin_country': instance.originCountry,
       'original_name': instance.originalName,
       'first_air_date': instance.firstAirDate,
+      'known_for_department': instance.knownForDepartment,
+      'profile_path': instance.profilePath,
+      'known_for': instance.knownFor,
     };

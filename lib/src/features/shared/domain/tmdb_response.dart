@@ -24,6 +24,7 @@ class TmdbResponse with _$TmdbResponse {
 class TmdbItem with _$TmdbItem {
   const factory TmdbItem({
     @JsonKey(name: 'adult') bool? adult,
+    @JsonKey(name: 'gender') int? gender,
     @JsonKey(name: 'backdrop_path') String? backdropPath,
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'title') String? title,
@@ -42,6 +43,9 @@ class TmdbItem with _$TmdbItem {
     @JsonKey(name: 'origin_country') List<String>? originCountry,
     @JsonKey(name: 'original_name') String? originalName,
     @JsonKey(name: 'first_air_date') String? firstAirDate,
+    @JsonKey(name: 'known_for_department') String? knownForDepartment,
+    @JsonKey(name: 'profile_path') String? profilePath,
+    @JsonKey(name: 'known_for') List<TmdbItem>? knownFor,
   }) = _TmdbItem;
 
   factory TmdbItem.fromJson(Map<String, Object?> json) =>

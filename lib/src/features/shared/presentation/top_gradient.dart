@@ -27,7 +27,7 @@ class TopGradient extends StatelessWidget {
           stops: [0.0, 0.3],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          tileMode: TileMode.repeated,
+          tileMode: TileMode.clamp,
         ),
       ),
     );

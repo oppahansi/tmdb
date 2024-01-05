@@ -395,4 +395,25 @@ class TmdbRepo {
 
     return tmdbResponse;
   }
+
+  Future<TmdbResponse> fetchPeople(
+      {required int page, CancelToken? cancelToken}) async {
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/person/popular',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
+
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
+  }
 }

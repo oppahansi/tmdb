@@ -21,6 +21,8 @@ class MoviePoster extends StatelessWidget {
   Widget build(BuildContext context) {
     if (imagePath != null) {
       return CachedNetworkImage(
+        width: screenWidth(context) / 2,
+        height: screenWidth(context) / 2 * 1.5,
         imageUrl: TMDBPoster.imageUrl(imagePath!, PosterSize.original),
         placeholder: (_, __) => Shimmer.fromColors(
           baseColor: Colors.black26,

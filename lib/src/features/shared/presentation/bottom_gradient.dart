@@ -27,7 +27,7 @@ class BottomGradient extends StatelessWidget {
           stops: [0.0, 0.3],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
-          tileMode: TileMode.repeated,
+          tileMode: TileMode.clamp,
         ),
       ),
     );

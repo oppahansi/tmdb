@@ -30,7 +30,8 @@ class HomeListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Stack(
           children: [
-            MoviePoster(imagePath: homeListItem.posterPath),
+            MoviePoster(
+                imagePath: homeListItem.posterPath ?? homeListItem.profilePath),
             if (debugIndex != null) ...[
               Positioned(
                 left: 8,
@@ -67,12 +68,14 @@ class HomeListItem {
   final int id;
   final String title;
   final String? posterPath;
+  final String? profilePath;
   final double? voteAverage;
 
   HomeListItem({
     required this.id,
     required this.title,
     required this.posterPath,
+    required this.profilePath,
     required this.voteAverage,
   });
 
@@ -81,6 +84,7 @@ class HomeListItem {
       id: trendingItem.id!,
       title: trendingItem.title ?? trendingItem.name!,
       posterPath: trendingItem.posterPath ?? trendingItem.backdropPath,
+      profilePath: trendingItem.profilePath,
       voteAverage: trendingItem.voteAverage,
     );
   }
@@ -92,27 +96,30 @@ class MovieRating extends StatelessWidget {
   final HomeListItem homeListItem;
   @override
   Widget build(BuildContext context) {
-    final movieRating = homeListItem.voteAverage! * 10;
+    final movieRating = homeListItem.voteAverage ?? 0;
 
     return Stack(children: [
-      CircularProgressIndicator(
-        value: homeListItem.voteAverage! / 10,
-        valueColor: AlwaysStoppedAnimation<Color>(getRatingColor(movieRating)),
-        backgroundColor: Colors.black,
-        strokeWidth: 2,
-      ),
-      Positioned(
-        left: 8,
-        top: 8,
-        child: Text(
-          '${movieRating.toStringAsFixed(0)}%',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
+      if (homeListItem.voteAverage != null)
+        CircularProgressIndicator(
+          value: homeListItem.voteAverage! / 10,
+          valueColor:
+              AlwaysStoppedAnimation<Color>(getRatingColor(movieRating)),
+          backgroundColor: Colors.black,
+          strokeWidth: 2,
+        ),
+      if (homeListItem.voteAverage != null)
+        Positioned(
+          left: 8,
+          top: 8,
+          child: Text(
+            '${movieRating.toStringAsFixed(0)}%',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      ),
     ]);
   }
 }
