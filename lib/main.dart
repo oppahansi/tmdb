@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/core/theme/themes.dart';
-import 'package:oppa_tmdb/src/features/people/presentation/people_screen.dart';
+import 'package:oppa_tmdb/src/features/home/presentation/home_screen.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/theme_provider.dart';
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends ConsumerWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeMode,
-      home: const PeopleScreen(),
+      home: const HomeScreen(),
     );
   }
 }
