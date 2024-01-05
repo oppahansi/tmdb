@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/trending_provider.dart';
+import 'package:oppa_tmdb/src/features/tv_shows/presentation/airing_today/airing_today_tv_shows_row.dart';
 import 'package:oppa_tmdb/src/features/tv_shows/presentation/popular/popular_tv_shows_row.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
@@ -36,6 +37,8 @@ class TvShowsScreen extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 PopularTvShowsRow(),
+                verticalSpaceMedium,
+                AiringTodayTvShowsRow(),
                 verticalSpaceMedium,
               ],
             ),

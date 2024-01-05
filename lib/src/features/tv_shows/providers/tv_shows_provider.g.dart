@@ -156,5 +156,138 @@ class _PopularTvShowsProviderElement
   TmdbPagination get pagination =>
       (origin as PopularTvShowsProvider).pagination;
 }
+
+String _$airingTodayTvShowsHash() =>
+    r'a73babf099c13abad0ad9ecb9f46cf6a29b5a3e4';
+
+/// See also [airingTodayTvShows].
+@ProviderFor(airingTodayTvShows)
+const airingTodayTvShowsProvider = AiringTodayTvShowsFamily();
+
+/// See also [airingTodayTvShows].
+class AiringTodayTvShowsFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [airingTodayTvShows].
+  const AiringTodayTvShowsFamily();
+
+  /// See also [airingTodayTvShows].
+  AiringTodayTvShowsProvider call({
+    required TmdbPagination pagination,
+  }) {
+    return AiringTodayTvShowsProvider(
+      pagination: pagination,
+    );
+  }
+
+  @override
+  AiringTodayTvShowsProvider getProviderOverride(
+    covariant AiringTodayTvShowsProvider provider,
+  ) {
+    return call(
+      pagination: provider.pagination,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'airingTodayTvShowsProvider';
+}
+
+/// See also [airingTodayTvShows].
+class AiringTodayTvShowsProvider
+    extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [airingTodayTvShows].
+  AiringTodayTvShowsProvider({
+    required TmdbPagination pagination,
+  }) : this._internal(
+          (ref) => airingTodayTvShows(
+            ref as AiringTodayTvShowsRef,
+            pagination: pagination,
+          ),
+          from: airingTodayTvShowsProvider,
+          name: r'airingTodayTvShowsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$airingTodayTvShowsHash,
+          dependencies: AiringTodayTvShowsFamily._dependencies,
+          allTransitiveDependencies:
+              AiringTodayTvShowsFamily._allTransitiveDependencies,
+          pagination: pagination,
+        );
+
+  AiringTodayTvShowsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pagination,
+  }) : super.internal();
+
+  final TmdbPagination pagination;
+
+  @override
+  Override overrideWith(
+    FutureOr<TmdbResponse> Function(AiringTodayTvShowsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AiringTodayTvShowsProvider._internal(
+        (ref) => create(ref as AiringTodayTvShowsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pagination: pagination,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
+    return _AiringTodayTvShowsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AiringTodayTvShowsProvider &&
+        other.pagination == pagination;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pagination.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin AiringTodayTvShowsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+  /// The parameter `pagination` of this provider.
+  TmdbPagination get pagination;
+}
+
+class _AiringTodayTvShowsProviderElement
+    extends AutoDisposeFutureProviderElement<TmdbResponse>
+    with AiringTodayTvShowsRef {
+  _AiringTodayTvShowsProviderElement(super.provider);
+
+  @override
+  TmdbPagination get pagination =>
+      (origin as AiringTodayTvShowsProvider).pagination;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

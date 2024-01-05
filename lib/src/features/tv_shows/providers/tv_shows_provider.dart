@@ -34,6 +34,25 @@ Future<TmdbResponse> popularTvShows(
   );
 }
 
+@riverpod
+Future<TmdbResponse> airingTodayTvShows(
+  AiringTodayTvShowsRef ref, {
+  required TmdbPagination pagination,
+}) async {
+  final tmdbRepo = ref.watch(tmdbRepoProvider);
+
+  final cancelToken = CancelToken();
+  final link = ref.keepAlive();
+  Timer? timer;
+
+  _setEvents(ref, cancelToken, timer, link);
+
+  return tmdbRepo.fetchAiringTodayTvShows(
+    page: pagination.page,
+    cancelToken: cancelToken,
+  );
+}
+
 void _setEvents(AutoDisposeFutureProviderRef ref, CancelToken cancelToken,
     Timer? timer, KeepAliveLink link) {
   ref.onDispose(() {

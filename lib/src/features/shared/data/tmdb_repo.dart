@@ -120,7 +120,7 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/discover/tv',
@@ -134,7 +134,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -142,7 +142,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> fetchPopularForRent(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/discover/movie',
@@ -155,7 +155,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -163,7 +163,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> popularInTheaters(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/discover/movie',
@@ -178,7 +178,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -186,7 +186,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> freeToWatchMovie(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/discover/movie',
@@ -200,7 +200,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -208,7 +208,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> freeToWatchTv(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/discover/tv',
@@ -222,7 +222,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -230,7 +230,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> fetchPopularMovies(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/movie/popular',
@@ -243,7 +243,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -251,7 +251,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> fetchNowPlayingMovies(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/movie/now_playing',
@@ -264,7 +264,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -272,7 +272,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> fetchUpcomingMovies(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/movie/upcoming',
@@ -285,7 +285,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -293,7 +293,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> fetchTopRatedMovies(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/movie/top_rated',
@@ -306,7 +306,7 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
@@ -314,7 +314,7 @@ class TmdbRepo {
 
   Future<TmdbResponse> fetchPopularTvShows(
       {required int page, CancelToken? cancelToken}) async {
-    final tvUrl = Uri(
+    final url = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/tv/popular',
@@ -327,7 +327,28 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
+  }
+
+  Future<TmdbResponse> fetchAiringTodayTvShows(
+      {required int page, CancelToken? cancelToken}) async {
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/airing_today',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
+
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
