@@ -289,5 +289,133 @@ class _AiringTodayTvShowsProviderElement
   TmdbPagination get pagination =>
       (origin as AiringTodayTvShowsProvider).pagination;
 }
+
+String _$onTvTvShowsHash() => r'99411d98407b8d84bbcd537171b67a2459698e41';
+
+/// See also [onTvTvShows].
+@ProviderFor(onTvTvShows)
+const onTvTvShowsProvider = OnTvTvShowsFamily();
+
+/// See also [onTvTvShows].
+class OnTvTvShowsFamily extends Family<AsyncValue<TmdbResponse>> {
+  /// See also [onTvTvShows].
+  const OnTvTvShowsFamily();
+
+  /// See also [onTvTvShows].
+  OnTvTvShowsProvider call({
+    required TmdbPagination pagination,
+  }) {
+    return OnTvTvShowsProvider(
+      pagination: pagination,
+    );
+  }
+
+  @override
+  OnTvTvShowsProvider getProviderOverride(
+    covariant OnTvTvShowsProvider provider,
+  ) {
+    return call(
+      pagination: provider.pagination,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'onTvTvShowsProvider';
+}
+
+/// See also [onTvTvShows].
+class OnTvTvShowsProvider extends AutoDisposeFutureProvider<TmdbResponse> {
+  /// See also [onTvTvShows].
+  OnTvTvShowsProvider({
+    required TmdbPagination pagination,
+  }) : this._internal(
+          (ref) => onTvTvShows(
+            ref as OnTvTvShowsRef,
+            pagination: pagination,
+          ),
+          from: onTvTvShowsProvider,
+          name: r'onTvTvShowsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$onTvTvShowsHash,
+          dependencies: OnTvTvShowsFamily._dependencies,
+          allTransitiveDependencies:
+              OnTvTvShowsFamily._allTransitiveDependencies,
+          pagination: pagination,
+        );
+
+  OnTvTvShowsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pagination,
+  }) : super.internal();
+
+  final TmdbPagination pagination;
+
+  @override
+  Override overrideWith(
+    FutureOr<TmdbResponse> Function(OnTvTvShowsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: OnTvTvShowsProvider._internal(
+        (ref) => create(ref as OnTvTvShowsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pagination: pagination,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<TmdbResponse> createElement() {
+    return _OnTvTvShowsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is OnTvTvShowsProvider && other.pagination == pagination;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pagination.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin OnTvTvShowsRef on AutoDisposeFutureProviderRef<TmdbResponse> {
+  /// The parameter `pagination` of this provider.
+  TmdbPagination get pagination;
+}
+
+class _OnTvTvShowsProviderElement
+    extends AutoDisposeFutureProviderElement<TmdbResponse> with OnTvTvShowsRef {
+  _OnTvTvShowsProviderElement(super.provider);
+
+  @override
+  TmdbPagination get pagination => (origin as OnTvTvShowsProvider).pagination;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
