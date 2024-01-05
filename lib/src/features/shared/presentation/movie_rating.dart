@@ -2,21 +2,20 @@
 import 'package:flutter/material.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/shared/domain/home_list_item.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 
 class MovieRating extends StatelessWidget {
-  const MovieRating({super.key, required this.homeListItem});
+  const MovieRating({super.key, required this.tmdbItem});
 
-  final HomeListItem homeListItem;
+  final TmdbItem tmdbItem;
 
   @override
   Widget build(BuildContext context) {
-    final movieRating = homeListItem.voteAverage != null
-        ? homeListItem.voteAverage! * 10.0
-        : 0.0;
+    final movieRating =
+        tmdbItem.voteAverage != null ? tmdbItem.voteAverage! * 10.0 : 0.0;
 
     return Stack(children: [
-      if (homeListItem.voteAverage != null)
+      if (tmdbItem.voteAverage != null)
         CircularProgressIndicator(
           value: movieRating / 100.0,
           valueColor:
@@ -24,7 +23,7 @@ class MovieRating extends StatelessWidget {
           backgroundColor: Colors.black,
           strokeWidth: 2,
         ),
-      if (homeListItem.voteAverage != null)
+      if (tmdbItem.voteAverage != null)
         Positioned(
           left: 8,
           top: 8,

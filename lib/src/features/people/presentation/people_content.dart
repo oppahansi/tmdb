@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/people/providers/people_provider.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/home_list_item.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -29,7 +28,7 @@ class PeopleContent extends ConsumerWidget {
             final page = index ~/ defaultPageSize + 1;
             final indexInPage = (index % defaultPageSize).ceil();
 
-            final popularMovies = ref.watch(
+            final popularPeople = ref.watch(
               peopleProvider(
                 pagination: TmdbPagination(
                   page: page,
@@ -38,7 +37,7 @@ class PeopleContent extends ConsumerWidget {
               ),
             );
 
-            return popularMovies.when(
+            return popularPeople.when(
                 error: (err, stack) => Text('Error $err'),
                 loading: () => SizedBox(
                       width: width,
@@ -66,7 +65,7 @@ class PeopleContent extends ConsumerWidget {
                     );
                   }
 
-                  final popularMovie = data.tmdbItems![indexInPage];
+                  final tmdbItem = data.tmdbItems![indexInPage];
 
                   return SizedBox(
                     width: screenWidth(context),
@@ -78,21 +77,20 @@ class PeopleContent extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             HomeListTile(
-                              homeListItem:
-                                  HomeListItem.fromTmdbItem(popularMovie),
+                              tmdbItem: tmdbItem,
                             ),
                             horizontalSpaceTiny,
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(popularMovie.name!),
+                                Text(tmdbItem.name!),
                                 verticalSpaceMedium,
                                 const Text("Known for:"),
-                                Text(popularMovie.knownForDepartment!),
+                                Text(tmdbItem.knownForDepartment!),
                                 verticalSpaceSmall,
                                 const Text("Seen in:"),
                                 Text(
-                                  popularMovie.knownFor!
+                                  tmdbItem.knownFor!
                                       .map((e) => e.title ?? e.name!)
                                       .join("\n"),
                                 ),

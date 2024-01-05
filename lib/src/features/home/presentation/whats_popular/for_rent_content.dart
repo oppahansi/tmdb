@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/home_list_item.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -49,10 +48,10 @@ class ForRentContent extends ConsumerWidget {
                 );
               }
 
-              final discoverItem = data.tmdbItems![indexInPage];
+              final tmdbItem = data.tmdbItems![indexInPage];
 
               return HomeListTile(
-                homeListItem: HomeListItem.fromTmdbItem(discoverItem),
+                tmdbItem: tmdbItem,
                 debugIndex: index,
                 onPressed: () {},
               );

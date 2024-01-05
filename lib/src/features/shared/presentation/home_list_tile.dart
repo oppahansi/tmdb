@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/shared/domain/home_list_item.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_poster.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_rating.dart';
@@ -12,12 +12,12 @@ import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 class HomeListTile extends StatelessWidget {
   const HomeListTile({
     super.key,
-    required this.homeListItem,
+    required this.tmdbItem,
     // debugging hint to show the tile index
     this.debugIndex,
     this.onPressed,
   });
-  final HomeListItem homeListItem;
+  final TmdbItem tmdbItem;
   final int? debugIndex;
   final VoidCallback? onPressed;
 
@@ -31,8 +31,7 @@ class HomeListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Stack(
           children: [
-            MoviePoster(
-                imagePath: homeListItem.posterPath ?? homeListItem.profilePath),
+            MoviePoster(imagePath: tmdbItem.posterPath ?? tmdbItem.profilePath),
             if (debugIndex != null) ...[
               Positioned(
                 left: 8,
@@ -56,7 +55,7 @@ class HomeListTile extends StatelessWidget {
             Positioned(
               bottom: 8,
               left: 8,
-              child: MovieRating(homeListItem: homeListItem),
+              child: MovieRating(tmdbItem: tmdbItem),
             ),
           ],
         ),

@@ -42,6 +42,7 @@ class HomeScreen extends ConsumerWidget {
                 WhatsPopularRow(),
                 verticalSpaceMedium,
                 FreeToWatchRow(),
+                verticalSpaceMedium,
               ],
             ),
           ),

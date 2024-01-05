@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
-import 'package:oppa_tmdb/src/features/shared/domain/home_list_item.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -33,7 +32,7 @@ class OnTvTvShowsContent extends ConsumerWidget {
                 final page = index ~/ defaultPageSize + 1;
                 final indexInPage = (index % defaultPageSize).ceil();
 
-                final popularMovies = ref.watch(
+                final onTvTvShows = ref.watch(
                   onTvTvShowsProvider(
                     pagination: TmdbPagination(
                       page: page,
@@ -42,7 +41,7 @@ class OnTvTvShowsContent extends ConsumerWidget {
                   ),
                 );
 
-                return popularMovies.when(
+                return onTvTvShows.when(
                   error: (err, stack) => Text('Error $err'),
                   loading: () => HomeListTileShimmer(
                     width: width,
@@ -56,10 +55,10 @@ class OnTvTvShowsContent extends ConsumerWidget {
                       );
                     }
 
-                    final popularMovie = data.tmdbItems![indexInPage];
+                    final tmdbItem = data.tmdbItems![indexInPage];
 
                     return HomeListTile(
-                      homeListItem: HomeListItem.fromTmdbItem(popularMovie),
+                      tmdbItem: tmdbItem,
                       debugIndex: index,
                       onPressed: () {},
                     );
