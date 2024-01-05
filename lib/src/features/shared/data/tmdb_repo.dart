@@ -43,25 +43,25 @@ class TmdbRepo {
       },
     ).toString();
 
-    final responses = await Future.wait([
+    final tmdbResponseJsons = await Future.wait([
       client.get(moviesUrl, cancelToken: cancelToken),
       client.get(tvShowsUrl, cancelToken: cancelToken),
     ]);
 
-    final movies = TmdbResponse.fromJson(responses[0].data);
-    final tvShows = TmdbResponse.fromJson(responses[1].data);
+    final movies = TmdbResponse.fromJson(tmdbResponseJsons[0].data);
+    final tvShows = TmdbResponse.fromJson(tmdbResponseJsons[1].data);
 
-    final trendingItems = <TmdbItem>[];
+    final tmdbItems = <TmdbItem>[];
 
-    trendingItems.addAll(movies.tmdbItems!);
-    trendingItems.addAll(tvShows.tmdbItems!);
-    trendingItems.shuffle();
+    tmdbItems.addAll(movies.tmdbItems!);
+    tmdbItems.addAll(tvShows.tmdbItems!);
+    tmdbItems.shuffle();
 
     return TmdbResponse(
       page: page,
       totalPages: movies.totalPages! + tvShows.totalPages!,
       totalResults: movies.totalResults! + tvShows.totalResults!,
-      tmdbItems: trendingItems,
+      tmdbItems: tmdbItems,
     );
   }
 
@@ -94,25 +94,25 @@ class TmdbRepo {
       },
     ).toString();
 
-    final responses = await Future.wait([
+    final tmdbResponseJsons = await Future.wait([
       client.get(moviesUrl, cancelToken: cancelToken),
       client.get(tvShowsUrl, cancelToken: cancelToken),
     ]);
 
-    final movies = TmdbResponse.fromJson(responses[0].data);
-    final tvShows = TmdbResponse.fromJson(responses[1].data);
+    final movies = TmdbResponse.fromJson(tmdbResponseJsons[0].data);
+    final tvShows = TmdbResponse.fromJson(tmdbResponseJsons[1].data);
 
-    final popularStreamingItems = <TmdbItem>[];
+    final tmdbItems = <TmdbItem>[];
 
-    popularStreamingItems.addAll(movies.tmdbItems!);
-    popularStreamingItems.addAll(tvShows.tmdbItems!);
-    popularStreamingItems.shuffle();
+    tmdbItems.addAll(movies.tmdbItems!);
+    tmdbItems.addAll(tvShows.tmdbItems!);
+    tmdbItems.shuffle();
 
     return TmdbResponse(
       page: page,
       totalPages: movies.totalPages! + tvShows.totalPages!,
       totalResults: movies.totalResults! + tvShows.totalResults!,
-      tmdbItems: popularStreamingItems,
+      tmdbItems: tmdbItems,
     );
   }
 
@@ -134,10 +134,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final tvResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final tvShows = TmdbResponse.fromJson(tvResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return tvShows;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> fetchPopularForRent(
@@ -155,10 +155,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final forRentResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final forRentResult = TmdbResponse.fromJson(forRentResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return forRentResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> popularInTheaters(
@@ -178,11 +178,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final inTheatersResponse =
-        await client.get(tvUrl, cancelToken: cancelToken);
-    final inTheatersResult = TmdbResponse.fromJson(inTheatersResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return inTheatersResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> freeToWatchMovie(
@@ -201,11 +200,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final inTheatersResponse =
-        await client.get(tvUrl, cancelToken: cancelToken);
-    final inTheatersResult = TmdbResponse.fromJson(inTheatersResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return inTheatersResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> freeToWatchTv(
@@ -224,11 +222,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final inTheatersResponse =
-        await client.get(tvUrl, cancelToken: cancelToken);
-    final inTheatersResult = TmdbResponse.fromJson(inTheatersResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return inTheatersResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> fetchPopularMovies(
@@ -246,10 +243,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return movieListResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> fetchNowPlayingMovies(
@@ -267,10 +264,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return movieListResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> fetchUpcomingMovies(
@@ -288,10 +285,10 @@ class TmdbRepo {
       },
     ).toString();
 
-    final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return movieListResult;
+    return tmdbResponse;
   }
 
   Future<TmdbResponse> fetchTopRatedMovies(
@@ -309,9 +306,30 @@ class TmdbRepo {
       },
     ).toString();
 
-    final movieListResponse = await client.get(tvUrl, cancelToken: cancelToken);
-    final movieListResult = TmdbResponse.fromJson(movieListResponse.data);
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
 
-    return movieListResult;
+    return tmdbResponse;
+  }
+
+  Future<TmdbResponse> fetchPopularTvShows(
+      {required int page, CancelToken? cancelToken}) async {
+    final tvUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/popular',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
+
+    final tmdbResponseJson = await client.get(tvUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
   }
 }
