@@ -1,5 +1,6 @@
 // Flutter Imports
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
@@ -7,9 +8,11 @@ import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart'
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_poster.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_rating.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/top_gradient.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/favorites_provider.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class HomeListTile extends StatelessWidget {
+class HomeListTile extends ConsumerWidget {
   const HomeListTile({
     super.key,
     required this.tmdbItem,
@@ -22,7 +25,10 @@ class HomeListTile extends StatelessWidget {
   final VoidCallback? onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFavorite =
+        ref.watch(isFavoriteMovieProvider(id: tmdbItem.id.toString()));
+
     var width = screenWidth(context) / 2;
 
     return GestureDetector(
@@ -56,6 +62,31 @@ class HomeListTile extends StatelessWidget {
               bottom: 8,
               left: 8,
               child: MovieRating(tmdbItem: tmdbItem),
+            ),
+            Positioned(
+              top: 0,
+              right: 0,
+              child: IconButton(
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
+                  color: isFavorite
+                      ? Theme.of(context).colorScheme.tertiary
+                      : Colors.white,
+                ),
+                onPressed: () {
+                  if (isFavorite) {
+                    ref
+                        .read(sharedUtilityProvider)
+                        .removeFavoriteMovie(tmdbItem.id.toString());
+                  } else {
+                    ref
+                        .read(sharedUtilityProvider)
+                        .setFavoriteMovie(tmdbItem.id.toString());
+                  }
+
+                  ref.invalidate(isFavoriteMovieProvider);
+                },
+              ),
             ),
           ],
         ),

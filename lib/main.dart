@@ -2,13 +2,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// Package Imports
+import 'package:shared_preferences/shared_preferences.dart';
+
 // Project Imports
 import 'package:oppa_tmdb/src/core/theme/themes.dart';
 import 'package:oppa_tmdb/src/features/app/presentation/app_screen.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/theme_provider.dart';
 
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final sharedPreferences = await SharedPreferences.getInstance();
+
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences)
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {
