@@ -3,8 +3,10 @@ import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/search/domain/tmdb_search_results.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_tv_show_details.dart';
 
@@ -483,6 +485,28 @@ class TmdbRepo {
     final tmdbResponseJson =
         await client.get(urlTvShows, cancelToken: cancelToken);
     final tmdbResponse = TmdbTvShowDetails.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
+  }
+
+  Future<TmdbSearchResults> search(
+      {required TmdbPagination pagination, CancelToken? cancelToken}) async {
+    final searchUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/search/multi',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'query': pagination.query,
+        'language': 'en-US',
+        'page': pagination.page.toString(),
+      },
+    ).toString();
+
+    final tmdbResponseJson =
+        await client.get(searchUrl, cancelToken: cancelToken);
+    final tmdbResponse = TmdbSearchResults.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
   }
