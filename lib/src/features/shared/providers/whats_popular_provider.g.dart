@@ -6,7 +6,7 @@ part of 'whats_popular_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$popularStreamingHash() => r'0a5d3c37fe684557772a976b4237c61724751032';
+String _$popularStreamingHash() => r'dd1ef631522d79ad08890b1b414b38fce648d6bd';
 
 /// Copied from Dart SDK
 class _SystemHash {

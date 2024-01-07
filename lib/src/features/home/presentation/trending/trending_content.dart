@@ -18,7 +18,7 @@ class TrendingContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(selectedTrendingProvider);
+    final selected = ref.watch(selectedTrendingTimeWindowProvider);
 
     var width = screenWidth(context) / 2;
     var height = width * 1.5;

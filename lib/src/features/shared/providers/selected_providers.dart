@@ -1,7 +1,10 @@
 // Flutter Imports
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final selectedTrendingProvider =
+final selectedTrendingTimeWindowProvider =
+    StateProvider<List<bool>>((ref) => [true, false]);
+
+final selectedTrendingItemTypeProvider =
     StateProvider<List<bool>>((ref) => [true, false]);
 
 final selectedFreeToWatchProvider =
@@ -9,3 +12,6 @@ final selectedFreeToWatchProvider =
 
 final selectedPopularProvider =
     StateProvider<List<bool>>((ref) => [true, false, false, false]);
+
+final selectedStreamingTypeProvider =
+    StateProvider<List<bool>>((ref) => [true, false]);

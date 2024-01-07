@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_poster.dart';
@@ -16,18 +17,26 @@ class HomeListTile extends ConsumerWidget {
   const HomeListTile({
     super.key,
     required this.tmdbItem,
-    // debugging hint to show the tile index
+    required this.itemType,
     this.debugIndex,
     this.onPressed,
   });
   final TmdbItem tmdbItem;
+  final TmdbItemTypeEnum itemType;
   final int? debugIndex;
   final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isFavorite =
-        ref.watch(isFavoriteMovieProvider(id: tmdbItem.id.toString()));
+    var isFavoriteMovie = false;
+    var isFavoriteTvShow = false;
+    if (itemType == TmdbItemTypeEnum.movie) {
+      isFavoriteMovie =
+          ref.watch(isFavoriteMovieProvider(id: tmdbItem.id.toString()));
+    } else {
+      isFavoriteTvShow =
+          ref.watch(isFavoriteTvShowProvider(id: tmdbItem.id.toString()));
+    }
 
     var width = screenWidth(context) / 2;
 
@@ -68,23 +77,49 @@ class HomeListTile extends ConsumerWidget {
               right: 0,
               child: IconButton(
                 icon: Icon(
-                  isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
-                  color: isFavorite
-                      ? Theme.of(context).colorScheme.tertiary
-                      : Colors.white,
+                  itemType == TmdbItemTypeEnum.movie
+                      ? isFavoriteMovie
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined
+                      : isFavoriteTvShow
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined,
+                  color: itemType == TmdbItemTypeEnum.movie
+                      ? isFavoriteMovie
+                          ? Theme.of(context).colorScheme.tertiary
+                          : Colors.white
+                      : isFavoriteTvShow
+                          ? Theme.of(context).colorScheme.tertiary
+                          : Colors.white,
                 ),
                 onPressed: () {
-                  if (isFavorite) {
-                    ref
-                        .read(sharedUtilityProvider)
-                        .removeFavoriteMovie(tmdbItem.id.toString());
+                  if (itemType == TmdbItemTypeEnum.movie) {
+                    if (isFavoriteMovie) {
+                      ref
+                          .read(sharedUtilityProvider)
+                          .removeFavoriteMovie(tmdbItem.id.toString());
+                    } else {
+                      ref
+                          .read(sharedUtilityProvider)
+                          .setFavoriteMovie(tmdbItem.id.toString());
+                    }
                   } else {
-                    ref
-                        .read(sharedUtilityProvider)
-                        .setFavoriteMovie(tmdbItem.id.toString());
+                    if (isFavoriteTvShow) {
+                      ref
+                          .read(sharedUtilityProvider)
+                          .removeFavoriteTvShow(tmdbItem.id.toString());
+                    } else {
+                      ref
+                          .read(sharedUtilityProvider)
+                          .setFavoriteTvShow(tmdbItem.id.toString());
+                    }
                   }
 
-                  ref.invalidate(isFavoriteMovieProvider);
+                  if (itemType == TmdbItemTypeEnum.movie) {
+                    ref.invalidate(isFavoriteMovieProvider);
+                  } else {
+                    ref.invalidate(isFavoriteTvShowProvider);
+                  }
                 },
               ),
             ),

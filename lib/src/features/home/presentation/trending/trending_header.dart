@@ -11,33 +11,66 @@ class TrendingHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(selectedTrendingProvider);
+    final selectedItemType = ref.watch(selectedTrendingItemTypeProvider);
+    final selectedTimeWindow = ref.watch(selectedTrendingTimeWindowProvider);
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const RowHeader(title: "Trending"),
-        ToggleButtons(
-          borderRadius: BorderRadius.circular(20),
-          constraints: const BoxConstraints(
-            minWidth: 80,
-            minHeight: 40,
-          ),
-          onPressed: (index) {
-            ref
-                .read(selectedTrendingProvider.notifier)
-                .update((state) => _getTrendingToggleButtonsState(index));
-          },
-          isSelected: selected,
-          children: const [
-            Text("Today"),
-            Text("Week"),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ToggleButtons(
+              borderRadius: BorderRadius.circular(20),
+              constraints: const BoxConstraints(
+                minWidth: 80,
+                minHeight: 40,
+              ),
+              onPressed: (index) {
+                ref
+                    .read(selectedTrendingItemTypeProvider.notifier)
+                    .update((state) => _getTrendingItemTypeState(index));
+              },
+              isSelected: selectedItemType,
+              children: const [
+                Text("Movies"),
+                Text("Tv Shows"),
+              ],
+            ),
+            ToggleButtons(
+              borderRadius: BorderRadius.circular(20),
+              constraints: const BoxConstraints(
+                minWidth: 80,
+                minHeight: 40,
+              ),
+              onPressed: (index) {
+                ref
+                    .read(selectedTrendingTimeWindowProvider.notifier)
+                    .update((state) => _getTrendingTimewindowState(index));
+              },
+              isSelected: selectedTimeWindow,
+              children: const [
+                Text("Today"),
+                Text("Week"),
+              ],
+            ),
           ],
         ),
       ],
     );
   }
 
-  List<bool> _getTrendingToggleButtonsState(int index) {
+  List<bool> _getTrendingItemTypeState(int index) {
+    if (index == 0) {
+      return [true, false];
+    } else {
+      return [false, true];
+    }
+  }
+
+  List<bool> _getTrendingTimewindowState(int index) {
     if (index == 0) {
       return [true, false];
     } else {

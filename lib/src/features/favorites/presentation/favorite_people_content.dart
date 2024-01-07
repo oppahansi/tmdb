@@ -48,7 +48,9 @@ class FavoritePeopleContent extends ConsumerWidget {
             );
 
             return favoritePeople.when(
-              error: (err, stack) => Text('Error $err'),
+              error: (err, stack) => const Center(
+                child: Text("Ooops, something went wrong."),
+              ),
               loading: () => SizedBox(
                 width: width,
                 height: height,

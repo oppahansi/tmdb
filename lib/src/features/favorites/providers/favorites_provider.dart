@@ -12,6 +12,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_tv_show_details.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/favorite_ids_provider.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 
@@ -65,6 +66,35 @@ Future<List<TmdbMovieDetails>> favoriteMovies(
     final id = favoriteIds[i];
 
     final person = await tmdbRepo.fetchMovie(
+      id: id,
+      cancelToken: cancelToken,
+    );
+
+    favoritePeople.add(person);
+  }
+
+  return favoritePeople;
+}
+
+@riverpod
+Future<List<TmdbTvShowDetails>> favoriteTvShows(
+  FavoriteTvShowsRef ref, {
+  required TmdbPagination pagination,
+}) async {
+  final tmdbRepo = ref.watch(tmdbRepoProvider);
+  final favoriteIds = ref.watch(favoriteTvShowsIdsProvider);
+
+  final cancelToken = CancelToken();
+  final link = ref.keepAlive();
+  Timer? timer;
+
+  _setEvents(ref, cancelToken, timer, link);
+
+  var favoritePeople = <TmdbTvShowDetails>[];
+  for (var i = (pagination.page - 1) * 10; i < favoriteIds.length; i++) {
+    final id = favoriteIds[i];
+
+    final person = await tmdbRepo.fetchTvShow(
       id: id,
       cancelToken: cancelToken,
     );

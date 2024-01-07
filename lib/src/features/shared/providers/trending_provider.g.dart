@@ -6,7 +6,7 @@ part of 'trending_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$trendingHash() => r'58fff17b24f8722b9c622d14c13784cb6635f3e3';
+String _$trendingHash() => r'ab03126e057eb5ef95ac11bed28fa326c674677b';
 
 /// Copied from Dart SDK
 class _SystemHash {

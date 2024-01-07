@@ -12,8 +12,8 @@ import 'package:oppa_tmdb/src/features/shared/providers/favorite_ids_provider.da
 import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class FavoritesListTile extends ConsumerWidget {
-  const FavoritesListTile({
+class FavoriteMoviesListTile extends ConsumerWidget {
+  const FavoriteMoviesListTile({
     super.key,
     required this.tmdbMovieDetails,
     // debugging hint to show the tile index

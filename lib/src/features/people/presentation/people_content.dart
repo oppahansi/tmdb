@@ -1,6 +1,7 @@
 // Flutter Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 // Package Imports
 import 'package:cached_network_image/cached_network_image.dart';
@@ -43,7 +44,9 @@ class PeopleContent extends ConsumerWidget {
             );
 
             return popularPeople.when(
-              error: (err, stack) => Text('Error $err'),
+              error: (err, stack) => const Center(
+                child: Text("Ooops, something went wrong."),
+              ),
               loading: () => SizedBox(
                 width: width,
                 height: height,
@@ -84,10 +87,16 @@ class PeopleContent extends ConsumerWidget {
                             horizontal: 8.0, vertical: 8.0),
                         child: CircleAvatar(
                           radius: 40,
-                          backgroundImage: CachedNetworkImageProvider(
-                            TMDBPoster.imageUrl(
-                                tmdbItem.profilePath!, PosterSize.original),
-                          ),
+                          backgroundImage: tmdbItem.profilePath != null
+                              ? CachedNetworkImageProvider(
+                                  TMDBPoster.imageUrl(tmdbItem.profilePath!,
+                                      PosterSize.original),
+                                )
+                              : const Image(
+                                  image: Svg(
+                                      'assets/images/people_placeholder.svg'),
+                                  fit: BoxFit.cover,
+                                ).image,
                         ),
                       ),
                       horizontalSpaceSmall,

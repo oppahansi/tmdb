@@ -24,6 +24,23 @@ List<String> favoriteMovieIds(FavoriteMovieIdsRef ref) {
 }
 
 @riverpod
+bool isFavoriteTvShow(
+  IsFavoriteTvShowRef ref, {
+  required String id,
+}) {
+  final sharedUtility = ref.watch(sharedUtilityProvider);
+
+  return sharedUtility.isFavoriteTvShow(id);
+}
+
+@riverpod
+List<String> favoriteTvShowsIds(FavoriteTvShowsIdsRef ref) {
+  final sharedUtility = ref.watch(sharedUtilityProvider);
+
+  return sharedUtility.favoriteTvShows;
+}
+
+@riverpod
 bool isFavoritePeople(
   IsFavoritePeopleRef ref, {
   required String id,

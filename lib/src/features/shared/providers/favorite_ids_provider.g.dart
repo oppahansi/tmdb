@@ -170,6 +170,150 @@ final favoriteMovieIdsProvider = AutoDisposeProvider<List<String>>.internal(
 );
 
 typedef FavoriteMovieIdsRef = AutoDisposeProviderRef<List<String>>;
+String _$isFavoriteTvShowHash() => r'de976f7a6bc507db96029d763e26f2a5d8cdef0c';
+
+/// See also [isFavoriteTvShow].
+@ProviderFor(isFavoriteTvShow)
+const isFavoriteTvShowProvider = IsFavoriteTvShowFamily();
+
+/// See also [isFavoriteTvShow].
+class IsFavoriteTvShowFamily extends Family<bool> {
+  /// See also [isFavoriteTvShow].
+  const IsFavoriteTvShowFamily();
+
+  /// See also [isFavoriteTvShow].
+  IsFavoriteTvShowProvider call({
+    required String id,
+  }) {
+    return IsFavoriteTvShowProvider(
+      id: id,
+    );
+  }
+
+  @override
+  IsFavoriteTvShowProvider getProviderOverride(
+    covariant IsFavoriteTvShowProvider provider,
+  ) {
+    return call(
+      id: provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'isFavoriteTvShowProvider';
+}
+
+/// See also [isFavoriteTvShow].
+class IsFavoriteTvShowProvider extends AutoDisposeProvider<bool> {
+  /// See also [isFavoriteTvShow].
+  IsFavoriteTvShowProvider({
+    required String id,
+  }) : this._internal(
+          (ref) => isFavoriteTvShow(
+            ref as IsFavoriteTvShowRef,
+            id: id,
+          ),
+          from: isFavoriteTvShowProvider,
+          name: r'isFavoriteTvShowProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$isFavoriteTvShowHash,
+          dependencies: IsFavoriteTvShowFamily._dependencies,
+          allTransitiveDependencies:
+              IsFavoriteTvShowFamily._allTransitiveDependencies,
+          id: id,
+        );
+
+  IsFavoriteTvShowProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  Override overrideWith(
+    bool Function(IsFavoriteTvShowRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: IsFavoriteTvShowProvider._internal(
+        (ref) => create(ref as IsFavoriteTvShowRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeProviderElement<bool> createElement() {
+    return _IsFavoriteTvShowProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is IsFavoriteTvShowProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin IsFavoriteTvShowRef on AutoDisposeProviderRef<bool> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _IsFavoriteTvShowProviderElement extends AutoDisposeProviderElement<bool>
+    with IsFavoriteTvShowRef {
+  _IsFavoriteTvShowProviderElement(super.provider);
+
+  @override
+  String get id => (origin as IsFavoriteTvShowProvider).id;
+}
+
+String _$favoriteTvShowsIdsHash() =>
+    r'f7db2739285393874b9140599e377d2b7933f381';
+
+/// See also [favoriteTvShowsIds].
+@ProviderFor(favoriteTvShowsIds)
+final favoriteTvShowsIdsProvider = AutoDisposeProvider<List<String>>.internal(
+  favoriteTvShowsIds,
+  name: r'favoriteTvShowsIdsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$favoriteTvShowsIdsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FavoriteTvShowsIdsRef = AutoDisposeProviderRef<List<String>>;
 String _$isFavoritePeopleHash() => r'e4f7e4ae63e58f4cdb939f97dc746aa6f1b908cb';
 
 /// See also [isFavoritePeople].

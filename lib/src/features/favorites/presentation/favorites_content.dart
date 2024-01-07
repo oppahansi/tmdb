@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/features/favorites/presentation/favorite_movies_content.dart';
 import 'package:oppa_tmdb/src/features/favorites/presentation/favorite_people_content.dart';
+import 'package:oppa_tmdb/src/features/favorites/presentation/favorite_tv_shows_content.dart';
 import 'package:oppa_tmdb/src/features/favorites/providers/selected_favorites_provider.dart';
 
 class FavoritesContent extends ConsumerWidget {
@@ -12,7 +13,7 @@ class FavoritesContent extends ConsumerWidget {
 
   final _favoritesContent = <Widget>[
     const FavoriteMoviesContent(),
-    const FavoritePeopleContent(),
+    const FavoriteTvShowsContent(),
     const FavoritePeopleContent(),
   ];
 

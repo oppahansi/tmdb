@@ -12,6 +12,7 @@ class PopularHeader extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selected = ref.watch(selectedPopularProvider);
+    final selectedStreamingType = ref.watch(selectedStreamingTypeProvider);
 
     return Column(
       children: [
@@ -35,6 +36,23 @@ class PopularHeader extends ConsumerWidget {
             Text("In Theaters"),
           ],
         ),
+        if (selected[0])
+          ToggleButtons(
+            borderRadius: BorderRadius.circular(20),
+            constraints: const BoxConstraints(
+              minWidth: 80,
+              minHeight: 40,
+            ),
+            onPressed: (index) {
+              ref.read(selectedStreamingTypeProvider.notifier).update(
+                  (state) => _getPopularStreamingTypeButtonState(index));
+            },
+            isSelected: selectedStreamingType,
+            children: const [
+              Text("Movies"),
+              Text("Tv Shows"),
+            ],
+          ),
       ],
     );
   }
@@ -48,6 +66,14 @@ class PopularHeader extends ConsumerWidget {
       return [false, false, true, false];
     } else {
       return [false, false, false, true];
+    }
+  }
+
+  List<bool> _getPopularStreamingTypeButtonState(int index) {
+    if (index == 0) {
+      return [true, false];
+    } else {
+      return [false, true];
     }
   }
 }

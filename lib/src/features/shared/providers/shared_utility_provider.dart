@@ -20,6 +20,7 @@ SharedUtility sharedUtility(SharedUtilityRef ref) {
 
 class SharedUtility {
   static const favoriteMoviesKey = "tmdb_favorite_movies";
+  static const favoriteTvShowsKey = "tmdb_favorite_tv_shows";
   static const favoritePeopleKey = "tmdb_favorite_people";
 
   SharedUtility({
@@ -31,6 +32,8 @@ class SharedUtility {
   bool isFavoriteMovie(String id) {
     var favoriteMovies =
         sharedPreferences.getStringList(favoriteMoviesKey) ?? List.empty();
+
+    print("IS MOVIE $id a favorite");
 
     return favoriteMovies.contains(id);
   }
@@ -44,6 +47,8 @@ class SharedUtility {
     }
 
     favoriteMovies.add(id);
+
+    print("Adding MOVIE $id to favorites");
 
     sharedPreferences.setStringList(favoriteMoviesKey, favoriteMovies);
   }
@@ -62,7 +67,50 @@ class SharedUtility {
   }
 
   List<String> get favoriteMovies {
+    print("GET MOVIE IDS");
     return sharedPreferences.getStringList(favoriteMoviesKey) ?? List.empty();
+  }
+
+  bool isFavoriteTvShow(String id) {
+    var favoriteTvShows =
+        sharedPreferences.getStringList(favoriteTvShowsKey) ?? List.empty();
+
+    print("IS TV SHOW $id a favorite");
+
+    return favoriteTvShows.contains(id);
+  }
+
+  void setFavoriteTvShow(String id) {
+    var favoriteTvShows = sharedPreferences.getStringList(favoriteTvShowsKey) ??
+        List.empty(growable: true);
+
+    if (favoriteTvShows.contains(id)) {
+      return;
+    }
+
+    favoriteTvShows.add(id);
+
+    print("Adding TV SHOW $id to favorites");
+
+    sharedPreferences.setStringList(favoriteTvShowsKey, favoriteTvShows);
+  }
+
+  void removeFavoriteTvShow(String id) {
+    var favoriteTvShows =
+        sharedPreferences.getStringList(favoriteTvShowsKey) ?? List.empty();
+
+    if (favoriteTvShows.isEmpty || !favoriteTvShows.contains(id)) {
+      return;
+    }
+
+    favoriteTvShows.remove(id);
+
+    sharedPreferences.setStringList(favoriteTvShowsKey, favoriteTvShows);
+  }
+
+  List<String> get favoriteTvShows {
+    print("GET FAVORITE IDS");
+    return sharedPreferences.getStringList(favoriteTvShowsKey) ?? List.empty();
   }
 
   bool isFavoritePeople(String id) {

@@ -7,8 +7,10 @@ import 'package:riverpod/src/framework.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
+import 'package:oppa_tmdb/src/features/shared/providers/selected_providers.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
 import 'package:oppa_tmdb/src/utils/ref_events.dart';
 
@@ -20,6 +22,7 @@ Future<TmdbResponse> popularStreaming(
   required TmdbPagination pagination,
 }) async {
   final moviesRepo = ref.watch(tmdbRepoProvider);
+  final selectedStreamingType = ref.watch(selectedStreamingTypeProvider);
 
   final cancelToken = CancelToken();
   final link = ref.keepAlive();
@@ -27,10 +30,19 @@ Future<TmdbResponse> popularStreaming(
 
   setEvents(ref, cancelToken, timer, link);
 
-  return moviesRepo.fetchPopularStreaming(
-    page: pagination.page,
-    cancelToken: cancelToken,
-  );
+  if (selectedStreamingType[0]) {
+    return moviesRepo.fetchPopularStreaming(
+      page: pagination.page,
+      itemType: TmdbItemTypeEnum.movie,
+      cancelToken: cancelToken,
+    );
+  } else {
+    return moviesRepo.fetchPopularStreaming(
+      page: pagination.page,
+      itemType: TmdbItemTypeEnum.tvShows,
+      cancelToken: cancelToken,
+    );
+  }
 }
 
 @riverpod

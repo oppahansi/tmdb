@@ -289,5 +289,139 @@ class _FavoriteMoviesProviderElement
   TmdbPagination get pagination =>
       (origin as FavoriteMoviesProvider).pagination;
 }
+
+String _$favoriteTvShowsHash() => r'1da555aa4ea4b59cdc8c43774325500e5b22600e';
+
+/// See also [favoriteTvShows].
+@ProviderFor(favoriteTvShows)
+const favoriteTvShowsProvider = FavoriteTvShowsFamily();
+
+/// See also [favoriteTvShows].
+class FavoriteTvShowsFamily
+    extends Family<AsyncValue<List<TmdbTvShowDetails>>> {
+  /// See also [favoriteTvShows].
+  const FavoriteTvShowsFamily();
+
+  /// See also [favoriteTvShows].
+  FavoriteTvShowsProvider call({
+    required TmdbPagination pagination,
+  }) {
+    return FavoriteTvShowsProvider(
+      pagination: pagination,
+    );
+  }
+
+  @override
+  FavoriteTvShowsProvider getProviderOverride(
+    covariant FavoriteTvShowsProvider provider,
+  ) {
+    return call(
+      pagination: provider.pagination,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'favoriteTvShowsProvider';
+}
+
+/// See also [favoriteTvShows].
+class FavoriteTvShowsProvider
+    extends AutoDisposeFutureProvider<List<TmdbTvShowDetails>> {
+  /// See also [favoriteTvShows].
+  FavoriteTvShowsProvider({
+    required TmdbPagination pagination,
+  }) : this._internal(
+          (ref) => favoriteTvShows(
+            ref as FavoriteTvShowsRef,
+            pagination: pagination,
+          ),
+          from: favoriteTvShowsProvider,
+          name: r'favoriteTvShowsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$favoriteTvShowsHash,
+          dependencies: FavoriteTvShowsFamily._dependencies,
+          allTransitiveDependencies:
+              FavoriteTvShowsFamily._allTransitiveDependencies,
+          pagination: pagination,
+        );
+
+  FavoriteTvShowsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.pagination,
+  }) : super.internal();
+
+  final TmdbPagination pagination;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<TmdbTvShowDetails>> Function(FavoriteTvShowsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FavoriteTvShowsProvider._internal(
+        (ref) => create(ref as FavoriteTvShowsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        pagination: pagination,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<TmdbTvShowDetails>> createElement() {
+    return _FavoriteTvShowsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FavoriteTvShowsProvider && other.pagination == pagination;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, pagination.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FavoriteTvShowsRef
+    on AutoDisposeFutureProviderRef<List<TmdbTvShowDetails>> {
+  /// The parameter `pagination` of this provider.
+  TmdbPagination get pagination;
+}
+
+class _FavoriteTvShowsProviderElement
+    extends AutoDisposeFutureProviderElement<List<TmdbTvShowDetails>>
+    with FavoriteTvShowsRef {
+  _FavoriteTvShowsProviderElement(super.provider);
+
+  @override
+  TmdbPagination get pagination =>
+      (origin as FavoriteTvShowsProvider).pagination;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

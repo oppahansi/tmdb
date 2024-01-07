@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -42,7 +43,9 @@ class PopularTvShowsContent extends ConsumerWidget {
                 );
 
                 return popularTvShows.when(
-                  error: (err, stack) => Text('Error $err'),
+                  error: (err, stack) => const Center(
+                    child: Text("Ooops, something went wrong."),
+                  ),
                   loading: () => HomeListTileShimmer(
                     width: width,
                     height: height,
@@ -59,6 +62,7 @@ class PopularTvShowsContent extends ConsumerWidget {
 
                     return HomeListTile(
                       tmdbItem: tmdbItem,
+                      itemType: TmdbItemTypeEnum.tvShows,
                       debugIndex: index,
                       onPressed: () {},
                     );

@@ -3,8 +3,10 @@ import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_tv_show_details.dart';
 
 class TmdbRepo {
   final Dio client;
@@ -20,6 +22,7 @@ class TmdbRepo {
   Future<TmdbResponse> fetchTrending({
     required int page,
     required String timeWindow,
+    required TmdbItemTypeEnum itemType,
     CancelToken? cancelToken,
   }) async {
     final moviesUrl = Uri(
@@ -29,6 +32,7 @@ class TmdbRepo {
       queryParameters: {
         'api_key': apiKey,
         'include_adult': 'false',
+        'sort_by': 'vote_average.desc',
         'page': '$page',
       },
     ).toString();
@@ -40,6 +44,7 @@ class TmdbRepo {
       queryParameters: {
         'api_key': apiKey,
         'include_adult': 'false',
+        'sort_by': 'popularity.desc',
         'page': '$page',
       },
     ).toString();
@@ -52,22 +57,26 @@ class TmdbRepo {
     final movies = TmdbResponse.fromJson(tmdbResponseJsons[0].data);
     final tvShows = TmdbResponse.fromJson(tmdbResponseJsons[1].data);
 
-    final tmdbItems = <TmdbItem>[];
-
-    tmdbItems.addAll(movies.tmdbItems!);
-    tmdbItems.addAll(tvShows.tmdbItems!);
-    tmdbItems.shuffle();
-
-    return TmdbResponse(
-      page: page,
-      totalPages: movies.totalPages! + tvShows.totalPages!,
-      totalResults: movies.totalResults! + tvShows.totalResults!,
-      tmdbItems: tmdbItems,
-    );
+    if (itemType == TmdbItemTypeEnum.movie) {
+      return TmdbResponse(
+        page: page,
+        totalPages: movies.totalPages!,
+        totalResults: movies.totalResults!,
+        tmdbItems: movies.tmdbItems,
+      );
+    } else {
+      return TmdbResponse(
+        page: page,
+        totalPages: tvShows.totalPages!,
+        totalResults: tvShows.totalResults!,
+        tmdbItems: tvShows.tmdbItems,
+      );
+    }
   }
 
   Future<TmdbResponse> fetchPopularStreaming({
     required int page,
+    required TmdbItemTypeEnum itemType,
     CancelToken? cancelToken,
   }) async {
     final moviesUrl = Uri(
@@ -82,6 +91,7 @@ class TmdbRepo {
         'page': '$page',
       },
     ).toString();
+
     final tvShowsUrl = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
@@ -103,18 +113,21 @@ class TmdbRepo {
     final movies = TmdbResponse.fromJson(tmdbResponseJsons[0].data);
     final tvShows = TmdbResponse.fromJson(tmdbResponseJsons[1].data);
 
-    final tmdbItems = <TmdbItem>[];
-
-    tmdbItems.addAll(movies.tmdbItems!);
-    tmdbItems.addAll(tvShows.tmdbItems!);
-    tmdbItems.shuffle();
-
-    return TmdbResponse(
-      page: page,
-      totalPages: movies.totalPages! + tvShows.totalPages!,
-      totalResults: movies.totalResults! + tvShows.totalResults!,
-      tmdbItems: tmdbItems,
-    );
+    if (itemType == TmdbItemTypeEnum.movie) {
+      return TmdbResponse(
+        page: page,
+        totalPages: movies.totalPages!,
+        totalResults: movies.totalResults!,
+        tmdbItems: movies.tmdbItems,
+      );
+    } else {
+      return TmdbResponse(
+        page: page,
+        totalPages: tvShows.totalPages!,
+        totalResults: tvShows.totalResults!,
+        tmdbItems: tvShows.tmdbItems,
+      );
+    }
   }
 
   Future<TmdbResponse> fetchPopularOnTv({
@@ -455,9 +468,9 @@ class TmdbRepo {
     return tmdbResponse;
   }
 
-  Future<TmdbMovieDetails> fetchTvShow(
+  Future<TmdbTvShowDetails> fetchTvShow(
       {required String id, CancelToken? cancelToken}) async {
-    final urlMovies = Uri(
+    final urlTvShows = Uri(
       scheme: 'https',
       host: 'api.themoviedb.org',
       path: '3/tv/$id',
@@ -468,8 +481,8 @@ class TmdbRepo {
     ).toString();
 
     final tmdbResponseJson =
-        await client.get(urlMovies, cancelToken: cancelToken);
-    final tmdbResponse = TmdbMovieDetails.fromJson(tmdbResponseJson.data);
+        await client.get(urlTvShows, cancelToken: cancelToken);
+    final tmdbResponse = TmdbTvShowDetails.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
   }
