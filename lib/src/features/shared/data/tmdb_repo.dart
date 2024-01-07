@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 // Project Imports
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 
 class TmdbRepo {
@@ -413,6 +414,62 @@ class TmdbRepo {
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
+  }
+
+  Future<TmdbItem> fetchPerson(
+      {required String id, CancelToken? cancelToken}) async {
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/person/$id',
+      queryParameters: {
+        'api_key': apiKey,
+        'language': 'en-US',
+      },
+    ).toString();
+
+    final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
+    final tmdbResponse = TmdbItem.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
+  }
+
+  Future<TmdbMovieDetails> fetchMovie(
+      {required String id, CancelToken? cancelToken}) async {
+    final urlMovies = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/$id',
+      queryParameters: {
+        'api_key': apiKey,
+        'language': 'en-US',
+      },
+    ).toString();
+
+    final tmdbResponseJson =
+        await client.get(urlMovies, cancelToken: cancelToken);
+    final tmdbResponse = TmdbMovieDetails.fromJson(tmdbResponseJson.data);
+
+    return tmdbResponse;
+  }
+
+  Future<TmdbMovieDetails> fetchTvShow(
+      {required String id, CancelToken? cancelToken}) async {
+    final urlMovies = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/$id',
+      queryParameters: {
+        'api_key': apiKey,
+        'language': 'en-US',
+      },
+    ).toString();
+
+    final tmdbResponseJson =
+        await client.get(urlMovies, cancelToken: cancelToken);
+    final tmdbResponse = TmdbMovieDetails.fromJson(tmdbResponseJson.data);
 
     return tmdbResponse;
   }

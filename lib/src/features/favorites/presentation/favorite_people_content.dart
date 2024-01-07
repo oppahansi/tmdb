@@ -7,7 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
-import 'package:oppa_tmdb/src/features/people/providers/people_provider.dart';
+import 'package:oppa_tmdb/src/features/favorites/providers/favorites_provider.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_poster.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/home_list_tile_shimmer.dart';
@@ -15,26 +15,31 @@ import 'package:oppa_tmdb/src/features/shared/providers/favorite_ids_provider.da
 import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class PeopleContent extends ConsumerWidget {
-  const PeopleContent({super.key});
+class FavoritePeopleContent extends ConsumerWidget {
+  const FavoritePeopleContent({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var width = screenWidth(context);
     var height = width / 3;
 
+    final favoritePeopleIds = ref.watch(favoritePeopleIdsProvider);
+
     return SingleChildScrollView(
       child: SizedBox(
         width: screenWidth(context),
-        height:
-            screenHeight(context) - kToolbarHeight - kBottomNavigationBarHeight,
+        height: screenHeight(context) -
+            kToolbarHeight -
+            kBottomNavigationBarHeight * 2 -
+            24,
         child: ListView.builder(
+          itemCount: favoritePeopleIds.length,
           itemBuilder: (context, index) {
             final page = index ~/ defaultPageSize + 1;
             final indexInPage = (index % defaultPageSize).ceil();
 
-            final popularPeople = ref.watch(
-              peopleProvider(
+            final favoritePeople = ref.watch(
+              favoritePeopleProvider(
                 pagination: TmdbPagination(
                   page: page,
                   query: "",
@@ -42,7 +47,7 @@ class PeopleContent extends ConsumerWidget {
               ),
             );
 
-            return popularPeople.when(
+            return favoritePeople.when(
               error: (err, stack) => Text('Error $err'),
               loading: () => SizedBox(
                 width: width,
@@ -56,7 +61,7 @@ class PeopleContent extends ConsumerWidget {
                 ),
               ),
               data: (data) {
-                if (indexInPage >= data.tmdbItems!.length) {
+                if (indexInPage >= data.length) {
                   return SizedBox(
                     width: width,
                     height: height,
@@ -70,7 +75,7 @@ class PeopleContent extends ConsumerWidget {
                   );
                 }
 
-                final tmdbItem = data.tmdbItems![indexInPage];
+                final tmdbItem = data[indexInPage];
                 final isFavorite = ref.watch(
                     isFavoritePeopleProvider(id: tmdbItem.id.toString()));
 

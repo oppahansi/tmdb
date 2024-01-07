@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
 import 'package:oppa_tmdb/src/features/app/providers/screen_index_provider.dart';
+import 'package:oppa_tmdb/src/features/favorites/presentation/favorites_screen.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/home_screen.dart';
 import 'package:oppa_tmdb/src/features/movies/presentation/movies_screen.dart';
 import 'package:oppa_tmdb/src/features/people/presentation/people_screen.dart';
@@ -17,6 +18,7 @@ class AppScreen extends ConsumerWidget {
     const MoviesScreen(),
     const TvShowsScreen(),
     const PeopleScreen(),
+    const FavoritesScreen(),
   ];
 
   @override
@@ -55,6 +57,11 @@ class AppScreen extends ConsumerWidget {
             icon: Icon(Icons.people),
             activeIcon: Icon(Icons.people_outlined),
             label: "People",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            activeIcon: Icon(Icons.favorite_outline),
+            label: "Favorites",
           ),
         ],
       ),

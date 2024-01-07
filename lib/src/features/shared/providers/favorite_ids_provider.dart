@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
 
-part 'favorites_provider.g.dart';
+part 'favorite_ids_provider.g.dart';
 
 @riverpod
 bool isFavoriteMovie(
@@ -17,6 +17,13 @@ bool isFavoriteMovie(
 }
 
 @riverpod
+List<String> favoriteMovieIds(FavoriteMovieIdsRef ref) {
+  final sharedUtility = ref.watch(sharedUtilityProvider);
+
+  return sharedUtility.favoriteMovies;
+}
+
+@riverpod
 bool isFavoritePeople(
   IsFavoritePeopleRef ref, {
   required String id,
@@ -24,4 +31,11 @@ bool isFavoritePeople(
   final sharedUtility = ref.watch(sharedUtilityProvider);
 
   return sharedUtility.isFavoritePeople(id);
+}
+
+@riverpod
+List<String> favoritePeopleIds(FavoritePeopleIdsRef ref) {
+  final sharedUtility = ref.watch(sharedUtilityProvider);
+
+  return sharedUtility.favoritePeople;
 }

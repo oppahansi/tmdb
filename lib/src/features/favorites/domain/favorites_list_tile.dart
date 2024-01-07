@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project Imports
-import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
+import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_poster.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_rating.dart';
@@ -12,22 +12,22 @@ import 'package:oppa_tmdb/src/features/shared/providers/favorite_ids_provider.da
 import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';
 
-class HomeListTile extends ConsumerWidget {
-  const HomeListTile({
+class FavoritesListTile extends ConsumerWidget {
+  const FavoritesListTile({
     super.key,
-    required this.tmdbItem,
+    required this.tmdbMovieDetails,
     // debugging hint to show the tile index
     this.debugIndex,
     this.onPressed,
   });
-  final TmdbItem tmdbItem;
+  final TmdbMovieDetails tmdbMovieDetails;
   final int? debugIndex;
   final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isFavorite =
-        ref.watch(isFavoriteMovieProvider(id: tmdbItem.id.toString()));
+        ref.watch(isFavoriteMovieProvider(id: tmdbMovieDetails.id.toString()));
 
     var width = screenWidth(context) / 2;
 
@@ -37,7 +37,7 @@ class HomeListTile extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Stack(
           children: [
-            MoviePoster(imagePath: tmdbItem.posterPath ?? tmdbItem.profilePath),
+            MoviePoster(imagePath: tmdbMovieDetails.posterPath),
             if (debugIndex != null) ...[
               Positioned(
                 left: 8,
@@ -61,7 +61,7 @@ class HomeListTile extends ConsumerWidget {
             Positioned(
               bottom: 8,
               left: 8,
-              child: MovieRating(voteAverage: tmdbItem.voteAverage),
+              child: MovieRating(voteAverage: tmdbMovieDetails.voteAverage),
             ),
             Positioned(
               top: 0,
@@ -77,11 +77,11 @@ class HomeListTile extends ConsumerWidget {
                   if (isFavorite) {
                     ref
                         .read(sharedUtilityProvider)
-                        .removeFavoriteMovie(tmdbItem.id.toString());
+                        .removeFavoriteMovie(tmdbMovieDetails.id.toString());
                   } else {
                     ref
                         .read(sharedUtilityProvider)
-                        .setFavoriteMovie(tmdbItem.id.toString());
+                        .setFavoriteMovie(tmdbMovieDetails.id.toString());
                   }
 
                   ref.invalidate(isFavoriteMovieProvider);

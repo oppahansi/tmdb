@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'favorites_provider.dart';
+part of 'favorite_ids_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -155,7 +155,22 @@ class _IsFavoriteMovieProviderElement extends AutoDisposeProviderElement<bool>
   String get id => (origin as IsFavoriteMovieProvider).id;
 }
 
-String _$isFavoritePeopleHash() => r'28b8eec123a89a0a41fd566c1a9671cc0852c7b1';
+String _$favoriteMovieIdsHash() => r'bcbd2fa9acf6133341fb6a8c80edbf010d1c7f87';
+
+/// See also [favoriteMovieIds].
+@ProviderFor(favoriteMovieIds)
+final favoriteMovieIdsProvider = AutoDisposeProvider<List<String>>.internal(
+  favoriteMovieIds,
+  name: r'favoriteMovieIdsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$favoriteMovieIdsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FavoriteMovieIdsRef = AutoDisposeProviderRef<List<String>>;
+String _$isFavoritePeopleHash() => r'e4f7e4ae63e58f4cdb939f97dc746aa6f1b908cb';
 
 /// See also [isFavoritePeople].
 @ProviderFor(isFavoritePeople)
@@ -282,5 +297,21 @@ class _IsFavoritePeopleProviderElement extends AutoDisposeProviderElement<bool>
   @override
   String get id => (origin as IsFavoritePeopleProvider).id;
 }
+
+String _$favoritePeopleIdsHash() => r'e2c471274e63be533b5a7219b17b6b46fdf4a2df';
+
+/// See also [favoritePeopleIds].
+@ProviderFor(favoritePeopleIds)
+final favoritePeopleIdsProvider = AutoDisposeProvider<List<String>>.internal(
+  favoritePeopleIds,
+  name: r'favoritePeopleIdsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$favoritePeopleIdsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef FavoritePeopleIdsRef = AutoDisposeProviderRef<List<String>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

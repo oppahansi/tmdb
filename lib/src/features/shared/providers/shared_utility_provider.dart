@@ -61,6 +61,10 @@ class SharedUtility {
     sharedPreferences.setStringList(favoriteMoviesKey, favoriteMovies);
   }
 
+  List<String> get favoriteMovies {
+    return sharedPreferences.getStringList(favoriteMoviesKey) ?? List.empty();
+  }
+
   bool isFavoritePeople(String id) {
     var favoritePeople =
         sharedPreferences.getStringList(favoritePeopleKey) ?? List.empty();
@@ -92,5 +96,9 @@ class SharedUtility {
     favoritePeople.remove(id);
 
     sharedPreferences.setStringList(favoritePeopleKey, favoritePeople);
+  }
+
+  List<String> get favoritePeople {
+    return sharedPreferences.getStringList(favoritePeopleKey) ?? List.empty();
   }
 }
