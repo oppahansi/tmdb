@@ -124,7 +124,7 @@ class PeopleContent extends ConsumerWidget {
                             : const Icon(Icons.favorite_border_outlined),
                         color: isFavorite
                             ? Theme.of(context).colorScheme.tertiary
-                            : Colors.white,
+                            : Theme.of(context).colorScheme.onBackground,
                       ),
                       horizontalSpaceSmall,
                     ],

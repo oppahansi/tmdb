@@ -5,14 +5,16 @@ Greetings! I'm developing a Flutter mobile app, fueled by the [https://www.themo
 ## Current Progress:
 
 <p align="center">
-  <img alt="" src="https://i.imgur.com/lZJaQ3e.png" width="20%">
-  <img alt="" src="https://i.imgur.com/71FKoTC.png" width="20%">
-  <img alt="" src="https://i.imgur.com/PGR5Nup.png" width="20%">
-  <img alt="" src="https://i.imgur.com/OlN1e8v.png" width="20%">
+  <img alt="" src="https://i.imgur.com/kZF33nJ.png" width="18%">
+  <img alt="" src="https://i.imgur.com/9CIVImj.png" width="18%">
+  <img alt="" src="https://i.imgur.com/35fBGT2.png" width="18%">
+  <img alt="" src="https://i.imgur.com/ohU7MYZ.png" width="18%">
+  <img alt="" src="https://i.imgur.com/SigyJ0P.png" width="18%">
 </p>
 <p align="center">
-  <img alt="" src="https://i.imgur.com/TdegYi2.png" width="20%">
-  <img alt="" src="https://i.imgur.com/9IVsIGN.png" width="20%">
-  <img alt="" src="https://i.imgur.com/5cMO5ld.png" width="20%">
-  <img alt="" src="https://i.imgur.com/OzQ51qb.png" width="20%">
+  <img alt="" src="https://i.imgur.com/x0maD6U.png" width="18%">
+  <img alt="" src="https://i.imgur.com/5LMNVNG.png" width="18%">
+  <img alt="" src="https://i.imgur.com/AJIcGkN.png" width="18%">
+  <img alt="" src="https://i.imgur.com/RDtck6a.png" width="18%">
+  <img alt="" src="https://i.imgur.com/oPoAtO5.png" width="18%">
 </p>
