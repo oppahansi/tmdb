@@ -142,6 +142,8 @@ class PopularStreamingProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PopularStreamingRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
@@ -272,6 +274,8 @@ class PopularOnTvProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PopularOnTvRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
@@ -400,6 +404,8 @@ class PopularForRentProvider extends AutoDisposeFutureProvider<TmdbResponse> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PopularForRentRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
@@ -531,6 +537,8 @@ class PopularInTheatersProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin PopularInTheatersRef on AutoDisposeFutureProviderRef<TmdbResponse> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
@@ -546,4 +554,4 @@ class _PopularInTheatersProviderElement
       (origin as PopularInTheatersProvider).pagination;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

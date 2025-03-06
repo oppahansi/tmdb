@@ -9,12 +9,12 @@ part of 'tmdb_response.dart';
 _$TrendingResponseImpl _$$TrendingResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$TrendingResponseImpl(
-      page: json['page'] as int?,
+      page: (json['page'] as num?)?.toInt(),
       tmdbItems: (json['results'] as List<dynamic>?)
           ?.map((e) => TmdbItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalPages: json['total_pages'] as int?,
-      totalResults: json['total_results'] as int?,
+      totalPages: (json['total_pages'] as num?)?.toInt(),
+      totalResults: (json['total_results'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$TrendingResponseImplToJson(
@@ -29,13 +29,14 @@ Map<String, dynamic> _$$TrendingResponseImplToJson(
 _$TmdbItemImpl _$$TmdbItemImplFromJson(Map<String, dynamic> json) =>
     _$TmdbItemImpl(
       adult: json['adult'] as bool?,
-      gender: json['gender'] as int?,
+      gender: (json['gender'] as num?)?.toInt(),
       backdropPath: json['backdrop_path'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       name: json['name'] as String?,
-      genreIds:
-          (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      genreIds: (json['genre_ids'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
       originalLanguage: json['original_language'] as String?,
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
@@ -45,7 +46,7 @@ _$TmdbItemImpl _$$TmdbItemImplFromJson(Map<String, dynamic> json) =>
       releaseDate: json['release_date'] as String?,
       video: json['video'] as bool?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      voteCount: (json['vote_count'] as num?)?.toInt(),
       originCountry: (json['origin_country'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),

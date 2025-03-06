@@ -15,14 +15,14 @@ _$TmdbTvShowDetailsImpl _$$TmdbTvShowDetailsImplFromJson(
           ?.map((e) => CreatedBy.fromJson(e as Map<String, dynamic>))
           .toList(),
       episodeRunTime: (json['episode_run_time'] as List<dynamic>?)
-          ?.map((e) => e as int)
+          ?.map((e) => (e as num).toInt())
           .toList(),
       firstAirDate: json['first_air_date'] as String?,
       genres: (json['genres'] as List<dynamic>?)
           ?.map((e) => Genres.fromJson(e as Map<String, dynamic>))
           .toList(),
       homepage: json['homepage'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       inProduction: json['in_production'] as bool?,
       languages: (json['languages'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -40,8 +40,8 @@ _$TmdbTvShowDetailsImpl _$$TmdbTvShowDetailsImplFromJson(
       networks: (json['networks'] as List<dynamic>?)
           ?.map((e) => Networks.fromJson(e as Map<String, dynamic>))
           .toList(),
-      numberOfEpisodes: json['number_of_episodes'] as int?,
-      numberOfSeasons: json['number_of_seasons'] as int?,
+      numberOfEpisodes: (json['number_of_episodes'] as num?)?.toInt(),
+      numberOfSeasons: (json['number_of_seasons'] as num?)?.toInt(),
       originCountry: (json['origin_country'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -66,7 +66,7 @@ _$TmdbTvShowDetailsImpl _$$TmdbTvShowDetailsImplFromJson(
       tagline: json['tagline'] as String?,
       type: json['type'] as String?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      voteCount: (json['vote_count'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$TmdbTvShowDetailsImplToJson(
@@ -108,10 +108,10 @@ Map<String, dynamic> _$$TmdbTvShowDetailsImplToJson(
 
 _$CreatedByImpl _$$CreatedByImplFromJson(Map<String, dynamic> json) =>
     _$CreatedByImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       creditId: json['credit_id'] as String?,
       name: json['name'] as String?,
-      gender: json['gender'] as int?,
+      gender: (json['gender'] as num?)?.toInt(),
       profilePath: json['profile_path'] as String?,
     );
 
@@ -125,7 +125,7 @@ Map<String, dynamic> _$$CreatedByImplToJson(_$CreatedByImpl instance) =>
     };
 
 _$GenresImpl _$$GenresImplFromJson(Map<String, dynamic> json) => _$GenresImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
     );
 
@@ -138,18 +138,18 @@ Map<String, dynamic> _$$GenresImplToJson(_$GenresImpl instance) =>
 _$LastEpisodeToAirImpl _$$LastEpisodeToAirImplFromJson(
         Map<String, dynamic> json) =>
     _$LastEpisodeToAirImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       overview: json['overview'] as String?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      voteCount: (json['vote_count'] as num?)?.toInt(),
       airDate: json['air_date'] as String?,
-      episodeNumber: json['episode_number'] as int?,
+      episodeNumber: (json['episode_number'] as num?)?.toInt(),
       episodeType: json['episode_type'] as String?,
       productionCode: json['production_code'] as String?,
-      runtime: json['runtime'] as int?,
-      seasonNumber: json['season_number'] as int?,
-      showId: json['show_id'] as int?,
+      runtime: (json['runtime'] as num?)?.toInt(),
+      seasonNumber: (json['season_number'] as num?)?.toInt(),
+      showId: (json['show_id'] as num?)?.toInt(),
       stillPath: json['still_path'] as String?,
     );
 
@@ -174,18 +174,18 @@ Map<String, dynamic> _$$LastEpisodeToAirImplToJson(
 _$NextEpisodeToAirImpl _$$NextEpisodeToAirImplFromJson(
         Map<String, dynamic> json) =>
     _$NextEpisodeToAirImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       overview: json['overview'] as String?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      voteCount: (json['vote_count'] as num?)?.toInt(),
       airDate: json['air_date'] as String?,
-      episodeNumber: json['episode_number'] as int?,
+      episodeNumber: (json['episode_number'] as num?)?.toInt(),
       episodeType: json['episode_type'] as String?,
       productionCode: json['production_code'] as String?,
-      runtime: json['runtime'] as int?,
-      seasonNumber: json['season_number'] as int?,
-      showId: json['show_id'] as int?,
+      runtime: (json['runtime'] as num?)?.toInt(),
+      seasonNumber: (json['season_number'] as num?)?.toInt(),
+      showId: (json['show_id'] as num?)?.toInt(),
       stillPath: json['still_path'] as String?,
     );
 
@@ -209,7 +209,7 @@ Map<String, dynamic> _$$NextEpisodeToAirImplToJson(
 
 _$NetworksImpl _$$NetworksImplFromJson(Map<String, dynamic> json) =>
     _$NetworksImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       logoPath: json['logo_path'] as String?,
       name: json['name'] as String?,
       originCountry: json['origin_country'] as String?,
@@ -226,7 +226,7 @@ Map<String, dynamic> _$$NetworksImplToJson(_$NetworksImpl instance) =>
 _$ProductionCompaniesImpl _$$ProductionCompaniesImplFromJson(
         Map<String, dynamic> json) =>
     _$ProductionCompaniesImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       logoPath: json['logo_path'] as String?,
       name: json['name'] as String?,
       originCountry: json['origin_country'] as String?,
@@ -258,12 +258,12 @@ Map<String, dynamic> _$$ProductionCountriesImplToJson(
 _$SeasonsImpl _$$SeasonsImplFromJson(Map<String, dynamic> json) =>
     _$SeasonsImpl(
       airDate: json['air_date'] as String?,
-      episodeCount: json['episode_count'] as int?,
-      id: json['id'] as int?,
+      episodeCount: (json['episode_count'] as num?)?.toInt(),
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       overview: json['overview'] as String?,
       posterPath: json['poster_path'] as String?,
-      seasonNumber: json['season_number'] as int?,
+      seasonNumber: (json['season_number'] as num?)?.toInt(),
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
     );
 

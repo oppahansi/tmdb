@@ -1,11 +1,9 @@
 // Flutter Imports
+// Package Imports
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-
-// Package Imports
-import 'package:cached_network_image/cached_network_image.dart';
-
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/people/providers/people_provider.dart';
@@ -79,7 +77,7 @@ class PeopleContent extends ConsumerWidget {
 
                 return Card(
                   elevation: 4,
-                  shadowColor: Theme.of(context).colorScheme.onBackground,
+                  shadowColor: Theme.of(context).colorScheme.onSurface,
                   child: Row(
                     children: [
                       Padding(
@@ -124,7 +122,7 @@ class PeopleContent extends ConsumerWidget {
                             : const Icon(Icons.favorite_border_outlined),
                         color: isFavorite
                             ? Theme.of(context).colorScheme.tertiary
-                            : Theme.of(context).colorScheme.onBackground,
+                            : Theme.of(context).colorScheme.onSurface,
                       ),
                       horizontalSpaceSmall,
                     ],

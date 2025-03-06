@@ -12,7 +12,7 @@ part of 'tmdb_search_results.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TmdbSearchResults _$TmdbSearchResultsFromJson(Map<String, dynamic> json) {
   return _TmdbSearchResults.fromJson(json);
@@ -29,8 +29,12 @@ mixin _$TmdbSearchResults {
   @JsonKey(name: 'total_results')
   int? get totalResults => throw _privateConstructorUsedError;
 
+  /// Serializes this TmdbSearchResults to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TmdbSearchResults
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TmdbSearchResultsCopyWith<TmdbSearchResults> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$TmdbSearchResultsCopyWithImpl<$Res, $Val extends TmdbSearchResults>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TmdbSearchResults
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,6 +116,8 @@ class __$$TmdbSearchResultsImplCopyWithImpl<$Res>
       $Res Function(_$TmdbSearchResultsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TmdbSearchResults
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -191,12 +199,14 @@ class _$TmdbSearchResultsImpl implements _TmdbSearchResults {
                 other.totalResults == totalResults));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, page,
       const DeepCollectionEquality().hash(_results), totalPages, totalResults);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TmdbSearchResults
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TmdbSearchResultsImplCopyWith<_$TmdbSearchResultsImpl> get copyWith =>
@@ -234,8 +244,11 @@ abstract class _TmdbSearchResults implements TmdbSearchResults {
   @override
   @JsonKey(name: 'total_results')
   int? get totalResults;
+
+  /// Create a copy of TmdbSearchResults
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TmdbSearchResultsImplCopyWith<_$TmdbSearchResultsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -293,8 +306,12 @@ mixin _$Results {
   @JsonKey(name: 'known_for')
   List<KnownFor>? get knownFor => throw _privateConstructorUsedError;
 
+  /// Serializes this Results to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Results
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ResultsCopyWith<Results> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -339,6 +356,8 @@ class _$ResultsCopyWithImpl<$Res, $Val extends Results>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Results
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -504,6 +523,8 @@ class __$$ResultsImplCopyWithImpl<$Res>
       _$ResultsImpl _value, $Res Function(_$ResultsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Results
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -805,7 +826,7 @@ class _$ResultsImpl implements _Results {
             const DeepCollectionEquality().equals(other._knownFor, _knownFor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -834,7 +855,9 @@ class _$ResultsImpl implements _Results {
         const DeepCollectionEquality().hash(_knownFor)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Results
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResultsImplCopyWith<_$ResultsImpl> get copyWith =>
@@ -946,8 +969,11 @@ abstract class _Results implements Results {
   @override
   @JsonKey(name: 'known_for')
   List<KnownFor>? get knownFor;
+
+  /// Create a copy of Results
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResultsImplCopyWith<_$ResultsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -989,8 +1015,12 @@ mixin _$KnownFor {
   @JsonKey(name: 'origin_country')
   List<String>? get originCountry => throw _privateConstructorUsedError;
 
+  /// Serializes this KnownFor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of KnownFor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $KnownForCopyWith<KnownFor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1028,6 +1058,8 @@ class _$KnownForCopyWithImpl<$Res, $Val extends KnownFor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of KnownFor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1146,6 +1178,8 @@ class __$$KnownForImplCopyWithImpl<$Res>
       _$KnownForImpl _value, $Res Function(_$KnownForImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of KnownFor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1354,7 +1388,7 @@ class _$KnownForImpl implements _KnownFor {
                 .equals(other._originCountry, _originCountry));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1374,7 +1408,9 @@ class _$KnownForImpl implements _KnownFor {
       voteCount,
       const DeepCollectionEquality().hash(_originCountry));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of KnownFor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$KnownForImplCopyWith<_$KnownForImpl> get copyWith =>
@@ -1455,8 +1491,11 @@ abstract class _KnownFor implements KnownFor {
   @override
   @JsonKey(name: 'origin_country')
   List<String>? get originCountry;
+
+  /// Create a copy of KnownFor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$KnownForImplCopyWith<_$KnownForImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

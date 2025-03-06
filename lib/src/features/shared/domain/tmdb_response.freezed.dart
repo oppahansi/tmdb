@@ -12,7 +12,7 @@ part of 'tmdb_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TmdbResponse _$TmdbResponseFromJson(Map<String, dynamic> json) {
   return _TrendingResponse.fromJson(json);
@@ -29,8 +29,12 @@ mixin _$TmdbResponse {
   @JsonKey(name: 'total_results')
   int? get totalResults => throw _privateConstructorUsedError;
 
+  /// Serializes this TmdbResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TmdbResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TmdbResponseCopyWith<TmdbResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$TmdbResponseCopyWithImpl<$Res, $Val extends TmdbResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TmdbResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,6 +116,8 @@ class __$$TrendingResponseImplCopyWithImpl<$Res>
       $Res Function(_$TrendingResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TmdbResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -205,7 +213,7 @@ class _$TrendingResponseImpl
                 other.totalResults == totalResults));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -214,7 +222,9 @@ class _$TrendingResponseImpl
       totalPages,
       totalResults);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TmdbResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TrendingResponseImplCopyWith<_$TrendingResponseImpl> get copyWith =>
@@ -252,8 +262,11 @@ abstract class _TrendingResponse implements TmdbResponse {
   @override
   @JsonKey(name: 'total_results')
   int? get totalResults;
+
+  /// Create a copy of TmdbResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TrendingResponseImplCopyWith<_$TrendingResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -311,8 +324,12 @@ mixin _$TmdbItem {
   @JsonKey(name: 'known_for')
   List<TmdbItem>? get knownFor => throw _privateConstructorUsedError;
 
+  /// Serializes this TmdbItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TmdbItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TmdbItemCopyWith<TmdbItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -358,6 +375,8 @@ class _$TmdbItemCopyWithImpl<$Res, $Val extends TmdbItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TmdbItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -524,6 +543,8 @@ class __$$TmdbItemImplCopyWithImpl<$Res>
       _$TmdbItemImpl _value, $Res Function(_$TmdbItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TmdbItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -855,7 +876,7 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
             const DeepCollectionEquality().equals(other._knownFor, _knownFor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -884,7 +905,9 @@ class _$TmdbItemImpl with DiagnosticableTreeMixin implements _TmdbItem {
         const DeepCollectionEquality().hash(_knownFor)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TmdbItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TmdbItemImplCopyWith<_$TmdbItemImpl> get copyWith =>
@@ -997,8 +1020,11 @@ abstract class _TmdbItem implements TmdbItem {
   @override
   @JsonKey(name: 'known_for')
   List<TmdbItem>? get knownFor;
+
+  /// Create a copy of TmdbItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TmdbItemImplCopyWith<_$TmdbItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

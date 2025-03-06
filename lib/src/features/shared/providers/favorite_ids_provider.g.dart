@@ -142,6 +142,8 @@ class IsFavoriteMovieProvider extends AutoDisposeProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin IsFavoriteMovieRef on AutoDisposeProviderRef<bool> {
   /// The parameter `id` of this provider.
   String get id;
@@ -169,6 +171,8 @@ final favoriteMovieIdsProvider = AutoDisposeProvider<List<String>>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef FavoriteMovieIdsRef = AutoDisposeProviderRef<List<String>>;
 String _$isFavoriteTvShowHash() => r'de976f7a6bc507db96029d763e26f2a5d8cdef0c';
 
@@ -285,6 +289,8 @@ class IsFavoriteTvShowProvider extends AutoDisposeProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin IsFavoriteTvShowRef on AutoDisposeProviderRef<bool> {
   /// The parameter `id` of this provider.
   String get id;
@@ -313,6 +319,8 @@ final favoriteTvShowsIdsProvider = AutoDisposeProvider<List<String>>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef FavoriteTvShowsIdsRef = AutoDisposeProviderRef<List<String>>;
 String _$isFavoritePeopleHash() => r'e4f7e4ae63e58f4cdb939f97dc746aa6f1b908cb';
 
@@ -429,6 +437,8 @@ class IsFavoritePeopleProvider extends AutoDisposeProvider<bool> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin IsFavoritePeopleRef on AutoDisposeProviderRef<bool> {
   /// The parameter `id` of this provider.
   String get id;
@@ -456,6 +466,8 @@ final favoritePeopleIdsProvider = AutoDisposeProvider<List<String>>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef FavoritePeopleIdsRef = AutoDisposeProviderRef<List<String>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

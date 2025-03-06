@@ -6,7 +6,7 @@ part of 'search_results_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$searchResultsHash() => r'e5756492360f4fed86c3fa719f932d327f63c6bc';
+String _$searchResultsHash() => r'7b7c50ae1f67454ec546bdeeff0ec8c410fd6840';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -143,6 +143,8 @@ class SearchResultsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin SearchResultsRef on AutoDisposeFutureProviderRef<TmdbSearchResults> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
@@ -157,4 +159,4 @@ class _SearchResultsProviderElement
   TmdbPagination get pagination => (origin as SearchResultsProvider).pagination;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

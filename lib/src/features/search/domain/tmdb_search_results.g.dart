@@ -9,12 +9,12 @@ part of 'tmdb_search_results.dart';
 _$TmdbSearchResultsImpl _$$TmdbSearchResultsImplFromJson(
         Map<String, dynamic> json) =>
     _$TmdbSearchResultsImpl(
-      page: json['page'] as int?,
+      page: (json['page'] as num?)?.toInt(),
       results: (json['results'] as List<dynamic>?)
           ?.map((e) => Results.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalPages: json['total_pages'] as int?,
-      totalResults: json['total_results'] as int?,
+      totalPages: (json['total_pages'] as num?)?.toInt(),
+      totalResults: (json['total_results'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$TmdbSearchResultsImplToJson(
@@ -30,27 +30,28 @@ _$ResultsImpl _$$ResultsImplFromJson(Map<String, dynamic> json) =>
     _$ResultsImpl(
       adult: json['adult'] as bool?,
       backdropPath: json['backdrop_path'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       originalLanguage: json['original_language'] as String?,
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
       posterPath: json['poster_path'] as String?,
       mediaType: json['media_type'] as String?,
-      genreIds:
-          (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      genreIds: (json['genre_ids'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
       popularity: (json['popularity'] as num?)?.toDouble(),
       releaseDate: json['release_date'] as String?,
       video: json['video'] as bool?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      voteCount: (json['vote_count'] as num?)?.toInt(),
       name: json['name'] as String?,
       originalName: json['original_name'] as String?,
       firstAirDate: json['first_air_date'] as String?,
       originCountry: (json['origin_country'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      gender: json['gender'] as int?,
+      gender: (json['gender'] as num?)?.toInt(),
       knownForDepartment: json['known_for_department'] as String?,
       profilePath: json['profile_path'] as String?,
       knownFor: (json['known_for'] as List<dynamic>?)
@@ -89,19 +90,20 @@ _$KnownForImpl _$$KnownForImplFromJson(Map<String, dynamic> json) =>
     _$KnownForImpl(
       adult: json['adult'] as bool?,
       backdropPath: json['backdrop_path'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       originalLanguage: json['original_language'] as String?,
       originalName: json['original_name'] as String?,
       overview: json['overview'] as String?,
       posterPath: json['poster_path'] as String?,
       mediaType: json['media_type'] as String?,
-      genreIds:
-          (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      genreIds: (json['genre_ids'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
       popularity: (json['popularity'] as num?)?.toDouble(),
       firstAirDate: json['first_air_date'] as String?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
-      voteCount: json['vote_count'] as int?,
+      voteCount: (json['vote_count'] as num?)?.toInt(),
       originCountry: (json['origin_country'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),

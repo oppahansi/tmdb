@@ -1,10 +1,7 @@
-// Flutter Imports
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 // Package Imports
 import 'package:cached_network_image/cached_network_image.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/favorites/providers/favorites_provider.dart';
@@ -83,7 +80,7 @@ class FavoritePeopleContent extends ConsumerWidget {
 
                 return Card(
                   elevation: 4,
-                  shadowColor: Theme.of(context).colorScheme.onBackground,
+                  shadowColor: Theme.of(context).colorScheme.onSurface,
                   child: Row(
                     children: [
                       Padding(

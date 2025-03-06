@@ -142,6 +142,8 @@ class FavoritePeopleProvider extends AutoDisposeFutureProvider<List<TmdbItem>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FavoritePeopleRef on AutoDisposeFutureProviderRef<List<TmdbItem>> {
   /// The parameter `pagination` of this provider.
   TmdbPagination get pagination;
@@ -274,6 +276,8 @@ class FavoriteMoviesProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FavoriteMoviesRef
     on AutoDisposeFutureProviderRef<List<TmdbMovieDetails>> {
   /// The parameter `pagination` of this provider.
@@ -408,6 +412,8 @@ class FavoriteTvShowsProvider
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FavoriteTvShowsRef
     on AutoDisposeFutureProviderRef<List<TmdbTvShowDetails>> {
   /// The parameter `pagination` of this provider.
@@ -424,4 +430,4 @@ class _FavoriteTvShowsProviderElement
       (origin as FavoriteTvShowsProvider).pagination;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
