@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TmdbTitle extends StatelessWidget {
-  const TmdbTitle({
-    super.key,
-  });
+  const TmdbTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +19,7 @@ class TmdbTitle extends StatelessWidget {
         ).createShader(bounds);
       },
       blendMode: BlendMode.srcATop,
-      child: SvgPicture.asset(
-        "assets/images/tmdb.svg",
-        height: 20,
-      ),
+      child: SvgPicture.asset("assets/images/tmdb.svg", height: 20),
     );
   }
 }

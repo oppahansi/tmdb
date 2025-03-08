@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
@@ -28,48 +28,39 @@ class TopRatedTvShowsContent extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: ListView.custom(
             scrollDirection: Axis.horizontal,
-            childrenDelegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final page = index ~/ defaultPageSize + 1;
-                final indexInPage = (index % defaultPageSize).ceil();
+            childrenDelegate: SliverChildBuilderDelegate((context, index) {
+              final page = index ~/ defaultPageSize + 1;
+              final indexInPage = (index % defaultPageSize).ceil();
 
-                final topRatedTvShows = ref.watch(
-                  topRatedTvShowsProvider(
-                    pagination: TmdbPagination(
-                      page: page,
-                      query: "",
+              final topRatedTvShows = ref.watch(
+                topRatedTvShowsProvider(
+                  pagination: TmdbPagination(page: page, query: ""),
+                ),
+              );
+
+              return topRatedTvShows.when(
+                error:
+                    (err, stack) => const Center(
+                      child: Text("Ooops, something went wrong."),
                     ),
-                  ),
-                );
+                loading:
+                    () => HomeListTileShimmer(width: width, height: height),
+                data: (data) {
+                  if (indexInPage >= data.tmdbItems!.length) {
+                    return HomeListTileShimmer(width: width, height: height);
+                  }
 
-                return topRatedTvShows.when(
-                  error: (err, stack) => const Center(
-                    child: Text("Ooops, something went wrong."),
-                  ),
-                  loading: () => HomeListTileShimmer(
-                    width: width,
-                    height: height,
-                  ),
-                  data: (data) {
-                    if (indexInPage >= data.tmdbItems!.length) {
-                      return HomeListTileShimmer(
-                        width: width,
-                        height: height,
-                      );
-                    }
+                  final tmdbItem = data.tmdbItems![indexInPage];
 
-                    final tmdbItem = data.tmdbItems![indexInPage];
-
-                    return HomeListTile(
-                      tmdbItem: tmdbItem,
-                      itemType: TmdbItemTypeEnum.tvShows,
-                      debugIndex: index,
-                      onPressed: () {},
-                    );
-                  },
-                );
-              },
-            ),
+                  return HomeListTile(
+                    tmdbItem: tmdbItem,
+                    itemType: TmdbItemTypeEnum.tvShows,
+                    debugIndex: index,
+                    onPressed: () {},
+                  );
+                },
+              );
+            }),
           ),
         ),
       ),

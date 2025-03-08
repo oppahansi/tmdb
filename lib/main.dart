@@ -4,8 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Package Imports
 import 'package:shared_preferences/shared_preferences.dart';
-
-// Project Imports
 import 'package:oppa_tmdb/src/core/theme/themes.dart';
 import 'package:oppa_tmdb/src/features/app/presentation/app_screen.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/shared_utility_provider.dart';
@@ -19,7 +17,7 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        sharedPreferencesProvider.overrideWithValue(sharedPreferences)
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
       ],
       child: const MyApp(),
     ),

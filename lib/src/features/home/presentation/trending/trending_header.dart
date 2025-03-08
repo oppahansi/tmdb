@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/presentation/row_header.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/selected_providers.dart';
 
@@ -24,37 +24,25 @@ class TrendingHeader extends ConsumerWidget {
           children: [
             ToggleButtons(
               borderRadius: BorderRadius.circular(20),
-              constraints: const BoxConstraints(
-                minWidth: 80,
-                minHeight: 40,
-              ),
+              constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
               onPressed: (index) {
                 ref
                     .read(selectedTrendingItemTypeProvider.notifier)
                     .update((state) => _getTrendingItemTypeState(index));
               },
               isSelected: selectedItemType,
-              children: const [
-                Text("Movies"),
-                Text("Tv Shows"),
-              ],
+              children: const [Text("Movies"), Text("Tv Shows")],
             ),
             ToggleButtons(
               borderRadius: BorderRadius.circular(20),
-              constraints: const BoxConstraints(
-                minWidth: 80,
-                minHeight: 40,
-              ),
+              constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
               onPressed: (index) {
                 ref
                     .read(selectedTrendingTimeWindowProvider.notifier)
                     .update((state) => _getTrendingTimewindowState(index));
               },
               isSelected: selectedTimeWindow,
-              children: const [
-                Text("Today"),
-                Text("Week"),
-              ],
+              children: const [Text("Today"), Text("Week")],
             ),
           ],
         ),

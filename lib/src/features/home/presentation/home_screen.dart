@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/home/presentation/free_to_watch/free_to_watch_row.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/trending/trending_row.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/whats_popular/whats_popular_row.dart';
@@ -24,11 +24,12 @@ class HomeScreen extends ConsumerWidget {
           title: const TmdbTitle(),
           actions: [
             IconButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const SearchScreen(),
-                ),
-              ),
+              onPressed:
+                  () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SearchScreen(),
+                    ),
+                  ),
               icon: const Icon(Icons.search),
             ),
             const ThemeToggle(),

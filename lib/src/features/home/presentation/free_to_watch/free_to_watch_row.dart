@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/home/presentation/free_to_watch/free_to_watch_content.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/free_to_watch/free_to_watch_header.dart';
 import 'package:oppa_tmdb/src/utils/ui_helpers.dart';

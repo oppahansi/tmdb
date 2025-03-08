@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/search/domain/search_list_tile.dart';
 import 'package:oppa_tmdb/src/features/search/providers/search_results_provider.dart';
@@ -40,9 +40,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const TmdbTitle(),
-          actions: const [
-            ThemeToggle(),
-          ],
+          actions: const [ThemeToggle()],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -67,7 +65,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                           .update((state) => "");
                     },
                     icon: const Icon(Icons.clear),
-                  )
+                  ),
                 ],
               ),
               verticalSpaceSmall,
@@ -75,62 +73,66 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                 SizedBox(
                   height: screenHeight(context),
                   child: ListView.custom(
-                    childrenDelegate: SliverChildBuilderDelegate(
-                      (context, index) {
-                        final page = index ~/ (defaultPageSize * 2) + 1;
-                        final indexInPage = index % (defaultPageSize * 2);
+                    childrenDelegate: SliverChildBuilderDelegate((
+                      context,
+                      index,
+                    ) {
+                      final page = index ~/ (defaultPageSize * 2) + 1;
+                      final indexInPage = index % (defaultPageSize * 2);
 
-                        final searchResults = ref.watch(
-                          searchResultsProvider(
-                            pagination: TmdbPagination(
-                              page: page,
-                              query: searchText,
+                      final searchResults = ref.watch(
+                        searchResultsProvider(
+                          pagination: TmdbPagination(
+                            page: page,
+                            query: searchText,
+                          ),
+                        ),
+                      );
+
+                      return searchResults.when(
+                        error:
+                            (err, stack) => const Center(
+                              child: Text("Ooops, something went wrong."),
                             ),
-                          ),
-                        );
-
-                        return searchResults.when(
-                          error: (err, stack) => const Center(
-                            child: Text("Ooops, something went wrong."),
-                          ),
-                          loading: () => HomeListTileShimmer(
-                            width: width,
-                            height: height,
-                          ),
-                          data: (data) {
-                            if (indexInPage >= data.results!.length) {
-                              return HomeListTileShimmer(
-                                width: width,
-                                height: height,
-                              );
-                            }
-
-                            if (data.totalPages == page) {
-                              if (indexInPage >= data.results!.length) {
-                                return const SizedBox.shrink();
-                              }
-                            }
-
-                            final tmdbItem = data.results![indexInPage];
-
-                            return Row(
-                              children: [
-                                SearchListTile(
-                                  searchItem: tmdbItem,
-                                  itemType: tmdbItem.mediaType == "movie"
-                                      ? TmdbItemTypeEnum.movie
-                                      : tmdbItem.mediaType == "tv"
-                                          ? TmdbItemTypeEnum.tvShows
-                                          : TmdbItemTypeEnum.person,
-                                  debugIndex: index,
-                                  onPressed: () {},
-                                ),
-                              ],
+                        loading:
+                            () => HomeListTileShimmer(
+                              width: width,
+                              height: height,
+                            ),
+                        data: (data) {
+                          if (indexInPage >= data.results!.length) {
+                            return HomeListTileShimmer(
+                              width: width,
+                              height: height,
                             );
-                          },
-                        );
-                      },
-                    ),
+                          }
+
+                          if (data.totalPages == page) {
+                            if (indexInPage >= data.results!.length) {
+                              return const SizedBox.shrink();
+                            }
+                          }
+
+                          final tmdbItem = data.results![indexInPage];
+
+                          return Row(
+                            children: [
+                              SearchListTile(
+                                searchItem: tmdbItem,
+                                itemType:
+                                    tmdbItem.mediaType == "movie"
+                                        ? TmdbItemTypeEnum.movie
+                                        : tmdbItem.mediaType == "tv"
+                                        ? TmdbItemTypeEnum.tvShows
+                                        : TmdbItemTypeEnum.person,
+                                debugIndex: index,
+                                onPressed: () {},
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }),
                   ),
                 ),
             ],

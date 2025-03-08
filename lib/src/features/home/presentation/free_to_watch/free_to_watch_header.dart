@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/presentation/row_header.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/selected_providers.dart';
 
@@ -18,20 +18,14 @@ class FreeToWatchHeader extends ConsumerWidget {
         const RowHeader(title: "Free to Watch"),
         ToggleButtons(
           borderRadius: BorderRadius.circular(20),
-          constraints: const BoxConstraints(
-            minWidth: 80,
-            minHeight: 40,
-          ),
+          constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
           onPressed: (index) {
             ref
                 .read(selectedFreeToWatchProvider.notifier)
                 .update((state) => _getFreeToWatchToggleButtonsState(index));
           },
           isSelected: selected,
-          children: const [
-            Text("Movies"),
-            Text("TV"),
-          ],
+          children: const [Text("Movies"), Text("TV")],
         ),
       ],
     );

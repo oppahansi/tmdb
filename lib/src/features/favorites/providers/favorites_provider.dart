@@ -7,8 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Package Imports
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-// Project Imports
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
@@ -36,10 +34,7 @@ Future<List<TmdbItem>> favoritePeople(
   for (var i = (pagination.page - 1) * 10; i < favoriteIds.length; i++) {
     final id = favoriteIds[i];
 
-    final person = await tmdbRepo.fetchPerson(
-      id: id,
-      cancelToken: cancelToken,
-    );
+    final person = await tmdbRepo.fetchPerson(id: id, cancelToken: cancelToken);
 
     favoritePeople.add(person);
   }
@@ -65,10 +60,7 @@ Future<List<TmdbMovieDetails>> favoriteMovies(
   for (var i = (pagination.page - 1) * 10; i < favoriteIds.length; i++) {
     final id = favoriteIds[i];
 
-    final person = await tmdbRepo.fetchMovie(
-      id: id,
-      cancelToken: cancelToken,
-    );
+    final person = await tmdbRepo.fetchMovie(id: id, cancelToken: cancelToken);
 
     favoritePeople.add(person);
   }
@@ -94,10 +86,7 @@ Future<List<TmdbTvShowDetails>> favoriteTvShows(
   for (var i = (pagination.page - 1) * 10; i < favoriteIds.length; i++) {
     final id = favoriteIds[i];
 
-    final person = await tmdbRepo.fetchTvShow(
-      id: id,
-      cancelToken: cancelToken,
-    );
+    final person = await tmdbRepo.fetchTvShow(id: id, cancelToken: cancelToken);
 
     favoritePeople.add(person);
   }
@@ -105,8 +94,12 @@ Future<List<TmdbTvShowDetails>> favoriteTvShows(
   return favoritePeople;
 }
 
-void _setEvents(AutoDisposeFutureProviderRef ref, CancelToken cancelToken,
-    Timer? timer, KeepAliveLink link) {
+void _setEvents(
+  AutoDisposeFutureProviderRef ref,
+  CancelToken cancelToken,
+  Timer? timer,
+  KeepAliveLink link,
+) {
   ref.onDispose(() {
     cancelToken.cancel();
     timer?.cancel();

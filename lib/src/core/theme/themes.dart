@@ -1,7 +1,7 @@
 // Flutter Imports
 import 'package:flutter/material.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/core/theme/color_schemes.dart';
 
 var darkTheme = ThemeData(

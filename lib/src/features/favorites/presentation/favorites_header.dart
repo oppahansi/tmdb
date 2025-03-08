@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/favorites/providers/selected_favorites_provider.dart';
 
 class FavoritesHeader extends ConsumerWidget {
@@ -18,21 +18,14 @@ class FavoritesHeader extends ConsumerWidget {
       children: [
         ToggleButtons(
           borderRadius: BorderRadius.circular(20),
-          constraints: const BoxConstraints(
-            minWidth: 80,
-            minHeight: 40,
-          ),
+          constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
           onPressed: (index) {
             ref
                 .read(selectedFavoritesProvider.notifier)
                 .update((state) => _getFavoritesToggleButtonsState(index));
           },
           isSelected: selected,
-          children: const [
-            Text("Movies"),
-            Text("Tv Shows"),
-            Text("People"),
-          ],
+          children: const [Text("Movies"), Text("Tv Shows"), Text("People")],
         ),
       ],
     );

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/providers/theme_provider.dart';
 
 class ThemeToggle extends ConsumerWidget {
@@ -15,8 +15,12 @@ class ThemeToggle extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: IconButton(
-        onPressed: () => ref.read(themeModeProvider.notifier).state =
-            themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
+        onPressed:
+            () =>
+                ref.read(themeModeProvider.notifier).state =
+                    themeMode == ThemeMode.dark
+                        ? ThemeMode.light
+                        : ThemeMode.dark,
         icon: _themeToggleButton(themeMode),
       ),
     );

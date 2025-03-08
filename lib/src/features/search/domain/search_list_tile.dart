@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/search/domain/tmdb_search_results.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
@@ -31,11 +31,13 @@ class SearchListTile extends ConsumerWidget {
     var isFavoriteMovie = false;
     var isFavoriteTvShow = false;
     if (itemType == TmdbItemTypeEnum.movie) {
-      isFavoriteMovie =
-          ref.watch(isFavoriteMovieProvider(id: searchItem.id.toString()));
+      isFavoriteMovie = ref.watch(
+        isFavoriteMovieProvider(id: searchItem.id.toString()),
+      );
     } else {
-      isFavoriteTvShow =
-          ref.watch(isFavoriteTvShowProvider(id: searchItem.id.toString()));
+      isFavoriteTvShow = ref.watch(
+        isFavoriteTvShowProvider(id: searchItem.id.toString()),
+      );
     }
 
     var width = screenWidth(context) / 2;
@@ -48,9 +50,13 @@ class SearchListTile extends ConsumerWidget {
           children: [
             (searchItem.posterPath != null || searchItem.profilePath != null)
                 ? MoviePoster(
-                    imagePath: searchItem.posterPath ?? searchItem.profilePath)
-                : Image.asset('assets/images/placeholder.png',
-                    width: width, height: width * 1.5),
+                  imagePath: searchItem.posterPath ?? searchItem.profilePath,
+                )
+                : Image.asset(
+                  'assets/images/placeholder.png',
+                  width: width,
+                  height: width * 1.5,
+                ),
             if (debugIndex != null) ...[
               Positioned(
                 left: 8,
@@ -86,13 +92,14 @@ class SearchListTile extends ConsumerWidget {
                           ? Icons.favorite
                           : Icons.favorite_border_outlined
                       : isFavoriteTvShow
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
-                  color: itemType == TmdbItemTypeEnum.movie
-                      ? isFavoriteMovie
-                          ? Theme.of(context).colorScheme.tertiary
-                          : Colors.white
-                      : isFavoriteTvShow
+                      ? Icons.favorite
+                      : Icons.favorite_border_outlined,
+                  color:
+                      itemType == TmdbItemTypeEnum.movie
+                          ? isFavoriteMovie
+                              ? Theme.of(context).colorScheme.tertiary
+                              : Colors.white
+                          : isFavoriteTvShow
                           ? Theme.of(context).colorScheme.tertiary
                           : Colors.white,
                 ),

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/movies/presentation/now_playing/now_playing_movies_row.dart';
 import 'package:oppa_tmdb/src/features/movies/presentation/popular/popular_movies_row.dart';
 import 'package:oppa_tmdb/src/features/movies/presentation/top_rated/now_playing_movies_row.dart';
@@ -22,9 +22,7 @@ class MoviesScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const TmdbTitle(),
-          actions: const [
-            ThemeToggle(),
-          ],
+          actions: const [ThemeToggle()],
         ),
         body: SingleChildScrollView(
           child: RefreshIndicator(

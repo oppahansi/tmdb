@@ -10,29 +10,32 @@ class MovieRating extends StatelessWidget {
   Widget build(BuildContext context) {
     final movieRating = voteAverage != null ? voteAverage! * 10.0 : 0.0;
 
-    return Stack(children: [
-      if (voteAverage != null)
-        CircularProgressIndicator(
-          value: movieRating / 100.0,
-          valueColor:
-              AlwaysStoppedAnimation<Color>(_getRatingColor(movieRating)),
-          backgroundColor: Colors.black,
-          strokeWidth: 2,
-        ),
-      if (voteAverage != null)
-        Positioned(
-          left: 8,
-          top: 8,
-          child: Text(
-            '${movieRating.toStringAsFixed(0)}%',
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
+    return Stack(
+      children: [
+        if (voteAverage != null)
+          CircularProgressIndicator(
+            value: movieRating / 100.0,
+            valueColor: AlwaysStoppedAnimation<Color>(
+              _getRatingColor(movieRating),
+            ),
+            backgroundColor: Colors.black,
+            strokeWidth: 2,
+          ),
+        if (voteAverage != null)
+          Positioned(
+            left: 8,
+            top: 8,
+            child: Text(
+              '${movieRating.toStringAsFixed(0)}%',
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-    ]);
+      ],
+    );
   }
 
   Color _getRatingColor(double rating) {

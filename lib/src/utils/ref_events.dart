@@ -7,8 +7,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Package Imports
 import 'package:dio/dio.dart';
 
-void setEvents(AutoDisposeFutureProviderRef ref, CancelToken cancelToken,
-    Timer? timer, KeepAliveLink link) {
+void setEvents(
+  AutoDisposeFutureProviderRef ref,
+  CancelToken cancelToken,
+  Timer? timer,
+  KeepAliveLink link,
+) {
   ref.onDispose(() {
     cancelToken.cancel();
     timer?.cancel();

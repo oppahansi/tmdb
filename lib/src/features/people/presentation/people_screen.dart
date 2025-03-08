@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/people/presentation/people_content.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/row_header.dart';
@@ -20,9 +20,7 @@ class PeopleScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const TmdbTitle(),
-          actions: const [
-            ThemeToggle(),
-          ],
+          actions: const [ThemeToggle()],
         ),
         body: SingleChildScrollView(
           child: RefreshIndicator(

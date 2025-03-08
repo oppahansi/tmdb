@@ -1,10 +1,10 @@
 // Flutter Imports
-// Package Imports
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-// Project Imports
+
+// Package Imports
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/people/providers/people_provider.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
@@ -33,29 +33,22 @@ class PeopleContent extends ConsumerWidget {
             final indexInPage = (index % defaultPageSize).ceil();
 
             final popularPeople = ref.watch(
-              peopleProvider(
-                pagination: TmdbPagination(
-                  page: page,
-                  query: "",
-                ),
-              ),
+              peopleProvider(pagination: TmdbPagination(page: page, query: "")),
             );
 
             return popularPeople.when(
-              error: (err, stack) => const Center(
-                child: Text("Ooops, something went wrong."),
-              ),
-              loading: () => SizedBox(
-                width: width,
-                height: height,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: HomeListTileShimmer(
+              error:
+                  (err, stack) =>
+                      const Center(child: Text("Ooops, something went wrong.")),
+              loading:
+                  () => SizedBox(
                     width: width,
                     height: height,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: HomeListTileShimmer(width: width, height: height),
+                    ),
                   ),
-                ),
-              ),
               data: (data) {
                 if (indexInPage >= data.tmdbItems!.length) {
                   return SizedBox(
@@ -63,17 +56,15 @@ class PeopleContent extends ConsumerWidget {
                     height: height,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: HomeListTileShimmer(
-                        width: width,
-                        height: height,
-                      ),
+                      child: HomeListTileShimmer(width: width, height: height),
                     ),
                   );
                 }
 
                 final tmdbItem = data.tmdbItems![indexInPage];
                 final isFavorite = ref.watch(
-                    isFavoritePeopleProvider(id: tmdbItem.id.toString()));
+                  isFavoritePeopleProvider(id: tmdbItem.id.toString()),
+                );
 
                 return Card(
                   elevation: 4,
@@ -82,19 +73,25 @@ class PeopleContent extends ConsumerWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 8.0),
+                          horizontal: 8.0,
+                          vertical: 8.0,
+                        ),
                         child: CircleAvatar(
                           radius: 40,
-                          backgroundImage: tmdbItem.profilePath != null
-                              ? CachedNetworkImageProvider(
-                                  TMDBPoster.imageUrl(tmdbItem.profilePath!,
-                                      PosterSize.original),
-                                )
-                              : const Image(
-                                  image: Svg(
-                                      'assets/images/people_placeholder.svg'),
-                                  fit: BoxFit.cover,
-                                ).image,
+                          backgroundImage:
+                              tmdbItem.profilePath != null
+                                  ? CachedNetworkImageProvider(
+                                    TMDBPoster.imageUrl(
+                                      tmdbItem.profilePath!,
+                                      PosterSize.original,
+                                    ),
+                                  )
+                                  : const Image(
+                                    image: Svg(
+                                      'assets/images/people_placeholder.svg',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ).image,
                         ),
                       ),
                       horizontalSpaceSmall,
@@ -117,12 +114,14 @@ class PeopleContent extends ConsumerWidget {
 
                           ref.invalidate(isFavoritePeopleProvider);
                         },
-                        icon: isFavorite
-                            ? const Icon(Icons.favorite)
-                            : const Icon(Icons.favorite_border_outlined),
-                        color: isFavorite
-                            ? Theme.of(context).colorScheme.tertiary
-                            : Theme.of(context).colorScheme.onSurface,
+                        icon:
+                            isFavorite
+                                ? const Icon(Icons.favorite)
+                                : const Icon(Icons.favorite_border_outlined),
+                        color:
+                            isFavorite
+                                ? Theme.of(context).colorScheme.tertiary
+                                : Theme.of(context).colorScheme.onSurface,
                       ),
                       horizontalSpaceSmall,
                     ],

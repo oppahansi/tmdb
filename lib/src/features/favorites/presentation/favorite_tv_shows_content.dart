@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/favorites/domain/favorite_tv_shows_list_tile.dart';
 import 'package:oppa_tmdb/src/features/favorites/providers/favorites_provider.dart';
@@ -24,7 +24,8 @@ class FavoriteTvShowsContent extends ConsumerWidget {
     return SingleChildScrollView(
       child: SizedBox(
         width: screenWidth(context),
-        height: screenHeight(context) -
+        height:
+            screenHeight(context) -
             kToolbarHeight -
             kBottomNavigationBarHeight * 2 -
             24,
@@ -36,28 +37,26 @@ class FavoriteTvShowsContent extends ConsumerWidget {
 
             final favoriteTvShows = ref.watch(
               favoriteTvShowsProvider(
-                pagination: TmdbPagination(
-                  page: page,
-                  query: "",
-                ),
+                pagination: TmdbPagination(page: page, query: ""),
               ),
             );
 
             return favoriteTvShows.when(
-              error: (err, stack) => const Center(
-                child: Text("Ooops, something went wrong."),
-              ),
-              loading: () => SizedBox(
-                width: screenWidth(context),
-                height: height,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: HomeListTileShimmer(
+              error:
+                  (err, stack) =>
+                      const Center(child: Text("Ooops, something went wrong.")),
+              loading:
+                  () => SizedBox(
                     width: screenWidth(context),
                     height: height,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: HomeListTileShimmer(
+                        width: screenWidth(context),
+                        height: height,
+                      ),
+                    ),
                   ),
-                ),
-              ),
               data: (data) {
                 if (indexInPage >= data.length) {
                   return SizedBox(
@@ -93,8 +92,9 @@ class FavoriteTvShowsContent extends ConsumerWidget {
                         children: [
                           verticalSpaceMedium,
                           SizedBox(
-                              width: screenWidth(context) / 2.5,
-                              child: Text(tmdbItem.name ?? "")),
+                            width: screenWidth(context) / 2.5,
+                            child: Text(tmdbItem.name ?? ""),
+                          ),
                           verticalSpaceMedium,
                           Text(tmdbItem.firstAirDate ?? ""),
                         ],

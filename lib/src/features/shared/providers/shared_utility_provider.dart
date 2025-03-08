@@ -20,9 +20,7 @@ class SharedUtility {
   static const favoriteTvShowsKey = "tmdb_favorite_tv_shows";
   static const favoritePeopleKey = "tmdb_favorite_people";
 
-  SharedUtility({
-    required this.sharedPreferences,
-  });
+  SharedUtility({required this.sharedPreferences});
 
   final SharedPreferences sharedPreferences;
 
@@ -36,7 +34,8 @@ class SharedUtility {
   }
 
   void setFavoriteMovie(String id) {
-    var favoriteMovies = sharedPreferences.getStringList(favoriteMoviesKey) ??
+    var favoriteMovies =
+        sharedPreferences.getStringList(favoriteMoviesKey) ??
         List.empty(growable: true);
 
     if (favoriteMovies.contains(id)) {
@@ -78,7 +77,8 @@ class SharedUtility {
   }
 
   void setFavoriteTvShow(String id) {
-    var favoriteTvShows = sharedPreferences.getStringList(favoriteTvShowsKey) ??
+    var favoriteTvShows =
+        sharedPreferences.getStringList(favoriteTvShowsKey) ??
         List.empty(growable: true);
 
     if (favoriteTvShows.contains(id)) {
@@ -118,7 +118,8 @@ class SharedUtility {
   }
 
   void setFavoritePeople(String id) {
-    var favoritePeople = sharedPreferences.getStringList(favoritePeopleKey) ??
+    var favoritePeople =
+        sharedPreferences.getStringList(favoritePeopleKey) ??
         List.empty(growable: true);
 
     if (favoritePeople.contains(id)) {

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/app/providers/screen_index_provider.dart';
 import 'package:oppa_tmdb/src/features/favorites/presentation/favorites_screen.dart';
 import 'package:oppa_tmdb/src/features/home/presentation/home_screen.dart';

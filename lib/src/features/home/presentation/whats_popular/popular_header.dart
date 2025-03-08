@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/presentation/row_header.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/selected_providers.dart';
 
@@ -19,10 +19,7 @@ class PopularHeader extends ConsumerWidget {
         const RowHeader(title: "Whats's Popular?"),
         ToggleButtons(
           borderRadius: BorderRadius.circular(20),
-          constraints: const BoxConstraints(
-            minWidth: 80,
-            minHeight: 40,
-          ),
+          constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
           onPressed: (index) {
             ref
                 .read(selectedPopularProvider.notifier)
@@ -39,19 +36,16 @@ class PopularHeader extends ConsumerWidget {
         if (selected[0])
           ToggleButtons(
             borderRadius: BorderRadius.circular(20),
-            constraints: const BoxConstraints(
-              minWidth: 80,
-              minHeight: 40,
-            ),
+            constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
             onPressed: (index) {
-              ref.read(selectedStreamingTypeProvider.notifier).update(
-                  (state) => _getPopularStreamingTypeButtonState(index));
+              ref
+                  .read(selectedStreamingTypeProvider.notifier)
+                  .update(
+                    (state) => _getPopularStreamingTypeButtonState(index),
+                  );
             },
             isSelected: selectedStreamingType,
-            children: const [
-              Text("Movies"),
-              Text("Tv Shows"),
-            ],
+            children: const [Text("Movies"), Text("Tv Shows")],
           ),
       ],
     );

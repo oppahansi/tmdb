@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/theme_toggle.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/tmdb_title.dart';
@@ -22,9 +22,7 @@ class TvShowsScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const TmdbTitle(),
-          actions: const [
-            ThemeToggle(),
-          ],
+          actions: const [ThemeToggle()],
         ),
         body: SingleChildScrollView(
           child: RefreshIndicator(

@@ -1,8 +1,9 @@
-// Package Imports
-import 'package:cached_network_image/cached_network_image.dart';
+// Flutter Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// Project Imports
+
+// Package Imports
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:oppa_tmdb/src/core/constants/constants.dart';
 import 'package:oppa_tmdb/src/features/favorites/providers/favorites_provider.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
@@ -25,7 +26,8 @@ class FavoritePeopleContent extends ConsumerWidget {
     return SingleChildScrollView(
       child: SizedBox(
         width: screenWidth(context),
-        height: screenHeight(context) -
+        height:
+            screenHeight(context) -
             kToolbarHeight -
             kBottomNavigationBarHeight * 2 -
             24,
@@ -37,28 +39,23 @@ class FavoritePeopleContent extends ConsumerWidget {
 
             final favoritePeople = ref.watch(
               favoritePeopleProvider(
-                pagination: TmdbPagination(
-                  page: page,
-                  query: "",
-                ),
+                pagination: TmdbPagination(page: page, query: ""),
               ),
             );
 
             return favoritePeople.when(
-              error: (err, stack) => const Center(
-                child: Text("Ooops, something went wrong."),
-              ),
-              loading: () => SizedBox(
-                width: width,
-                height: height,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: HomeListTileShimmer(
+              error:
+                  (err, stack) =>
+                      const Center(child: Text("Ooops, something went wrong.")),
+              loading:
+                  () => SizedBox(
                     width: width,
                     height: height,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: HomeListTileShimmer(width: width, height: height),
+                    ),
                   ),
-                ),
-              ),
               data: (data) {
                 if (indexInPage >= data.length) {
                   return SizedBox(
@@ -66,17 +63,15 @@ class FavoritePeopleContent extends ConsumerWidget {
                     height: height,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: HomeListTileShimmer(
-                        width: width,
-                        height: height,
-                      ),
+                      child: HomeListTileShimmer(width: width, height: height),
                     ),
                   );
                 }
 
                 final tmdbItem = data[indexInPage];
                 final isFavorite = ref.watch(
-                    isFavoritePeopleProvider(id: tmdbItem.id.toString()));
+                  isFavoritePeopleProvider(id: tmdbItem.id.toString()),
+                );
 
                 return Card(
                   elevation: 4,
@@ -85,12 +80,16 @@ class FavoritePeopleContent extends ConsumerWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 8.0),
+                          horizontal: 8.0,
+                          vertical: 8.0,
+                        ),
                         child: CircleAvatar(
                           radius: 40,
                           backgroundImage: CachedNetworkImageProvider(
                             TMDBPoster.imageUrl(
-                                tmdbItem.profilePath!, PosterSize.original),
+                              tmdbItem.profilePath!,
+                              PosterSize.original,
+                            ),
                           ),
                         ),
                       ),
@@ -114,12 +113,14 @@ class FavoritePeopleContent extends ConsumerWidget {
 
                           ref.invalidate(isFavoritePeopleProvider);
                         },
-                        icon: isFavorite
-                            ? const Icon(Icons.favorite)
-                            : const Icon(Icons.favorite_border_outlined),
-                        color: isFavorite
-                            ? Theme.of(context).colorScheme.tertiary
-                            : Colors.white,
+                        icon:
+                            isFavorite
+                                ? const Icon(Icons.favorite)
+                                : const Icon(Icons.favorite_border_outlined),
+                        color:
+                            isFavorite
+                                ? Theme.of(context).colorScheme.tertiary
+                                : Colors.white,
                       ),
                       horizontalSpaceSmall,
                     ],

@@ -19,11 +19,7 @@ class HomeListTileShimmer extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: Colors.black26,
       highlightColor: Colors.black12,
-      child: Container(
-        width: width,
-        height: height - 8.0,
-        color: Colors.black,
-      ),
+      child: Container(width: width, height: height - 8.0, color: Colors.black),
     );
   }
 }

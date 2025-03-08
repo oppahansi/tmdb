@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
@@ -31,11 +31,13 @@ class HomeListTile extends ConsumerWidget {
     var isFavoriteMovie = false;
     var isFavoriteTvShow = false;
     if (itemType == TmdbItemTypeEnum.movie) {
-      isFavoriteMovie =
-          ref.watch(isFavoriteMovieProvider(id: tmdbItem.id.toString()));
+      isFavoriteMovie = ref.watch(
+        isFavoriteMovieProvider(id: tmdbItem.id.toString()),
+      );
     } else {
-      isFavoriteTvShow =
-          ref.watch(isFavoriteTvShowProvider(id: tmdbItem.id.toString()));
+      isFavoriteTvShow = ref.watch(
+        isFavoriteTvShowProvider(id: tmdbItem.id.toString()),
+      );
     }
 
     var width = screenWidth(context) / 2;
@@ -82,13 +84,14 @@ class HomeListTile extends ConsumerWidget {
                           ? Icons.favorite
                           : Icons.favorite_border_outlined
                       : isFavoriteTvShow
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
-                  color: itemType == TmdbItemTypeEnum.movie
-                      ? isFavoriteMovie
-                          ? Theme.of(context).colorScheme.tertiary
-                          : Colors.white
-                      : isFavoriteTvShow
+                      ? Icons.favorite
+                      : Icons.favorite_border_outlined,
+                  color:
+                      itemType == TmdbItemTypeEnum.movie
+                          ? isFavoriteMovie
+                              ? Theme.of(context).colorScheme.tertiary
+                              : Colors.white
+                          : isFavoriteTvShow
                           ? Theme.of(context).colorScheme.tertiary
                           : Colors.white,
                 ),

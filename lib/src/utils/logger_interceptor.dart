@@ -25,7 +25,9 @@ class LoggerInterceptor implements Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     log('⬅️ Received network response');
-    log('${response.statusCode != 200 ? '❌ ${response.statusCode} ❌' : '✅ 200 ✅'} ${response.requestOptions.baseUrl}${response.requestOptions.path}');
+    log(
+      '${response.statusCode != 200 ? '❌ ${response.statusCode} ❌' : '✅ 200 ✅'} ${response.requestOptions.baseUrl}${response.requestOptions.path}',
+    );
     log('Query params: ${response.requestOptions.queryParameters}');
     log('-------------------------');
 

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Project Imports
+// Package Imports
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_movie_details.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/bottom_gradient.dart';
 import 'package:oppa_tmdb/src/features/shared/presentation/movie_poster.dart';
@@ -26,8 +26,9 @@ class FavoriteMoviesListTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isFavorite =
-        ref.watch(isFavoriteMovieProvider(id: tmdbMovieDetails.id.toString()));
+    final isFavorite = ref.watch(
+      isFavoriteMovieProvider(id: tmdbMovieDetails.id.toString()),
+    );
 
     var width = screenWidth(context) / 2;
 
@@ -69,9 +70,10 @@ class FavoriteMoviesListTile extends ConsumerWidget {
               child: IconButton(
                 icon: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
-                  color: isFavorite
-                      ? Theme.of(context).colorScheme.tertiary
-                      : Colors.white,
+                  color:
+                      isFavorite
+                          ? Theme.of(context).colorScheme.tertiary
+                          : Colors.white,
                 ),
                 onPressed: () {
                   if (isFavorite) {
