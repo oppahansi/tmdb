@@ -6,7 +6,7 @@ part of 'movies_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$popularMoviesHash() => r'6ebdc9d693356595ec5ec555899b5b1c39373e38';
+String _$popularMoviesHash() => r'954a00e3e40db31271c139a19729ce36ed625d1d';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -158,7 +158,7 @@ class _PopularMoviesProviderElement
   TmdbPagination get pagination => (origin as PopularMoviesProvider).pagination;
 }
 
-String _$nowPlayingMoviesHash() => r'7f9eecbd2200cd54b930459fdb7ef38ad58b3744';
+String _$nowPlayingMoviesHash() => r'd5a436f604fd4835ad22a05a51fc25c922aa5fd8';
 
 /// See also [nowPlayingMovies].
 @ProviderFor(nowPlayingMovies)
@@ -290,7 +290,7 @@ class _NowPlayingMoviesProviderElement
       (origin as NowPlayingMoviesProvider).pagination;
 }
 
-String _$upcomingMoviesHash() => r'0c45f438dea3a903c25a7070f7677cd8a7580ab9';
+String _$upcomingMoviesHash() => r'92fc3feb18824d2cdbc6d75ac46b47eae2600c0e';
 
 /// See also [upcomingMovies].
 @ProviderFor(upcomingMovies)
@@ -422,7 +422,7 @@ class _UpcomingMoviesProviderElement
       (origin as UpcomingMoviesProvider).pagination;
 }
 
-String _$topRatedMoviesHash() => r'f5fa185a9bf4ca5f9a73545b134e84922cc26617';
+String _$topRatedMoviesHash() => r'012e25cc7fd0f19f252e820b2f85f9364743d12d';
 
 /// See also [topRatedMovies].
 @ProviderFor(topRatedMovies)

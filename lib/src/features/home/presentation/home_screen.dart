@@ -24,12 +24,9 @@ class HomeScreen extends ConsumerWidget {
           title: const TmdbTitle(),
           actions: [
             IconButton(
-              onPressed:
-                  () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const SearchScreen(),
-                    ),
-                  ),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const SearchScreen()),
+              ),
               icon: const Icon(Icons.search),
             ),
             const ThemeToggle(),

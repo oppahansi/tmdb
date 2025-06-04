@@ -39,12 +39,10 @@ class TopRatedTvShowsContent extends ConsumerWidget {
               );
 
               return topRatedTvShows.when(
-                error:
-                    (err, stack) => const Center(
-                      child: Text("Ooops, something went wrong."),
-                    ),
-                loading:
-                    () => HomeListTileShimmer(width: width, height: height),
+                error: (err, stack) =>
+                    const Center(child: Text("Ooops, something went wrong.")),
+                loading: () =>
+                    HomeListTileShimmer(width: width, height: height),
                 data: (data) {
                   if (indexInPage >= data.tmdbItems!.length) {
                     return HomeListTileShimmer(width: width, height: height);

@@ -32,9 +32,8 @@ class InTheatersContent extends ConsumerWidget {
         );
 
         return forRentList.when(
-          error:
-              (err, stack) =>
-                  const Center(child: Text("Ooops, something went wrong.")),
+          error: (err, stack) =>
+              const Center(child: Text("Ooops, something went wrong.")),
           loading: () => HomeListTileShimmer(width: width, height: height),
           data: (data) {
             if (indexInPage >= data.tmdbItems!.length) {

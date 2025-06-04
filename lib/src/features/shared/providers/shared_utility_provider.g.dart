@@ -6,7 +6,7 @@ part of 'shared_utility_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sharedUtilityHash() => r'dcef9367afb1eff0ea5a820541886c682ac2f9c9';
+String _$sharedUtilityHash() => r'a2707d9e1159587e1934d3dda755a84371254909';
 
 /// See also [sharedUtility].
 @ProviderFor(sharedUtility)

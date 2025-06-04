@@ -6,7 +6,7 @@ part of 'favorite_ids_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$isFavoriteMovieHash() => r'e11c0727506ea13cb27399488f16c57f68612d9e';
+String _$isFavoriteMovieHash() => r'1726fde9776dbdc9082003172ae3de838d0a9617';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -157,7 +157,7 @@ class _IsFavoriteMovieProviderElement extends AutoDisposeProviderElement<bool>
   String get id => (origin as IsFavoriteMovieProvider).id;
 }
 
-String _$favoriteMovieIdsHash() => r'bcbd2fa9acf6133341fb6a8c80edbf010d1c7f87';
+String _$favoriteMovieIdsHash() => r'3f38f2f1f284162a2d8e72aa645e95fd015ae17a';
 
 /// See also [favoriteMovieIds].
 @ProviderFor(favoriteMovieIds)
@@ -174,7 +174,7 @@ final favoriteMovieIdsProvider = AutoDisposeProvider<List<String>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef FavoriteMovieIdsRef = AutoDisposeProviderRef<List<String>>;
-String _$isFavoriteTvShowHash() => r'de976f7a6bc507db96029d763e26f2a5d8cdef0c';
+String _$isFavoriteTvShowHash() => r'358da7a2878f0e60f6f9445697273dc11ee1728b';
 
 /// See also [isFavoriteTvShow].
 @ProviderFor(isFavoriteTvShow)
@@ -305,7 +305,7 @@ class _IsFavoriteTvShowProviderElement extends AutoDisposeProviderElement<bool>
 }
 
 String _$favoriteTvShowsIdsHash() =>
-    r'f7db2739285393874b9140599e377d2b7933f381';
+    r'a621bb1157b5e0bed784cdde06750e93b29ea5d9';
 
 /// See also [favoriteTvShowsIds].
 @ProviderFor(favoriteTvShowsIds)
@@ -322,7 +322,7 @@ final favoriteTvShowsIdsProvider = AutoDisposeProvider<List<String>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef FavoriteTvShowsIdsRef = AutoDisposeProviderRef<List<String>>;
-String _$isFavoritePeopleHash() => r'e4f7e4ae63e58f4cdb939f97dc746aa6f1b908cb';
+String _$isFavoritePeopleHash() => r'd06d94410fe71a89539e3bed8d1473ef9f00e2a7';
 
 /// See also [isFavoritePeople].
 @ProviderFor(isFavoritePeople)
@@ -452,7 +452,7 @@ class _IsFavoritePeopleProviderElement extends AutoDisposeProviderElement<bool>
   String get id => (origin as IsFavoritePeopleProvider).id;
 }
 
-String _$favoritePeopleIdsHash() => r'e2c471274e63be533b5a7219b17b6b46fdf4a2df';
+String _$favoritePeopleIdsHash() => r'cbd58fc888baa93a269a9a5d8edcaa03abe87c7c';
 
 /// See also [favoritePeopleIds].
 @ProviderFor(favoritePeopleIds)

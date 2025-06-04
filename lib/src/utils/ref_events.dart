@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
 
 void setEvents(
-  AutoDisposeFutureProviderRef ref,
+  Ref ref,
   CancelToken cancelToken,
   Timer? timer,
   KeepAliveLink link,

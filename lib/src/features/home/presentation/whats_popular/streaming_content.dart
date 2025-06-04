@@ -34,9 +34,8 @@ class StreamingContent extends ConsumerWidget {
         );
 
         return streamingList.when(
-          error:
-              (err, stack) =>
-                  const Center(child: Text("Ooops, something went wrong.")),
+          error: (err, stack) =>
+              const Center(child: Text("Ooops, something went wrong.")),
           loading: () => HomeListTileShimmer(width: width, height: height),
           data: (data) {
             if (indexInPage >= data.tmdbItems!.length) {
@@ -47,10 +46,9 @@ class StreamingContent extends ConsumerWidget {
 
             return HomeListTile(
               tmdbItem: tmdbItem,
-              itemType:
-                  selectedStreamingType[0]
-                      ? TmdbItemTypeEnum.movie
-                      : TmdbItemTypeEnum.tvShows,
+              itemType: selectedStreamingType[0]
+                  ? TmdbItemTypeEnum.movie
+                  : TmdbItemTypeEnum.tvShows,
               debugIndex: index,
               onPressed: () {},
             );

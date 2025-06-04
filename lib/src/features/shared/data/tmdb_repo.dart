@@ -22,31 +22,29 @@ class TmdbRepo {
     required TmdbItemTypeEnum itemType,
     CancelToken? cancelToken,
   }) async {
-    final moviesUrl =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/trending/movie/$timeWindow',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'vote_average.desc',
-            'page': '$page',
-          },
-        ).toString();
+    final moviesUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/trending/movie/$timeWindow',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'vote_average.desc',
+        'page': '$page',
+      },
+    ).toString();
 
-    final tvShowsUrl =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/trending/tv/$timeWindow',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'page': '$page',
-          },
-        ).toString();
+    final tvShowsUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/trending/tv/$timeWindow',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJsons = await Future.wait([
       client.get(moviesUrl, cancelToken: cancelToken),
@@ -78,33 +76,31 @@ class TmdbRepo {
     required TmdbItemTypeEnum itemType,
     CancelToken? cancelToken,
   }) async {
-    final moviesUrl =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/movie',
-          queryParameters: {
-            'api_key': apiKey,
-            'with_watch_monetization_types': 'flatrate',
-            'watch_region': 'US',
-            'include_adult': 'false',
-            'page': '$page',
-          },
-        ).toString();
+    final moviesUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/movie',
+      queryParameters: {
+        'api_key': apiKey,
+        'with_watch_monetization_types': 'flatrate',
+        'watch_region': 'US',
+        'include_adult': 'false',
+        'page': '$page',
+      },
+    ).toString();
 
-    final tvShowsUrl =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/tv',
-          queryParameters: {
-            'api_key': apiKey,
-            'with_watch_monetization_types': 'flatrate',
-            'watch_region': 'US',
-            'include_adult': 'false',
-            'page': '$page',
-          },
-        ).toString();
+    final tvShowsUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/tv',
+      queryParameters: {
+        'api_key': apiKey,
+        'with_watch_monetization_types': 'flatrate',
+        'watch_region': 'US',
+        'include_adult': 'false',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJsons = await Future.wait([
       client.get(moviesUrl, cancelToken: cancelToken),
@@ -135,20 +131,19 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/tv',
-          queryParameters: {
-            'api_key': apiKey,
-            'timezone': 'America/Edmonton',
-            'air_date.gte': dateFormatter.format(DateTime.now()),
-            'air_date.lte': dateFormatter.format(DateTime.now()),
-            'include_adult': 'false',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/tv',
+      queryParameters: {
+        'api_key': apiKey,
+        'timezone': 'America/Edmonton',
+        'air_date.gte': dateFormatter.format(DateTime.now()),
+        'air_date.lte': dateFormatter.format(DateTime.now()),
+        'include_adult': 'false',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -160,19 +155,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/movie',
-          queryParameters: {
-            'api_key': apiKey,
-            'with_watch_monetization_types': 'rent',
-            'watch_region': 'US',
-            'include_adult': 'false',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/movie',
+      queryParameters: {
+        'api_key': apiKey,
+        'with_watch_monetization_types': 'rent',
+        'watch_region': 'US',
+        'include_adult': 'false',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -184,21 +178,20 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/movie',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'language': 'en-US',
-            'region': 'US',
-            'sort_by': 'popularity.desc',
-            'with_release_type': '3',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/movie',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'language': 'en-US',
+        'region': 'US',
+        'sort_by': 'popularity.desc',
+        'with_release_type': '3',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -210,20 +203,19 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/movie',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'with_watch_monetization_types': 'ads|free',
-            'watch_region': 'US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/movie',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'with_watch_monetization_types': 'ads|free',
+        'watch_region': 'US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -235,20 +227,19 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/discover/tv',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'with_watch_monetization_types': 'ads|free',
-            'watch_region': 'DE',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/discover/tv',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'with_watch_monetization_types': 'ads|free',
+        'watch_region': 'DE',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -260,19 +251,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/movie/popular',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/popular',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -284,19 +274,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/movie/now_playing',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/now_playing',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -308,19 +297,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/movie/upcoming',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/upcoming',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -332,19 +320,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/movie/top_rated',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'vote_average.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/top_rated',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'vote_average.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -356,19 +343,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/tv/popular',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/popular',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -380,19 +366,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/tv/airing_today',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/airing_today',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -404,19 +389,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/tv/on_the_air',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/on_the_air',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -428,19 +412,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/tv/top_rated',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'vote_average.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/top_rated',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'vote_average.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -452,19 +435,18 @@ class TmdbRepo {
     required int page,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/person/popular',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'sort_by': 'popularity.desc',
-            'language': 'en-US',
-            'page': '$page',
-          },
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/person/popular',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'sort_by': 'popularity.desc',
+        'language': 'en-US',
+        'page': '$page',
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbResponse.fromJson(tmdbResponseJson.data);
@@ -476,13 +458,12 @@ class TmdbRepo {
     required String id,
     CancelToken? cancelToken,
   }) async {
-    final url =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/person/$id',
-          queryParameters: {'api_key': apiKey, 'language': 'en-US'},
-        ).toString();
+    final url = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/person/$id',
+      queryParameters: {'api_key': apiKey, 'language': 'en-US'},
+    ).toString();
 
     final tmdbResponseJson = await client.get(url, cancelToken: cancelToken);
     final tmdbResponse = TmdbItem.fromJson(tmdbResponseJson.data);
@@ -494,13 +475,12 @@ class TmdbRepo {
     required String id,
     CancelToken? cancelToken,
   }) async {
-    final urlMovies =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/movie/$id',
-          queryParameters: {'api_key': apiKey, 'language': 'en-US'},
-        ).toString();
+    final urlMovies = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/movie/$id',
+      queryParameters: {'api_key': apiKey, 'language': 'en-US'},
+    ).toString();
 
     final tmdbResponseJson = await client.get(
       urlMovies,
@@ -515,13 +495,12 @@ class TmdbRepo {
     required String id,
     CancelToken? cancelToken,
   }) async {
-    final urlTvShows =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/tv/$id',
-          queryParameters: {'api_key': apiKey, 'language': 'en-US'},
-        ).toString();
+    final urlTvShows = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/tv/$id',
+      queryParameters: {'api_key': apiKey, 'language': 'en-US'},
+    ).toString();
 
     final tmdbResponseJson = await client.get(
       urlTvShows,
@@ -536,19 +515,18 @@ class TmdbRepo {
     required TmdbPagination pagination,
     CancelToken? cancelToken,
   }) async {
-    final searchUrl =
-        Uri(
-          scheme: 'https',
-          host: 'api.themoviedb.org',
-          path: '3/search/multi',
-          queryParameters: {
-            'api_key': apiKey,
-            'include_adult': 'false',
-            'query': pagination.query,
-            'language': 'en-US',
-            'page': pagination.page.toString(),
-          },
-        ).toString();
+    final searchUrl = Uri(
+      scheme: 'https',
+      host: 'api.themoviedb.org',
+      path: '3/search/multi',
+      queryParameters: {
+        'api_key': apiKey,
+        'include_adult': 'false',
+        'query': pagination.query,
+        'language': 'en-US',
+        'page': pagination.page.toString(),
+      },
+    ).toString();
 
     final tmdbResponseJson = await client.get(
       searchUrl,

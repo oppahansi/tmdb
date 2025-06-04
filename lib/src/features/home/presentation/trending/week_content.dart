@@ -32,9 +32,8 @@ class WeekContent extends ConsumerWidget {
           ),
         );
         return trendingList.when(
-          error:
-              (err, stack) =>
-                  const Center(child: Text("Ooops, something went wrong.")),
+          error: (err, stack) =>
+              const Center(child: Text("Ooops, something went wrong.")),
           loading: () => HomeListTileShimmer(width: width, height: height),
           data: (data) {
             if (indexInPage >= data.tmdbItems!.length) {
@@ -45,10 +44,9 @@ class WeekContent extends ConsumerWidget {
 
             return HomeListTile(
               tmdbItem: tmdbItem,
-              itemType:
-                  ref.read(selectedTrendingItemTypeProvider)[0]
-                      ? TmdbItemTypeEnum.movie
-                      : TmdbItemTypeEnum.tvShows,
+              itemType: ref.read(selectedTrendingItemTypeProvider)[0]
+                  ? TmdbItemTypeEnum.movie
+                  : TmdbItemTypeEnum.tvShows,
               debugIndex: index,
               onPressed: () {},
             );

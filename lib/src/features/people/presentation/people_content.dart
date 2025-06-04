@@ -33,22 +33,22 @@ class PeopleContent extends ConsumerWidget {
             final indexInPage = (index % defaultPageSize).ceil();
 
             final popularPeople = ref.watch(
-              peopleProvider(pagination: TmdbPagination(page: page, query: "")),
+              peopleProvider(
+                pagination: TmdbPagination(page: page, query: ""),
+              ),
             );
 
             return popularPeople.when(
-              error:
-                  (err, stack) =>
-                      const Center(child: Text("Ooops, something went wrong.")),
-              loading:
-                  () => SizedBox(
-                    width: width,
-                    height: height,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: HomeListTileShimmer(width: width, height: height),
-                    ),
-                  ),
+              error: (err, stack) =>
+                  const Center(child: Text("Ooops, something went wrong.")),
+              loading: () => SizedBox(
+                width: width,
+                height: height,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: HomeListTileShimmer(width: width, height: height),
+                ),
+              ),
               data: (data) {
                 if (indexInPage >= data.tmdbItems!.length) {
                   return SizedBox(
@@ -78,20 +78,19 @@ class PeopleContent extends ConsumerWidget {
                         ),
                         child: CircleAvatar(
                           radius: 40,
-                          backgroundImage:
-                              tmdbItem.profilePath != null
-                                  ? CachedNetworkImageProvider(
-                                    TMDBPoster.imageUrl(
-                                      tmdbItem.profilePath!,
-                                      PosterSize.original,
-                                    ),
-                                  )
-                                  : const Image(
-                                    image: Svg(
-                                      'assets/images/people_placeholder.svg',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ).image,
+                          backgroundImage: tmdbItem.profilePath != null
+                              ? CachedNetworkImageProvider(
+                                  TMDBPoster.imageUrl(
+                                    tmdbItem.profilePath!,
+                                    PosterSize.original,
+                                  ),
+                                )
+                              : const Image(
+                                  image: Svg(
+                                    'assets/images/people_placeholder.svg',
+                                  ),
+                                  fit: BoxFit.cover,
+                                ).image,
                         ),
                       ),
                       horizontalSpaceSmall,
@@ -114,14 +113,12 @@ class PeopleContent extends ConsumerWidget {
 
                           ref.invalidate(isFavoritePeopleProvider);
                         },
-                        icon:
-                            isFavorite
-                                ? const Icon(Icons.favorite)
-                                : const Icon(Icons.favorite_border_outlined),
-                        color:
-                            isFavorite
-                                ? Theme.of(context).colorScheme.tertiary
-                                : Theme.of(context).colorScheme.onSurface,
+                        icon: isFavorite
+                            ? const Icon(Icons.favorite)
+                            : const Icon(Icons.favorite_border_outlined),
+                        color: isFavorite
+                            ? Theme.of(context).colorScheme.tertiary
+                            : Theme.of(context).colorScheme.onSurface,
                       ),
                       horizontalSpaceSmall,
                     ],

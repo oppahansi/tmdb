@@ -15,12 +15,8 @@ class ThemeToggle extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: IconButton(
-        onPressed:
-            () =>
-                ref.read(themeModeProvider.notifier).state =
-                    themeMode == ThemeMode.dark
-                        ? ThemeMode.light
-                        : ThemeMode.dark,
+        onPressed: () => ref.read(themeModeProvider.notifier).state =
+            themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
         icon: _themeToggleButton(themeMode),
       ),
     );

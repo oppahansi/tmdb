@@ -6,7 +6,7 @@ part of 'whats_popular_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$popularStreamingHash() => r'dd1ef631522d79ad08890b1b414b38fce648d6bd';
+String _$popularStreamingHash() => r'099adec186b4bcf47495eeea9a9f350cc0cd35e8';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -159,7 +159,7 @@ class _PopularStreamingProviderElement
       (origin as PopularStreamingProvider).pagination;
 }
 
-String _$popularOnTvHash() => r'76352290d6f3324869860b4272655bcfc931d2a1';
+String _$popularOnTvHash() => r'609fe80ef413234371dbe0e6f475edc731b95a17';
 
 /// See also [popularOnTv].
 @ProviderFor(popularOnTv)
@@ -289,7 +289,7 @@ class _PopularOnTvProviderElement
   TmdbPagination get pagination => (origin as PopularOnTvProvider).pagination;
 }
 
-String _$popularForRentHash() => r'74586e40060f3fc7d570bce46e4d809bb26821f7';
+String _$popularForRentHash() => r'5d16f2be5b2308bf2564abc2df5a081baf40e8f4';
 
 /// See also [popularForRent].
 @ProviderFor(popularForRent)
@@ -421,7 +421,7 @@ class _PopularForRentProviderElement
       (origin as PopularForRentProvider).pagination;
 }
 
-String _$popularInTheatersHash() => r'a85c4e424d8b7157001500bbdb015e24a286d391';
+String _$popularInTheatersHash() => r'04255b55b94d044d11715e000598dde3d3eb78a2';
 
 /// See also [popularInTheaters].
 @ProviderFor(popularInTheaters)

@@ -3,17 +3,17 @@ import 'dart:async';
 
 // Package Imports
 import 'package:dio/dio.dart';
-import 'package:riverpod/src/framework.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
+import 'package:riverpod/src/framework.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'movies_provider.g.dart';
 
 @riverpod
 Future<TmdbResponse> popularMovies(
-  PopularMoviesRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -32,7 +32,7 @@ Future<TmdbResponse> popularMovies(
 
 @riverpod
 Future<TmdbResponse> nowPlayingMovies(
-  NowPlayingMoviesRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -51,7 +51,7 @@ Future<TmdbResponse> nowPlayingMovies(
 
 @riverpod
 Future<TmdbResponse> upcomingMovies(
-  UpcomingMoviesRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -70,7 +70,7 @@ Future<TmdbResponse> upcomingMovies(
 
 @riverpod
 Future<TmdbResponse> topRatedMovies(
-  TopRatedMoviesRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -88,7 +88,7 @@ Future<TmdbResponse> topRatedMovies(
 }
 
 void _setEvents(
-  AutoDisposeFutureProviderRef ref,
+  Ref ref,
   CancelToken cancelToken,
   Timer? timer,
   KeepAliveLink link,

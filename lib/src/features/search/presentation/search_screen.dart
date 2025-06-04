@@ -90,15 +90,11 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                       );
 
                       return searchResults.when(
-                        error:
-                            (err, stack) => const Center(
-                              child: Text("Ooops, something went wrong."),
-                            ),
-                        loading:
-                            () => HomeListTileShimmer(
-                              width: width,
-                              height: height,
-                            ),
+                        error: (err, stack) => const Center(
+                          child: Text("Ooops, something went wrong."),
+                        ),
+                        loading: () =>
+                            HomeListTileShimmer(width: width, height: height),
                         data: (data) {
                           if (indexInPage >= data.results!.length) {
                             return HomeListTileShimmer(
@@ -119,10 +115,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                             children: [
                               SearchListTile(
                                 searchItem: tmdbItem,
-                                itemType:
-                                    tmdbItem.mediaType == "movie"
-                                        ? TmdbItemTypeEnum.movie
-                                        : tmdbItem.mediaType == "tv"
+                                itemType: tmdbItem.mediaType == "movie"
+                                    ? TmdbItemTypeEnum.movie
+                                    : tmdbItem.mediaType == "tv"
                                         ? TmdbItemTypeEnum.tvShows
                                         : TmdbItemTypeEnum.person,
                                 debugIndex: index,

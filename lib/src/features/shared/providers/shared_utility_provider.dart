@@ -1,3 +1,6 @@
+// Flutter Imports
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 // Package Imports
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,7 +12,7 @@ final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
 });
 
 @riverpod
-SharedUtility sharedUtility(SharedUtilityRef ref) {
+SharedUtility sharedUtility(Ref ref) {
   final sharedPreferences = ref.watch(sharedPreferencesProvider);
 
   return SharedUtility(sharedPreferences: sharedPreferences);
@@ -34,8 +37,7 @@ class SharedUtility {
   }
 
   void setFavoriteMovie(String id) {
-    var favoriteMovies =
-        sharedPreferences.getStringList(favoriteMoviesKey) ??
+    var favoriteMovies = sharedPreferences.getStringList(favoriteMoviesKey) ??
         List.empty(growable: true);
 
     if (favoriteMovies.contains(id)) {
@@ -77,8 +79,7 @@ class SharedUtility {
   }
 
   void setFavoriteTvShow(String id) {
-    var favoriteTvShows =
-        sharedPreferences.getStringList(favoriteTvShowsKey) ??
+    var favoriteTvShows = sharedPreferences.getStringList(favoriteTvShowsKey) ??
         List.empty(growable: true);
 
     if (favoriteTvShows.contains(id)) {
@@ -118,8 +119,7 @@ class SharedUtility {
   }
 
   void setFavoritePeople(String id) {
-    var favoritePeople =
-        sharedPreferences.getStringList(favoritePeopleKey) ??
+    var favoritePeople = sharedPreferences.getStringList(favoritePeopleKey) ??
         List.empty(growable: true);
 
     if (favoritePeople.contains(id)) {

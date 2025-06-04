@@ -7,7 +7,7 @@ part of 'free_to_watch_items_provider.dart';
 // **************************************************************************
 
 String _$freeToWatchMovieItemsHash() =>
-    r'8797f21eb66a06262cd24348655df889810a12ba';
+    r'ba02f60148b76e8fb4beeba995680c0e617f0c23';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -163,7 +163,7 @@ class _FreeToWatchMovieItemsProviderElement
 }
 
 String _$freeToWatchTvItemsHash() =>
-    r'272a1db51943292a3d50e6790f70317949677c69';
+    r'bf42772c3f0c18d1832c060158f78417b2fe3601';
 
 /// See also [freeToWatchTvItems].
 @ProviderFor(freeToWatchTvItems)

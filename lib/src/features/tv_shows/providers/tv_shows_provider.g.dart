@@ -6,7 +6,7 @@ part of 'tv_shows_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$popularTvShowsHash() => r'2ba512e38736577d1285c5d7857e650436e77ba5';
+String _$popularTvShowsHash() => r'20c5e1f154a60e111b083cd60b33ff3022d01605';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -160,7 +160,7 @@ class _PopularTvShowsProviderElement
 }
 
 String _$airingTodayTvShowsHash() =>
-    r'a73babf099c13abad0ad9ecb9f46cf6a29b5a3e4';
+    r'd9271c7bd59a601eb7e6e4a3e3ee65863ebc6050';
 
 /// See also [airingTodayTvShows].
 @ProviderFor(airingTodayTvShows)
@@ -294,7 +294,7 @@ class _AiringTodayTvShowsProviderElement
       (origin as AiringTodayTvShowsProvider).pagination;
 }
 
-String _$onTvTvShowsHash() => r'99411d98407b8d84bbcd537171b67a2459698e41';
+String _$onTvTvShowsHash() => r'5499c010c6deb1750c715475bebee5c76e203a2e';
 
 /// See also [onTvTvShows].
 @ProviderFor(onTvTvShows)
@@ -424,7 +424,7 @@ class _OnTvTvShowsProviderElement
   TmdbPagination get pagination => (origin as OnTvTvShowsProvider).pagination;
 }
 
-String _$topRatedTvShowsHash() => r'7d9f842bece5f6730d725eb37c12d6607268dac4';
+String _$topRatedTvShowsHash() => r'5dff1ab67fad9b6cebb25f484402689728e0ef9f';
 
 /// See also [topRatedTvShows].
 @ProviderFor(topRatedTvShows)

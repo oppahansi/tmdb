@@ -6,16 +6,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Package Imports
 import 'package:dio/dio.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'people_provider.g.dart';
 
 @riverpod
 Future<TmdbResponse> people(
-  PeopleRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -30,7 +30,7 @@ Future<TmdbResponse> people(
 }
 
 void _setEvents(
-  AutoDisposeFutureProviderRef ref,
+  Ref ref,
   CancelToken cancelToken,
   Timer? timer,
   KeepAliveLink link,

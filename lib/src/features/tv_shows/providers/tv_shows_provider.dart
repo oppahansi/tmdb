@@ -6,16 +6,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Package Imports
 import 'package:dio/dio.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_response.dart';
 import 'package:oppa_tmdb/src/features/shared/providers/tmdb_repo_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'tv_shows_provider.g.dart';
 
 @riverpod
 Future<TmdbResponse> popularTvShows(
-  PopularTvShowsRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -34,7 +34,7 @@ Future<TmdbResponse> popularTvShows(
 
 @riverpod
 Future<TmdbResponse> airingTodayTvShows(
-  AiringTodayTvShowsRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -53,7 +53,7 @@ Future<TmdbResponse> airingTodayTvShows(
 
 @riverpod
 Future<TmdbResponse> onTvTvShows(
-  OnTvTvShowsRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -72,7 +72,7 @@ Future<TmdbResponse> onTvTvShows(
 
 @riverpod
 Future<TmdbResponse> topRatedTvShows(
-  TopRatedTvShowsRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -90,7 +90,7 @@ Future<TmdbResponse> topRatedTvShows(
 }
 
 void _setEvents(
-  AutoDisposeFutureProviderRef ref,
+  Ref ref,
   CancelToken cancelToken,
   Timer? timer,
   KeepAliveLink link,

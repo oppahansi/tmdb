@@ -84,14 +84,13 @@ class HomeListTile extends ConsumerWidget {
                           ? Icons.favorite
                           : Icons.favorite_border_outlined
                       : isFavoriteTvShow
-                      ? Icons.favorite
-                      : Icons.favorite_border_outlined,
-                  color:
-                      itemType == TmdbItemTypeEnum.movie
-                          ? isFavoriteMovie
-                              ? Theme.of(context).colorScheme.tertiary
-                              : Colors.white
-                          : isFavoriteTvShow
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined,
+                  color: itemType == TmdbItemTypeEnum.movie
+                      ? isFavoriteMovie
+                          ? Theme.of(context).colorScheme.tertiary
+                          : Colors.white
+                      : isFavoriteTvShow
                           ? Theme.of(context).colorScheme.tertiary
                           : Colors.white,
                 ),

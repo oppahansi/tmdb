@@ -1,6 +1,9 @@
 // Dart Imports
 import 'dart:async';
 
+// Flutter Imports
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 // Package Imports
 import 'package:dio/dio.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_pagination.dart';
@@ -13,7 +16,7 @@ part 'free_to_watch_items_provider.g.dart';
 
 @riverpod
 Future<TmdbResponse> freeToWatchMovieItems(
-  FreeToWatchMovieItemsRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -32,7 +35,7 @@ Future<TmdbResponse> freeToWatchMovieItems(
 
 @riverpod
 Future<TmdbResponse> freeToWatchTvItems(
-  FreeToWatchTvItemsRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);

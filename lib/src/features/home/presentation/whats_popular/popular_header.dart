@@ -38,9 +38,7 @@ class PopularHeader extends ConsumerWidget {
             borderRadius: BorderRadius.circular(20),
             constraints: const BoxConstraints(minWidth: 80, minHeight: 40),
             onPressed: (index) {
-              ref
-                  .read(selectedStreamingTypeProvider.notifier)
-                  .update(
+              ref.read(selectedStreamingTypeProvider.notifier).update(
                     (state) => _getPopularStreamingTypeButtonState(index),
                   );
             },

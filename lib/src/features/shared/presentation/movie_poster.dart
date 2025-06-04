@@ -19,16 +19,15 @@ class MoviePoster extends StatelessWidget {
         width: screenWidth(context) / 2,
         height: screenWidth(context) / 2 * 1.5,
         imageUrl: TMDBPoster.imageUrl(imagePath!, PosterSize.original),
-        placeholder:
-            (_, __) => Shimmer.fromColors(
-              baseColor: Colors.black26,
-              highlightColor: Colors.black12,
-              child: Container(
-                width: screenWidth(context) / 2,
-                height: screenWidth(context) / 2 * 1.5,
-                color: Colors.black,
-              ),
-            ),
+        placeholder: (_, __) => Shimmer.fromColors(
+          baseColor: Colors.black26,
+          highlightColor: Colors.black12,
+          child: Container(
+            width: screenWidth(context) / 2,
+            height: screenWidth(context) / 2 * 1.5,
+            color: Colors.black,
+          ),
+        ),
       );
     }
     return const Placeholder(color: Colors.black87);

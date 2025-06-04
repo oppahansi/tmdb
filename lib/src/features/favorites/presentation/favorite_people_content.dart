@@ -26,8 +26,7 @@ class FavoritePeopleContent extends ConsumerWidget {
     return SingleChildScrollView(
       child: SizedBox(
         width: screenWidth(context),
-        height:
-            screenHeight(context) -
+        height: screenHeight(context) -
             kToolbarHeight -
             kBottomNavigationBarHeight * 2 -
             24,
@@ -44,18 +43,16 @@ class FavoritePeopleContent extends ConsumerWidget {
             );
 
             return favoritePeople.when(
-              error:
-                  (err, stack) =>
-                      const Center(child: Text("Ooops, something went wrong.")),
-              loading:
-                  () => SizedBox(
-                    width: width,
-                    height: height,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: HomeListTileShimmer(width: width, height: height),
-                    ),
-                  ),
+              error: (err, stack) =>
+                  const Center(child: Text("Ooops, something went wrong.")),
+              loading: () => SizedBox(
+                width: width,
+                height: height,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: HomeListTileShimmer(width: width, height: height),
+                ),
+              ),
               data: (data) {
                 if (indexInPage >= data.length) {
                   return SizedBox(
@@ -113,14 +110,12 @@ class FavoritePeopleContent extends ConsumerWidget {
 
                           ref.invalidate(isFavoritePeopleProvider);
                         },
-                        icon:
-                            isFavorite
-                                ? const Icon(Icons.favorite)
-                                : const Icon(Icons.favorite_border_outlined),
-                        color:
-                            isFavorite
-                                ? Theme.of(context).colorScheme.tertiary
-                                : Colors.white,
+                        icon: isFavorite
+                            ? const Icon(Icons.favorite)
+                            : const Icon(Icons.favorite_border_outlined),
+                        color: isFavorite
+                            ? Theme.of(context).colorScheme.tertiary
+                            : Colors.white,
                       ),
                       horizontalSpaceSmall,
                     ],

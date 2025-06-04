@@ -50,13 +50,13 @@ class SearchListTile extends ConsumerWidget {
           children: [
             (searchItem.posterPath != null || searchItem.profilePath != null)
                 ? MoviePoster(
-                  imagePath: searchItem.posterPath ?? searchItem.profilePath,
-                )
+                    imagePath: searchItem.posterPath ?? searchItem.profilePath,
+                  )
                 : Image.asset(
-                  'assets/images/placeholder.png',
-                  width: width,
-                  height: width * 1.5,
-                ),
+                    'assets/images/placeholder.png',
+                    width: width,
+                    height: width * 1.5,
+                  ),
             if (debugIndex != null) ...[
               Positioned(
                 left: 8,
@@ -92,14 +92,13 @@ class SearchListTile extends ConsumerWidget {
                           ? Icons.favorite
                           : Icons.favorite_border_outlined
                       : isFavoriteTvShow
-                      ? Icons.favorite
-                      : Icons.favorite_border_outlined,
-                  color:
-                      itemType == TmdbItemTypeEnum.movie
-                          ? isFavoriteMovie
-                              ? Theme.of(context).colorScheme.tertiary
-                              : Colors.white
-                          : isFavoriteTvShow
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined,
+                  color: itemType == TmdbItemTypeEnum.movie
+                      ? isFavoriteMovie
+                          ? Theme.of(context).colorScheme.tertiary
+                          : Colors.white
+                      : isFavoriteTvShow
                           ? Theme.of(context).colorScheme.tertiary
                           : Colors.white,
                 ),

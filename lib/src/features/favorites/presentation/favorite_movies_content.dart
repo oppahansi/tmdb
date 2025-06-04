@@ -24,8 +24,7 @@ class FavoriteMoviesContent extends ConsumerWidget {
     return SingleChildScrollView(
       child: SizedBox(
         width: screenWidth(context),
-        height:
-            screenHeight(context) -
+        height: screenHeight(context) -
             kToolbarHeight -
             kBottomNavigationBarHeight * 2 -
             24,
@@ -42,21 +41,19 @@ class FavoriteMoviesContent extends ConsumerWidget {
             );
 
             return favoritePeople.when(
-              error:
-                  (err, stack) =>
-                      const Center(child: Text("Ooops, something went wrong.")),
-              loading:
-                  () => SizedBox(
+              error: (err, stack) =>
+                  const Center(child: Text("Ooops, something went wrong.")),
+              loading: () => SizedBox(
+                width: screenWidth(context),
+                height: height,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: HomeListTileShimmer(
                     width: screenWidth(context),
                     height: height,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: HomeListTileShimmer(
-                        width: screenWidth(context),
-                        height: height,
-                      ),
-                    ),
                   ),
+                ),
+              ),
               data: (data) {
                 if (indexInPage >= data.length) {
                   return SizedBox(

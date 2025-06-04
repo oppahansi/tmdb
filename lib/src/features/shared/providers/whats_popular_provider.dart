@@ -1,6 +1,9 @@
 // Dart Imports
 import 'dart:async';
 
+// Flutter Imports
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 // Package Imports
 import 'package:dio/dio.dart';
 import 'package:oppa_tmdb/src/features/shared/domain/tmdb_item_type_enum.dart';
@@ -15,7 +18,7 @@ part 'whats_popular_provider.g.dart';
 
 @riverpod
 Future<TmdbResponse> popularStreaming(
-  PopularStreamingRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final moviesRepo = ref.watch(tmdbRepoProvider);
@@ -44,7 +47,7 @@ Future<TmdbResponse> popularStreaming(
 
 @riverpod
 Future<TmdbResponse> popularOnTv(
-  PopularOnTvRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -63,7 +66,7 @@ Future<TmdbResponse> popularOnTv(
 
 @riverpod
 Future<TmdbResponse> popularForRent(
-  PopularForRentRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);
@@ -82,7 +85,7 @@ Future<TmdbResponse> popularForRent(
 
 @riverpod
 Future<TmdbResponse> popularInTheaters(
-  PopularInTheatersRef ref, {
+  Ref ref, {
   required TmdbPagination pagination,
 }) async {
   final tmdbRepo = ref.watch(tmdbRepoProvider);

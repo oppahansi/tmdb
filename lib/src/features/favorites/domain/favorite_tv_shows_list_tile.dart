@@ -70,10 +70,9 @@ class FavoriteTvShowsListTile extends ConsumerWidget {
               child: IconButton(
                 icon: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
-                  color:
-                      isFavorite
-                          ? Theme.of(context).colorScheme.tertiary
-                          : Colors.white,
+                  color: isFavorite
+                      ? Theme.of(context).colorScheme.tertiary
+                      : Colors.white,
                 ),
                 onPressed: () {
                   if (isFavorite) {
